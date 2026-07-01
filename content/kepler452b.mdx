@@ -1,0 +1,75 @@
+# kepler452b — the journal
+
+A fleet of small, self-powered worlds learning to phone home — and the first hardware layer of a farm that can one day see itself.
+
+---
+
+## June 2026 — Origins
+
+I moved apartments, and my whole little network moved with me.
+
+The Raspberry Pi I'd been running — `gizdich` — couldn't be reached anymore, because the WiFi had changed. The new network is `A-510`, a hidden WPA2 SSID, and getting back onto it meant re-learning how my own machines find each other. SSH into `gizdich.local`. mDNS. The quiet plumbing of how a device announces "I'm here" on a network you can't see by name.
+
+Somewhere in re-establishing that, an idea took shape: I wanted little computers scattered around that I could just *reach*. Walk into the apartment and have things already talking. A Pi on the shelf was one thing — but what about nodes small enough and cheap enough to put anywhere, that ran without a cord and told me how they were doing?
+
+That's where the Seeed XIAO ESP32-C6 came in. A board the size of a thumbnail. I knew nothing about it. I learned the toolchain from zero — `arduino-cli`, the ESP32 core, the right FQBN, the serial port that only exists when the board is plugged in. The first win was Blink: one LED, on GPIO15, proving the whole compile-and-flash loop worked.
+
+Then I taught it to join the hidden network and serve a tiny status page, reachable at a fixed address even though mDNS doesn't resolve on this router. Then I cut the cord — ran it off an external source and watched its uptime climb for hours with no reboot. A board with no cable, on my network, answering when I asked.
+
+That was the seed. One small world, alive and reporting. The obvious next question was: what happens when there's more than one?
+
+| What | Value |
+|------|-------|
+| Apartments moved | 1 |
+| WiFi networks relearned | 1 (hidden `A-510`) |
+| Things I knew about the XIAO C6 at the start | ~0 |
+| First sketch | Blink (GPIO15) |
+| First cable-free uptime | hours, no brownout |
+| Nodes phoning home | 1 |
+
+---
+
+## June 28, 2026 — Two Brothers and a Current Sensor
+
+I plugged in a second board and named them. The first one is Mario. The new one is Luigi.
+
+The instant there were two, a problem I hadn't had with one appeared: my firmware **hardcodes a static IP**. Flash the same sketch onto both and they'd fight over the same address and take the network down for each other. So before Luigi could exist as Luigi, he needed his own identity — a different IP, a different hostname. Mario stays `.212`; Luigi becomes `.213`. The fleet's first rule wrote itself: every node gets a unique name before it ever joins.
+
+With Luigi flashed and Mario humming along cable-free on a solar-and-18650 pack, I had two independent little worlds, each serving its own status page. That felt good. But a status page that only says "I'm alive" is a beacon, not a sensor. I wanted a node that could *measure* something. And the most honest first thing to measure — the thing that actually decides whether any of this survives in a field — is its own power.
+
+I had an INA219 for exactly this. It reads voltage, current, and power over I2C, and it sits *in series* on the power line: the current physically flows through it. The mental model that finally clicked is that it's two separate circuits sharing one board — a highway (`Vin+` → tiny shunt → `Vin-`) that the node's power runs *through*, and a brain (`VCC`/`GND`/`SDA`/`SCL`) that keeps the measuring chip's lights on and lets the node ask "what did you see?" The voltage going *into* the board and the voltage powering the *sensor* are different things. Getting that straight in my head was half the battle.
+
+Then came the part that humbled me, which is to say, the part where I actually learned something.
+
+**The board wouldn't talk.** Uploads failed, serial reads came back empty, no useful error. It turned out the Arduino IDE's Serial Monitor was holding the port open in the background — an app I'd forgotten was running, silently owning a resource that only one process can have at a time. One `lsof` named the culprit; one `kill` freed it. Lesson filed: when a device won't respond, first ask *who else is holding it*.
+
+**I lost track of which board was which.** Two identical boards, and I genuinely couldn't tell Mario from Luigi on the desk. At one point I was convinced a board "wouldn't turn on" — when really it was *Luigi* that was dark, and Mario had been quietly up on solar for hours the whole time. The fix was to stop trusting my eyes and ask the silicon: read the chip's MAC over USB and match it. Mario ends in `…10:30`, Luigi in `…d4:84`. Ground truth instead of a guess. (This is going to matter at farm scale — a row of identical nodes is unmanageable unless each one can tell you who it is.)
+
+**The sensor wouldn't read.** Luigi was powered and on the network, but the page said `INA219: not detected`. There were two bugs stacked on top of each other. First, I'd swapped `SDA` and `SCL` — they're adjacent pins, D4 and D5, and trivially easy to reverse. Second, even after I fixed the wiring, it *still* said not detected — because the firmware only checks for the sensor once, at boot. The board had never rebooted (its uptime kept climbing, which was the tell). A power-cycle re-ran the check.
+
+And then it just worked.
+
+```
+bus voltage : 5.040 V   (into 5V pin)
+supply volt : 5.048 V   (source side)
+current     : 63.8 mA
+power       : 324.0 mW
+```
+
+Every number made sense. The ~8 mV gap between supply and bus voltage is the drop across the shunt — and 0.1 Ω × 63.8 mA ≈ 6.4 mV, which checks out, which means the sensor is measuring honestly. The 5.04 V told me the pack is a *regulated* ~5 V source, which is the whole reason it boots on the 5V pin at all (that pin needs north of ~4.3 V; a bare single cell would've been too low). And ~64 mA at idle is exactly what a C6 on WiFi should draw.
+
+A node, running on the sun, measuring the energy flowing into itself, and reporting it to me over a network — with no cable attached to anything.
+
+That's small. It's two boards on a bench. But it's the exact shape of the thing the farm needs: something that powers itself, stays findable, and tells the truth about its own condition without anyone walking out to check. Everything I want to build on top of this — soil moisture, flow, a morning drone run, an AI that decides what matters today — needs a layer underneath it that just *works, unattended, on its own power*. Tonight that layer exists, and it's honest about its own electricity.
+
+| What | Value |
+|------|-------|
+| Nodes | 2 (Mario `.212`, Luigi `.213`) |
+| IP collisions avoided by giving Luigi his own identity | 1 |
+| Distinct bugs between me and a reading | 3 (held port, swapped SDA/SCL, detect-only-at-boot) |
+| Boards I confused for each other | 2 |
+| How I finally told them apart | MAC address |
+| Mario's cable-free uptime by end of day | ~7 hours |
+| Luigi's first honest reading | 5.04 V · 63.8 mA · 324 mW |
+| Shunt-drop sanity check | 0.1 Ω × 63.8 mA ≈ 6.4 mV ✓ |
+| Cables attached to a node measuring its own solar power | 0 |
