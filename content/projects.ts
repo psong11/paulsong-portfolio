@@ -89,5 +89,6 @@ export const PROJECTS: Project[] = [
     tags: ["Swift", "SwiftUI", "Vision", "Pl@ntNet", "Claude"],
     status: "in progress",
     accent: "#7fb685", // leaf
+    journey: true,
   },
 ];
