@@ -70,6 +70,7 @@ export const PROJECTS: Project[] = [
     status: "shipped",
     accent: "#e0c068", // parchment gold
     liveUrl: "https://ezra-zeta.vercel.app",
+    thumbnail: "/thumbnails/ezra.jpg", // interlinear Hebrew + word-analysis panel, side by side
   },
   {
     slug: "bentonville-gas-simulator",
