@@ -1,5 +1,7 @@
 import { PROJECTS } from "@/content/projects";
+import { ART } from "@/content/art";
 import { ProjectCard } from "@/components/project-card";
+import { ArtGallery } from "@/components/art-gallery";
 
 export default function HomePage() {
   return (
@@ -24,6 +26,9 @@ export default function HomePage() {
           <ProjectCard key={project.slug} project={project} />
         ))}
       </section>
+
+      {/* Visual art */}
+      <ArtGallery pieces={ART} />
 
       {/* Footer */}
       <footer className="mt-24 border-t border-slate-800 pt-6">
