@@ -59,6 +59,7 @@ export const PROJECTS: Project[] = [
     tags: ["Next.js", "Claude vision", "Google Sheets"],
     status: "shipped",
     accent: "#d8a657", // amber
+    thumbnail: "/thumbnails/onsc-alumni.png", // the Ozark Natural Science Center brand mark
   },
   {
     slug: "ezra",
