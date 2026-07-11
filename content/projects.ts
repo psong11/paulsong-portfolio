@@ -48,6 +48,7 @@ export const PROJECTS: Project[] = [
     status: "shipped",
     accent: "#8aaf8a", // sage
     liveUrl: "https://wy2z.vercel.app",
+    thumbnail: "/thumbnails/wy2z.jpg", // the live project's own timelapse poster
   },
   {
     slug: "onsc-alumni",
@@ -79,6 +80,7 @@ export const PROJECTS: Project[] = [
     tags: ["FastAPI", "React", "WebSockets", "Darcy-Weisbach"],
     status: "shipped",
     accent: "#e07a5f", // flame
+    thumbnail: "/thumbnails/bentonville-gas-simulator.jpg", // network map: source hub, leaks, sensor nodes
   },
   {
     slug: "floradex",
@@ -90,5 +92,6 @@ export const PROJECTS: Project[] = [
     status: "in progress",
     accent: "#7fb685", // leaf
     journey: true,
+    thumbnail: "/thumbnails/floradex.jpg", // a frame of the Pokédex-style collection, from the demo video
   },
 ];
