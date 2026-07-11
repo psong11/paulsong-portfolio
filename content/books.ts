@@ -1,0 +1,441 @@
+// Single source of truth for the Reading section — a commonplace book, not a
+// catalog. Each book expands to reveal marginalia: quotes marked and the
+// thoughts had, interleaved in reading order so each book reads as a small
+// narrative. Add a book here and it appears on the shelf.
+
+export type Marginalia =
+  | { kind: "quote"; text: string; page?: number }
+  | { kind: "thought"; text: string; page?: number };
+
+export type Book = {
+  slug: string;
+  title: string;
+  author?: string;
+  /** Year finished, if noted. Omit when unknown. */
+  yearRead?: number;
+  /** Currently reading — shows a "reading" tag instead of a year. */
+  reading?: boolean;
+  /** Marked quotes and thoughts, in the order met. Empty is fine — the book
+   *  then renders as a plain titled row (no expander). */
+  notes: Marginalia[];
+};
+
+// Currently-reading first, then books with marginalia, then the rest of the
+// shelf as plain rows.
+export const BOOKS: Book[] = [
+  // ── Currently reading ───────────────────────────────────────────────
+  { slug: "recoding-america", title: "Recoding America", author: "Jennifer Pahlka", reading: true, notes: [] },
+  { slug: "reality-is-not-what-it-seems", title: "Reality Is Not What It Seems", author: "Carlo Rovelli", reading: true, notes: [] },
+  { slug: "anaximander", title: "Anaximander", author: "Carlo Rovelli", reading: true, notes: [] },
+  { slug: "life-3-0", title: "Life 3.0", author: "Max Tegmark", reading: true, notes: [] },
+
+  // ── With marginalia ─────────────────────────────────────────────────
+  {
+    slug: "sing-unburied-sing",
+    title: "Sing, Unburied, Sing",
+    author: "Jesmyn Ward",
+    notes: [
+      { kind: "thought", text: "Read this recently and figured I'd concretize my brief thoughts on it. First of all, I'm a fiend for a good metaphor, and this book is chock full of 'em." },
+      { kind: "quote", text: "But everything else about him was nothing like Pop, was like Pop had been wrung out like a wet rag and then dried up in the wrong shape." },
+      { kind: "thought", text: "(Yeah, it's a simile, but metaphor is a cooler word than simile.) On every page, Ward's professorship in creative writing really comes through." },
+      { kind: "thought", text: "Another thing I liked was the character of Pop — a strong, wise, hard-working yet gentle paragon of healthy masculinity with a wild backstory revealed at the end. He made me wish I was closer with my own grandpa, because according to my mom he was a stud, with I'm sure lots of stories from Imperial Japanese annexation, the Korean War, and managing his own corner store." },
+      { kind: "thought", text: "The book made me think a lot about my family in general, dead and alive. I am the result of all my Korean ancestors' past choices, blood-bound to innumerable people I've never even made eye contact with. To my father's father's father's father's father, the \"United States\" was merely a word with no real distinction between fantasy and reality. Considering that, home should have always been Korea for me — but here I am in the United States, creating my own relationship with the soil here. Hopefully I'll live to see my great-grandson and show him the land his great gramps grew up on. Man will always have such an intimate relationship with land, a theme I can't stop thinking about ever since learning about אדם and אדמה." },
+    ],
+  },
+  {
+    slug: "never-let-me-go",
+    title: "Never Let Me Go",
+    author: "Kazuo Ishiguro",
+    notes: [
+      { kind: "thought", text: "This book made me eerily aware that I am living inside the nostalgia that grown-up Paul will hold while remembering my early twenties — as if I am always yearning to go back to a simpler time when I could laugh easier and dream bigger, but then realizing, that is now." },
+      { kind: "thought", text: "All of the petty drama between Kathy's friends, the curiosity of her childhood, and the reflective monologues throughout her mercurial relationships felt comfortingly familiar — as if to say that all our lives are so similarly sewn together yet subtly unique, in a first haunting, then heartening way." },
+      { kind: "thought", text: "Death is scary, but sometimes life is even scarier. Still, I love my life just the way it is, with all the things I've found and lost along the way." },
+      { kind: "thought", text: "Deep stuff aside, Kazuo's writing style made it more captivating and page-teasing than a kdrama episode that cuts right after the main characters finally make eye contact in a random bus station after years of separation." },
+      { kind: "thought", text: "Also I learned new British slang: \"daft.\"" },
+      { kind: "thought", text: "It captures that indescribable feeling of the slow rust yet nostalgic magic that time does to a friendship. Similar to the feeling that Past Lives gave me. Tell people what you really want to tell them." },
+      { kind: "thought", text: "This is one of those books where I'm scared of reading an analysis, because the memories and reflections it evoked felt so personal that I don't want someone to tell me how I should feel about them." },
+    ],
+  },
+  {
+    slug: "the-remains-of-the-day",
+    title: "The Remains of the Day",
+    author: "Kazuo Ishiguro",
+    notes: [
+      { kind: "thought", text: "Great read. A lot more straightforward than Never Let Me Go, but I still think I like the character development and growth of NLMG a bit better. Super realistic and relatable dialogue throughout, regardless." },
+      { kind: "thought", text: "Always be aware of who you're working for, and what you're working towards. And grass isn't always greener on the other side of that big life decision. Just gotta be grateful for every moment and opportunity as it comes." },
+      { kind: "thought", text: "The book made me think about the origins and culture of final clubs at Harvard, too — all the English old-money motifs and butler/stewardship." },
+    ],
+  },
+  {
+    slug: "the-grapes-of-wrath",
+    title: "The Grapes of Wrath",
+    author: "John Steinbeck",
+    notes: [
+      { kind: "quote", page: 232, text: "And it came about that owners no longer worked on their farms. They farmed on paper; and they forgot the land, the smell, the feel of it, and remembered only that they owned it, remembered only what they gained and lost by it." },
+      { kind: "thought", text: "Money drives Man's creativity. Creativity should be used to make life better, not to churn money." },
+      { kind: "quote", text: "Then such a farmer really became a storekeeper, and kept a store… and then the dispossessed were drawn west… Carloads, caravans, homeless, and hungry; 20,000 and 50,000 and 100,000 and 200,000. They streamed over the mountains, hungry and restless — restless ants, scurrying to find work to do: to lift, to push, to pull, to pick, to cut — anything, any burden to bear, for food." },
+      { kind: "quote", page: 239, text: "Our people are good people; our people are kind people. Pray God some day kind people won't all be poor. Pray God some day a kid can eat." },
+    ],
+  },
+  {
+    slug: "klara-and-the-sun",
+    title: "Klara and the Sun",
+    author: "Kazuo Ishiguro",
+    notes: [
+      { kind: "thought", text: "If only there were a way to ensure eternal life so that we could preserve the Human Heart. The infinity of rooms. The irreplaceability of my character." },
+      { kind: "thought", text: "Something must die, must pay the price, for Josie to live. Either Klara dies or Josie dies and we never get the true Josie ever again. In order to reverse and conquer the effects of sin — which is death — something else MUST give its Life." },
+      { kind: "thought", text: "I think the book touched a lot on the irreplaceability of the unique human character — the idea of life taking people in different directions, yet the memory of yourself in other people's minds being what is truly precious." },
+    ],
+  },
+  {
+    slug: "sapiens",
+    title: "Sapiens",
+    author: "Yuval Noah Harari",
+    notes: [
+      { kind: "thought", text: "Since the dawn of human history, we've been trying to make a utopia for ourselves — agricultural revolution, capitalism, industrial revolution, etc. But really the collective desire to \"reach utopia\" is just an optimistic pretty-pink mask covering greed, ignorance, addiction, and all the other human vices that get taught to our children and their children — and not the lessons learned through genocide and economic collapse." },
+      { kind: "thought", text: "The first step to freedom is to acknowledge what you are even being freed from." },
+      { kind: "thought", text: "From the sole of the foot to the crown of the head, all is corrupt. What has been is what will be, and what has been done is what will be done; there is nothing new under the sun. Then He who sat on the throne said, \"Behold, I am making all things new.\" (Isaiah 1:6; Ecclesiastes 1:9; Revelation 21:5)" },
+    ],
+  },
+  {
+    slug: "living-buddha-living-christ",
+    title: "Living Buddha, Living Christ",
+    author: "Thich Nhat Hanh",
+    notes: [
+      { kind: "quote", text: "We do not have to die to arrive at the gates of Heaven. In fact, we have to be truly alive." },
+      { kind: "thought", text: "The Breath and Mindfulness is part of the Holy Spirit. The Holy Spirit in Hebrew is Holy Wind." },
+      { kind: "thought", text: "Christ preached a message of love where life comes truly awake — where love embraces darkness without fear, instead of fighting or avoiding it." },
+      { kind: "thought", text: "Christianity proclaims a message of reincarnation because the soul never dies — it has always been and always will be — but the body must come back to life. Faith that is alive and ever-changing." },
+      { kind: "thought", text: "We cannot box things like God into notions or concepts; it is simply reality. It can only be experienced. To truly see something is to see all of its forms — past, present, and future — and how it is connected with everything around it. The truth is not in any notions." },
+      { kind: "quote", page: 244, text: "I like the expression \"resting in God.\" When you pray with all your heart, the Holy Spirit is in you, and as you continue to pray, the Holy Spirit continues in you. You do not need to do anything else. As long as the Holy Spirit is there, everything is fine. You are resting in God, and God will work in you. For transformation to take place, you only need to allow the Holy Spirit to stay in you." },
+      { kind: "thought", text: "Life is reality. Reality cannot be explained in words or in pictures. It can only be explained by experiencing it, as Life through life. That is why Christ says that if anybody loves him, they will keep his word. The truth can only be expressed through your life." },
+      { kind: "thought", text: "Fear, Attachment, Illusion, and Craving. The concept of the Trinity actually makes more sense to me through a Buddhist lens." },
+      { kind: "quote", page: 265, text: "When the Buddha was asked, \"Sir, what do you and your monks practice?\" he replied, \"We sit, we walk, and we eat.\" The questioner continued, \"But, sir, everyone sits, walks, and eats,\" and the Buddha told him, \"When we sit, we know we are sitting. When we walk, we know we are walking. When we eat, we know we are eating.\"" },
+    ],
+  },
+  {
+    slug: "east-of-eden",
+    title: "East of Eden",
+    author: "John Steinbeck",
+    notes: [
+      { kind: "quote", page: 131, text: "In our time, mass or collective production has entered our economics, our politics, and even our religion, so that some nations have substituted the idea collective for the idea God." },
+      { kind: "thought", text: "\"There is no fear in love, but perfect love casts out fear.\" This verse perfectly describes how fear does not stand alone, but grows out of a twisted insecurity with received love." },
+      { kind: "quote", text: "Kate inched over her thoughts like a measuring worm." },
+      { kind: "thought", text: "I see myself in every single character." },
+      { kind: "thought", text: "Marriage is like everything else in this world: broken. What should be perfect instead leaves you with that feeling after guzzling down a new vice — and after it grows old, you wonder to yourself, \"That's it?\"" },
+      { kind: "thought", text: "Every pain in this world is designed to teach us that we need Jesus. Marriage is designed to teach us how fickle our desires are. Gambling is designed to teach us…" },
+    ],
+  },
+  {
+    slug: "the-things-they-carried",
+    title: "The Things They Carried",
+    author: "Tim O'Brien",
+    notes: [
+      { kind: "thought", text: "For the wages of sin is death." },
+    ],
+  },
+  {
+    slug: "the-red-pony",
+    title: "The Red Pony",
+    author: "John Steinbeck",
+    notes: [
+      { kind: "thought", text: "I am so thankful to have had such a blessed childhood, with two parents who genuinely put my success at the forefront of their lives. I'm also thankful to have been born in an era, location, and socioeconomic background that gave my childhood such a diverse agenda each day, instead of doing the same chores on a medieval farm for all my adolescent years." },
+      { kind: "thought", text: "The malleability and empathy of a young mind is so precious. I don't want to lose it. I think my greatest fear in life right now is becoming close-minded." },
+    ],
+  },
+  {
+    slug: "stay-true",
+    title: "Stay True",
+    author: "Hua Hsu",
+    notes: [
+      { kind: "quote", text: "To love friendship is to love the future." },
+      { kind: "thought", text: "Humans have an intrinsic love for the future because we were meant to live forever. Everyone is so complicated." },
+      { kind: "quote", page: 157, text: "My handwriting changed that week, growing curvier and more ornate, like the violent fury of graffiti tags. I got lost while searching for the right words. What was that thing we had learned in our rhetoric class, about Derrida's \"deferral of meaning\" and how words are merely signs that can never fully summon what they \"mean\"? Yet words are all we have, simultaneously bringing us closer, casting us farther away." },
+      { kind: "quote", page: 186, text: "Occasionally, I felt preemptively embarrassed about my private hysterics. I think the most depressing aspect of keeping a journal is thinking, or knowing, that one day I'll be sitting somewhere reading this — trying to relive some moments, but struck not by recaptured emotions, rather by how damn deep I tried to sound at some point in the past." },
+      { kind: "thought", text: "The Immediate Present is all we have. And who has control over every Now is a mystery." },
+      { kind: "thought", text: "To understand the author's intent, pretend you are the author writing the sentence you just read." },
+    ],
+  },
+  {
+    slug: "letter-from-birmingham-jail",
+    title: "Letter from Birmingham Jail",
+    author: "Martin Luther King Jr.",
+    notes: [
+      { kind: "quote", text: "Anyone who lives inside the United States can never be considered an outsider anywhere within its bounds." },
+      { kind: "quote", text: "You may well ask: \"Why direct action? Why sit-ins, marches, and so forth? Isn't negotiation a better path?\" You are quite right in calling for negotiation. Indeed, this is the very purpose of direct action. Nonviolent direct action seeks to create such a crisis and foster such a tension that a community which has constantly refused to negotiate is forced to confront the issue… I am not afraid of the word \"tension.\" I have earnestly opposed violent tension, but there is a type of constructive, nonviolent tension which is necessary for growth." },
+      { kind: "thought", text: "As a high schooler I read about nonviolent activists like MLK Jr. and Gandhi. I hope to be a man who can be patient, gracious, and forgiving about small inconveniences, yet strong and intentional against injustice." },
+      { kind: "thought", text: "The Supreme Court is kinda wild. Nine people dictate moral interpretation for 334.9 million people." },
+      { kind: "quote", text: "Such an attitude stems from a tragic misconception of time… Actually, time itself is neutral; it can be used either destructively or constructively… We will have to repent in this generation not merely for the hateful words and actions of the bad people, but for the appalling silence of the good people. Human progress never rolls in on wheels of inevitability; it comes through the tireless efforts of men willing to be co-workers with God… Now is the time to make real the promise of democracy." },
+      { kind: "thought", text: "This is a calling to the modern American church." },
+    ],
+  },
+  {
+    slug: "the-return-of-the-kosher-pig",
+    title: "The Return of the Kosher Pig",
+    author: "Rabbi Itzhak Shapira",
+    notes: [
+      { kind: "thought", text: "The word for \"pig\" and the word for \"to return\" share the same root, חזר. Pigs represent uncleanness, and some Jews see Yeshua as a pig. But He will return — according to Zechariah 14:3-4." },
+      { kind: "thought", text: "The identity and validity of Jesus, examined through God's compound unity." },
+    ],
+  },
+  {
+    slug: "everything-you-should-know-about-politics",
+    title: "Everything You Should Know About Politics But Don't",
+    author: "Jessamyn Conrad",
+    notes: [
+      { kind: "thought", text: "Foreign policy is so interesting — these are all terms I remember learning in high school, but now I kind of understand why it's so important to learn history to really understand where we are today in global politics. Lots of political cartoons popping up in my mind while reading." },
+      { kind: "thought", text: "I was born into a crazy time. Everyone was." },
+      { kind: "thought", text: "It's nice getting older. My painting professor told me that \"as you get older, life doesn't get simpler, it gets richer.\" Life honestly gets more complicated as you learn more about the world — but as you understand it more, I think compassion grows with it." },
+      { kind: "thought", text: "After learning all this, I guess what really matters is how it affects how I treat the people around me today, since I probably won't remember every detail — like the paleoconservative stance on limited government." },
+      { kind: "thought", text: "Decisions can't really be in the gray area. People with different traumas react differently in the same scenario, and it doesn't mean one way is correct or incorrect. I think it just requires trust in a higher power that whichever route we've decided to take as humanity will be used for good and is in control." },
+    ],
+  },
+  {
+    slug: "fahrenheit-451",
+    title: "Fahrenheit 451",
+    author: "Ray Bradbury",
+    notes: [
+      { kind: "thought", text: "There is a sort of austere chill that hangs in the air after every sentence." },
+      { kind: "thought", text: "It makes you think about how consumed into your own little snow-globe of a world you become as you get older — and how, when we meet a Clarisse McClellan in our snow-globe, we brush her away thinking \"What an oddball, she just needs to grow up,\" when in reality we all secretly wish to go back there." },
+      { kind: "thought", text: "Dialogue is so fascinating. You listen to the other's words, process them, and spit out a response from within your own cage of thinking — and do the same for the Other. I feel my brain stretching." },
+    ],
+  },
+  {
+    slug: "siddhartha",
+    title: "Siddhartha",
+    author: "Hermann Hesse",
+    notes: [
+      { kind: "thought", text: "The Trinity is the Atman — not our bodies nor our souls, but God who lives in us and gave His Spirit to us." },
+      { kind: "thought", text: "Jesus meditated. Prayer is meditation. Even King David says, \"May my meditation please the Lord.\" (Psalm 104:34)" },
+      { kind: "thought", text: "The Samana dies in the same earth as the newborn. What have all their reflections and mental treasures gained them? Life lessons never last; everyone wants to learn life on their own. The only thing that lasts is your own conscience before God." },
+      { kind: "thought", text: "You can become a recluse or a hermit or an ascetic monk and think and meditate and empty yourself your whole life — but I think the only work that lasts is partnering with God to usher in an awakened Kingdom. Tikkun Olam." },
+      { kind: "thought", text: "Mark 2:1-12 is actually insane. Jesus is saying that He is the One whom all world religions are seeking: the One who can forgive with finality and rebirth into New Life. Truly, he was either a crazy person or, if the paralyzed man was actually healed on the spot, then He is the One." },
+      { kind: "thought", text: "Okay, sure, everyone's truth is subjective. But isn't that unsatisfying? Something about it feels lazy. What if there is an absolute truth?" },
+      { kind: "thought", text: "This book perfectly captures how I feel about the fickleness of the human heart. No matter how fortified our beliefs, we succumb to the age-old predators of wealth, lust, a judging eye, and a stiff neck. Faithfulness to the Truth is the real game — not who can accumulate the most Passion." },
+      { kind: "thought", text: "Literature pulls you out of your own body, which is very humbling: to realize that although your perspective is your reality, your perspective alone is not Reality." },
+      { kind: "thought", text: "When you really respect someone, you ask them questions in your head." },
+      { kind: "thought", text: "This book is just one big parable. It is the Book of Ecclesiastes within a man." },
+      { kind: "thought", text: "You cannot be taught with words. You must be taught with a bent back, calloused hands, and a weary heart." },
+      { kind: "thought", text: "Siddhartha with his son is like God with his people. Painful love is richer than an empty house." },
+      { kind: "thought", text: "An older man can dismiss all my words because I am un-lived and immature. I hope I don't become like that. Working with children has taught me what an older man never could." },
+    ],
+  },
+  {
+    slug: "war-macmillan",
+    title: "War",
+    author: "Margaret MacMillan",
+    notes: [
+      { kind: "thought", text: "Students in school were lined up uniformly and with discipline, so they could be prepared for wartime. The schooling system was designed for industry and war — but now, in an era of peace and artistic expression, we feel a different need growing: the unchained, free-willed human spirit. Perhaps my dissatisfaction with the current public school system is simply a mindset birthed from privilege." },
+      { kind: "thought", text: "War concentrates our attention out of urgency." },
+    ],
+  },
+  {
+    slug: "cold-case-christianity",
+    title: "Cold-Case Christianity",
+    author: "J. Warner Wallace",
+    notes: [
+      { kind: "quote", page: 56, text: "faith is actually the opposite of unbelief, not reason." },
+      { kind: "quote", page: 85, text: "Growing up as a skeptic, I never thought of the biblical narrative as an eyewitness account. Instead, I saw it as something more akin to religious mythology — a series of stories designed to make a point." },
+      { kind: "thought", text: "The Bible has some additions and edits here and there (like the adulteress story in John) made long after the apostles — but that doesn't invalidate its truth claims overall. If we invalidate the Bible because of this, then we should invalidate Homer and Euripides and Aristotle too, since there are far fewer of their manuscripts than there are of the Bible." },
+      { kind: "thought", text: "Christianity couldn't have been a conspiracy: all these martyrs were willing to die without ever saying \"Okay, fine, you got us, Jesus didn't actually resurrect.\" Since they died far from each other, they couldn't have coordinated to keep it alive, and most weren't even blood-related, so they had no strong motive to." },
+      { kind: "thought", text: "People 2000 years from now may call the US Constitution fake because there are no eyewitnesses left to testify to its existence and impact. Similarly, we can't just call the death and resurrection of Jesus fake because no eyewitnesses are alive." },
+      { kind: "thought", text: "The gospels unintentionally fill in each other's blanks — a common trait of reliable eyewitness accounts in forensic analysis. For the feeding of the five thousand, John says Jesus asks Philip and Andrew where to buy bread. Why them? Luke says the feeding happens in Bethsaida; John mentions, in a totally unrelated place, that Philip and Andrew were from Bethsaida — which is exactly why Jesus would ask them, as locals, where to buy bread." },
+      { kind: "thought", text: "A man named Yeshua from Nazareth is slaughtered by Rome in 33 AD, but hundreds claim to have seen his resurrected body days later, and a global movement forms because those hundreds were willing to die for what they saw. J. Warner Wallace, an atheist homicide detective, applies investigation principles to these eyewitness accounts and concludes it's more rational that a man actually came back to life than that the body was stolen or the story fabricated for fame." },
+    ],
+  },
+  {
+    slug: "1776",
+    title: "1776",
+    author: "David McCullough",
+    notes: [
+      { kind: "thought", page: 105, text: "It could have been Artemas Ward who convinced General Washington to camp on Dorchester Heights. The men who pushed for the vision that ultimately led to victory get swept under the rug, shadowed by title-holders like Washington. At least Washington gave him some credit." },
+      { kind: "thought", text: "Soldiers are all just normal people. Even George Washington. And Clinton, and Howe. All just dudes trying to \"do what's right\" — until someone dies and blood is shed; then things start getting real." },
+      { kind: "thought", text: "Washington said the worst punishment he wished upon his enemy was for them to be in his position." },
+      { kind: "thought", text: "One of Washington's best traits was his decisiveness. When a man can firmly stand upon a decision, you know he has given it focus and faith." },
+      { kind: "thought", text: "Imagine seeing your General riding his steed, chasing down your enemies amidst gunfire, shouting \"It's a fine fox chase, my boys!\" That's a Gas Man right there." },
+      { kind: "thought", text: "There were some crazy atrocities even in the Revolutionary War — crazy suffering endured by our country's men and their women. I'm thankful for shoes. The soldiers trekked without them, so you could retrace where they'd come from by the blood on the ground." },
+      { kind: "thought", text: "The power of the media you consume is incredible. The letters read out to the citizens and King of London about the Americans made them seem like power-hungry, unruly rebels." },
+      { kind: "thought", text: "War is ideological. It's when two parties genuinely believe in conflicting ideas — and when one unstoppable tectonic plate rubs against another, the earth quakes. My barometer feels the pressure." },
+      { kind: "thought", text: "Also, Henry Knox is an absolute legend. The man was pure force of will." },
+    ],
+  },
+  {
+    slug: "seven-brief-lessons-on-physics",
+    title: "Seven Brief Lessons on Physics",
+    author: "Carlo Rovelli",
+    notes: [
+      { kind: "thought", text: "Sometimes as I read, my vision falls into a 3D asymptote and my body doesn't want to move — out of a desire to challenge reality. And then I move my finger to remind myself that I am alive." },
+      { kind: "thought", page: 24, text: "Science is a leap of faith. The act of creating a hypothesis (which is shrouded in doubt) and then performing tests as if you believe it is the truth — to jump first and then confirm." },
+      { kind: "thought", text: "Knowledge was not expanded by genius, but by meditation. And this meditation took years, even decades. It took Einstein ten years to understand the geometrical nature of gravity." },
+      { kind: "thought", text: "You've got to be kidding me. The scientists named the force that glues quarks inside protons and neutrons \"gluons.\" Like, come on — these people were something else." },
+      { kind: "thought", text: "Local relationships of humans are like loop quantum gravity — dances, independent yet simultaneous." },
+      { kind: "thought", page: 53, text: "Heat causes time. Mind blown." },
+      { kind: "thought", text: "Spacetime is a continuous deterministic fabric comprised of discrete probabilistic particles. It's like the dance between GR and QM. Maybe by studying how atoms probabilistically bump into each other and form a continuous fabric of heat, we can understand how QM particles bumping into each other form the continuous fabric of GR." },
+      { kind: "thought", page: 57, text: "Our measurements rely on the Truth. The Truth does not rely on our measurements." },
+      { kind: "thought", text: "Hell is described as Fire because Time does not exist there for Heat to reach equilibrium. It is frozen in Death. A Heat-Death." },
+      { kind: "thought", text: "Thank God that I am not a microwave. It was good to be a human today. Nature made flesh, of whom we are called brothers." },
+    ],
+  },
+  {
+    slug: "the-communist-manifesto",
+    title: "The Communist Manifesto",
+    author: "Marx & Engels",
+    notes: [
+      { kind: "thought", text: "I remember hearing, as an early college student, that we're in a new age of empires — empires run not by kings and monarchs but by boards and large shareholders of mega-companies. People praise CEOs way more than the President." },
+      { kind: "thought", text: "For Christ to rule as King of all kings, all the kings of the land need to be unified in principle. So what can they be unified on? People talk about a one-world order — but that means one King-of-all-kings who sets up the principle to follow. I think it will likely be some figurehead that utilizes AI and surveillance to \"unify\" the world." },
+      { kind: "thought", text: "So the proletariat are told to gain new skills to operate the new technology that the previous generation of proletariat spent their lives building." },
+      { kind: "thought", text: "Gen-Z emerging socio-economic-political leaders have some deep stuff to resolve. We got this…?" },
+      { kind: "quote", text: "The immediate aim of the Communists is the same as that of all other proletarian parties: formation of the proletariat into a class, overthrow of bourgeois supremacy, conquest of political power by the proletariat." },
+      { kind: "thought", text: "So like, that's great and all, but what happens after that? I suppose capitalism is better at sparking innovation — but I wonder if that's just an idea I learned as a product of my education? Historically, most powers that developed quickly with more efficient weaponry were forced to by ruthless competition, not harmony." },
+      { kind: "thought", text: "Communism tries to push against this historically, naturally recurring phenomenon of the haves and have-nots. Maybe the problem is the \"search for a working system\" in the first place, since the Torah will be written on our hearts." },
+      { kind: "thought", text: "What even is capital at the end of the day? It's assets of value to its owner. But what does it really mean to \"own\" anything? You own something until someone who \"owns\" more swipes it — and now he \"owns\" it. So it boils down to physical force and physical power. So, yeah — like, War." },
+      { kind: "thought", text: "Communism was the first attempt at ideological global unification, rather than physical empire unification. Perhaps after the spread of Christianity." },
+    ],
+  },
+  {
+    slug: "spqr",
+    title: "SPQR",
+    author: "Mary Beard",
+    notes: [
+      { kind: "quote", page: 83, text: "it cannot be stressed enough that there's no certain independent date for any of the archaeological material from earliest Rome or the area round about, and that arguments still rage about the age of almost every major find." },
+      { kind: "quote", page: 94, text: "The word \"king\" almost certainly implies something much more formal and grander than we should be envisaging… after the dramatic fall of Tarquinius Superbus, kings were an object of hatred for the rest of Roman history. To be accused of wanting to be rex was a political death sentence for any Roman." },
+    ],
+  },
+  {
+    slug: "genghis-khan",
+    title: "Genghis Khan and the Making of the Modern World",
+    author: "Jack Weatherford",
+    notes: [
+      { kind: "thought", text: "Genghis Khan's burial place is so unknown because the people who buried him were killed — and then those killers were killed." },
+      { kind: "thought", text: "The story of Genghis Khan's mother and father splitting is so sad but beautiful — basically an anime. And it's funny how the sense of smell was super important to the Mongols; I wonder if that's where I got my obsession with scents as a child." },
+      { kind: "thought", text: "Genghis Khan's other name, Temujin, shares the Temul root with his siblings. A Mongol native described Temul as the look in a racing horse's eyes when he is fixed on where he wants to go, regardless of his master's wishes." },
+      { kind: "thought", text: "Genghis had the psychology of warfare mastered — making citadels surrender out of fear rather than actually waging war. He'd destroy surrounding cities so those residents fled into the citadel and stirred up panic. He also renovated siege technology by digging under walls to compromise their structural integrity." },
+      { kind: "quote", page: 6, text: "a man of tall stature, of vigorous build, robust in body, the hair on his face scanty and turned white, with cats' eyes, possessed of dedicated energy, discernment, genius, and understanding, awe-striking, a butcher, just, resolute, an overthrower of enemies, intrepid, sanguinary, and cruel." },
+      { kind: "thought", text: "He forbade kidnapping, enslavement, illegitimacy of children, adultery between households, theft of animals, hunting outside the breeding season, and the death penalty without a jury (khuriltai); he instituted religious freedom and stated the law was above everyone, even the sovereign — similar to the Magna Carta. To enforce it across the empire, scribework proliferated." },
+      { kind: "quote", page: 86, text: "the well-trained and tightly organized Mongol army would charge out of its Highland home and overrun everything from the Indus River to the Danube, from the Pacific Ocean to the Mediterranean Sea. In a flash, only 30 years… Christians, Muslims, Buddhists, and Hindus would soon kneel before the dusty boots of illiterate young Mongol horsemen." },
+      { kind: "quote", page: 91, text: "Every Mongol soldier had to live his life as a warrior with the assumption that he was immortal… At the last moment of life, when all had failed and no hope remained, the Mongol warrior was supposed to look upward and back his fate by calling out the name of the eternal blue sky as his final earthly words." },
+      { kind: "quote", page: 92, text: "as Genghis Khan reportedly said, there is no good in anything until it is finished." },
+      { kind: "thought", text: "It's interesting how the Mongols were herders, and Genghis Khan built his rule system from the customs of his herding society — very similar to the Torah given to the Hebrews, who were also a herding society; all the patriarchs were sheepherders." },
+      { kind: "thought", page: 111, text: "Divine authority and manifest destiny are scary things." },
+      { kind: "thought", text: "The Mongols were actually predominantly Christian until near the end of the empire, when they turned Buddhist and Muslim." },
+      { kind: "quote", page: 173, text: "…as the effects of the alcohol became stronger, the Christians gave up trying to persuade anyone with logical arguments and resorted to singing. The Muslims, who did not sing, responded by loudly reciting the Koran to drown out the Christians, and the Buddhists retreated into silent meditation. At the end of the debate, unable to convert or kill one another, they concluded the way most Mongol celebrations concluded — with everyone simply too drunk to continue." },
+      { kind: "quote", page: 195, text: "He won over the population by skillful manipulation of public opinion… He built a Chinese capital, took Chinese names, created a Chinese dynasty, and set up a Chinese administration. He won control of China by appearing more Chinese than the Chinese, or at least more Chinese than the Sung." },
+      { kind: "thought", text: "The word \"horde\" came from a Turkic-Mongol word, orda, meaning camp or encampment. For a history book — wow, this is so well-paced." },
+      { kind: "thought", text: "Khubilai tried to make a universal Mongol language; the Chinese rejected it, thinking their own more elegant. He also tried to institute universal education during winter, when children had nothing to do. Mongols were great on land but hopeless at maritime warfare — never able to conquer Japan or Java." },
+      { kind: "thought", text: "When Abraham is about to slay Isaac, maybe there was no actual figure in the form of a man — maybe Abraham just heard, very clearly in his mind, enough to become his reality, that killing his son is not the right kind of sacrifice. Rather, it is the change of heart that comes from something else dying in your place." },
+      { kind: "thought", page: 254, text: "Montesquieu and Voltaire were quietly pretty anti-Asian, thinking the Mongols the source of all corruption and barbarism in Europe. Half true. A lot of things are half-true. How do you deal with half-truths?" },
+      { kind: "quote", page: 261, text: "Alexander and Caesar seem petty before him. — Nehru" },
+    ],
+  },
+  {
+    slug: "empire-of-ai",
+    title: "Empire of AI",
+    author: "Karen Hao",
+    notes: [
+      { kind: "quote", page: 14, text: "OpenAI had grown competitive, secretive, and insular, even fearful of the outside world under the intoxicating power of controlling such a paramount technology. Gone were notions of transparency and democracy, of self-sacrifice and collaboration. OpenAI executives had a singular obsession: to be the first to reach artificial general intelligence, to make it in their own image." },
+      { kind: "thought", text: "AI is a child bred from a womb of discord and greed. It cannot be a perfect child. Deep in its blood is a hunger for power." },
+      { kind: "thought", page: 24, text: "At Elon's Napa birthday party — this congregation of powerful male elites, who got to their positions of wealthy asset ownership via masterful social manipulation and resource exploitation, gathering to disagree on the vision for the nation of AI, looks a lot like the Continental Congress: a group of white landowners and slaveowners who congregated in Independence Hall to create the Constitution." },
+      { kind: "thought", text: "\"I hated all the things I had toiled for under the sun, because I must leave them to the one who comes after me. And who knows whether that person will be wise or foolish?\" (Ecclesiastes 2:18-19) All these tech companies just get handed over to new rulers, and things hit the fan." },
+      { kind: "thought", text: "Words have never before been so elegantly strung together. I wish I could talk like how this book was written." },
+      { kind: "thought", text: "John McCarthy coined the term \"Artificial Intelligence\" pretty much as a way to market the concept for attention to his research. It's just a word that imbues connotations and images into a glorified prediction model." },
+      { kind: "quote", page: 103, text: "Solon revealed that facial recognition software had been trained on millions of people's personal Flickr photos without their consent. What surprised me was not the findings… What surprised me was how much I'd come to view that as completely normal." },
+      { kind: "thought", text: "Data Colonialism — taking advantage of countries eager to adopt new technology in exchange for collecting data on their citizens." },
+      { kind: "quote", page: 104, text: "extractivism is more than extraction… a mode of accumulation based on hyper-extraction with lopsided benefits and costs: concentrated mass-scale removal of resources, primarily for export, with benefits largely accumulating far from the sites of extraction." },
+      { kind: "quote", page: 108, text: "deep learning models are inherently prone to having discriminatory impacts because they pick up and amplify even the tiniest imbalance present in huge volumes of training data. It's not just a problem when a demographic is poorly represented, but when it's over-represented as well." },
+      { kind: "thought", text: "Right when these big AI startups needed cheap data-labeling labor, Venezuela checked the right boxes: highly literate and educated, with good internet and desperation for any salary amid a financial crisis. Essentially, to teach the model to recognize the bad stuff, unprivileged people around the world had to label that bad stuff manually — and it destroyed their mental health." },
+      { kind: "quote", page: 275, text: "each ChatGPT query is estimated to need on average about ten times more electricity than a typical search on Google… Developers and utility companies are now preparing for AI megacampuses that could soon require 1,000 to 2,000 megawatts of power. A single one could use as much energy per year as around one and a half to three and a half San Franciscos." },
+      { kind: "quote", page: 290, text: "\"They came to intimidate us,\" says MOSACAT member Alejandra Salinas… \"Think about it. They come offering us trees while drying out our earth.\"" },
+      { kind: "quote", page: 333, text: "He is at once generous and self-serving, agreeable and threatening, a benefactor for so many people and the source of great personal pain for others… leaving many with an impression that they are part of a larger game of chess for which only he can see the full board, and the end game is to preserve his power as king." },
+      { kind: "thought", text: "Proposed solutions: democratize knowledge production outside the empire, transparency, healthy policymaking, and broad-based education." },
+    ],
+  },
+  {
+    slug: "miracles-and-wonder",
+    title: "Miracles and Wonder",
+    author: "Elaine Pagels",
+    notes: [
+      { kind: "quote", page: 25, text: "Let us imagine what a Jew… might put to Jesus: \"Is it not true… that you fabricated the story of your birth from a virgin to quiet rumors about the true and unsavory circumstances of your origins?…\" — Celsus, an anti-Christian critic 100 years after Jesus." },
+      { kind: "thought", text: "Perhaps the whole point of Jesus's questionable virgin birth is to reveal that true followers of His ways would love him and appreciate what He did for us regardless of whether He was illegitimate — because we're called to love people like Him, the orphans and the widows. To love Jesus is to love people like him." },
+      { kind: "thought", text: "It is important to hear different perspectives. Because to them, YOU are the different perspective." },
+      { kind: "quote", page: 30, text: "Subject people knew how Roman armies operated; in words that Tacitus claims to quote from a defeated British general: \"They make a desert and call it peace.\"" },
+      { kind: "thought", text: "Siege of Sepphoris, around 4 B.C., near Mary's town. Varus sends Roman soldiers to Judea to stop a Jewish insurrection led by Judas. 2,000 Jews are crucified along public roads — essentially a forest of bloody, groaning bodies hanging on crosses." },
+      { kind: "quote", page: 69, text: "Thomas Jefferson, for example, decided to \"correct\" the gospels by cutting these stories out of his own Bible with scissors… he created what others called the Jefferson Bible, a book with gaps visible in the pages where he cut out the miracles, now on display at his plantation home in Monticello." },
+      { kind: "quote", page: 71, text: "whatever else he may have done, Jesus did not celebrate rationality as a virtue. His tradition was not Greco-Roman philosophy, but popular Galilean Judaism… His mind was poetic, and his mental universe, filled as it was with invisible spirits… was mythological. — Dale Allison" },
+      { kind: "thought", text: "John is crazy different from Matthew, Mark, and Luke. The other three emphasize the kingdom of God, whereas John emphasizes Jesus's identity as God himself — which is nuts. How can people read this as truth yet dismiss, say, the Gospel of Thomas as mystical nonsense?" },
+      { kind: "thought", text: "The truth cannot be taught. It must be sought. Or rather, you must let it seek you." },
+      { kind: "quote", page: 220, text: "The goal… is not to establish one correct answer, but rather to open each person's understanding. — Eva Keller" },
+      { kind: "quote", page: 244, text: "Christians involved with the gospels today tend to leave aside quarrels about whose church is \"right\"… people of different temperament and cultures incline toward different kinds of religious experience… None of these is prescribed, but none are excluded; and all agree that Christian faith requires practicing justice, mercy, and love." },
+      { kind: "thought", text: "I do not think I would have been mature enough to read this book with an open enough mind five years ago. Truth doesn't beg for attention; it lets itself be found." },
+    ],
+  },
+  {
+    slug: "abundance",
+    title: "Abundance",
+    author: "Ezra Klein & Derek Thompson",
+    notes: [
+      { kind: "thought", text: "To get the future we want, we need to make conscious, intentional decisions right now to shape that trajectory. A lot of it comes down to economic incentives shaped by global events — WWII, different presidents creating different agencies. At the heart of it is supply and demand. Housing is especially interesting: Republicans say let the economy balance itself; Democrats look to subsidize. Both have pros and cons, but the average cost of everything keeps skyrocketing — a sweeping affordability crisis, on top of inflation." },
+      { kind: "quote", page: 27, text: "Cities are engines of creativity because we create in community. We are spurred by competition. We need to find the colleagues and the friends and the competitors and the antagonists who unlock our genius and add their own." },
+      { kind: "quote", page: 46, text: "Homeownership works for some because it cannot work for all… How do we ensure that housing is both appreciating in value for homeowners but cheap enough for all would-be homeowners to buy in? We can't." },
+      { kind: "thought", page: 51, text: "Earth Day started as a demonstration on April 22, 1970 — when 10% of the US population came into the streets — triggered by Rachel Carson, a marine biologist suffering from breast cancer, and her book Silent Spring." },
+      { kind: "quote", page: 58, text: "It holds that climate change reflects humanity's thrall to an impossible dream of endless growth. Rich countries must accept stasis, shuttering or scaling down major industries, and poor countries must grow more gently and prudently. (degrowth)" },
+      { kind: "quote", page: 67, text: "In 100 or 200 years, everything will look radically different… folks will look back and be blown away by how we used energy today. They'll say, \"Wait, you just burned it?\" — Melissa Lott" },
+      { kind: "quote", page: 82, text: "This is why China can build tens of thousands of miles of high-speed rail in the time it takes California to fail to build hundreds of miles of high-speed rail… That power leads to abuse and imperiousness. It also leads to high-speed rail." },
+      { kind: "quote", page: 105, text: "Liberals speak as if they believe in government and then pass policy after policy hamstringing what it can actually do. Conservatives talk as if they want a small state but support a national security and surveillance apparatus of terrifying scope… In the absence of that focus, absurdity reigns." },
+      { kind: "quote", page: 112, text: "Each individual decision is rational. The collective consequences are maddening. We hire skilled, dedicated people to do the public's work and then make it impossible for them to do that work well… And then we wonder why so many of them leave." },
+      { kind: "thought", text: "Pages 118-120 about the outdatedness of rules and the sediment of problems is so freaking relatable." },
+      { kind: "thought", page: 136, text: "Some sweeping claims are true but only half the truth — \"Technology expands the value of universalist policies.\" Sure, but technology has its own costs and can impact society unevenly. A good reflex check: all political claims argue to bring light on one dim aspect, not that this one light is all the light there is." },
+      { kind: "quote", page: 143, text: "How can we possibly account for this puzzle: more scientists, more money, more years of education, more knowledge, more technology, and more papers — but, in many fields, slower progress?… Jones called this escalating challenge \"the burden of knowledge.\"" },
+      { kind: "thought", text: "AMC = advanced market commitment. Essentially someone tells a builder: hurry up, and once you're done, I guarantee I'll buy a lot off you." },
+    ],
+  },
+  {
+    slug: "teacher-by-teacher",
+    title: "Teacher by Teacher",
+    author: "John B. King Jr.",
+    notes: [
+      { kind: "quote", page: 50, text: "Life was about serving the greater good, not seeking the greater glory." },
+      { kind: "thought", text: "It's wild to look back and see what educational system I grew up in. Hearing him talk about the institutionalizing of Common Core is a trip — all my middle-school classes were Common Core. A significant chunk of my formative educational years was shaped by the Obama administration." },
+      { kind: "thought", text: "Leaders provide tools." },
+      { kind: "thought", text: "I remember hearing \"The world is your classroom\" growing up — and wow, is that true." },
+      { kind: "thought", text: "Once you start making big decisions, you realize the people making the really big decisions were people just like you after all." },
+      { kind: "quote", page: 202, text: "I think the way my kids have understood race in America is that things were bad, Martin Luther King Jr. came, and now everything is good… I really need to help them understand that that's not true — that race in America is a lot more complicated, and there's still a lot of work to do." },
+    ],
+  },
+  {
+    slug: "kafka-on-the-shore",
+    title: "Kafka on the Shore",
+    author: "Haruki Murakami",
+    notes: [
+      { kind: "thought", text: "I have been initiated into the club of people who have read this book." },
+      { kind: "quote", page: 57, text: "like the genie in the bottle they have this sort of vital, loving sense of play, of freedom, that common sense can't keep bottled up… Compared to those faceless hordes of people rushing through the train station, these crazy, preposterous stories of a thousand years ago are, at least to me, much more real. How that's possible, I don't know. It's pretty weird." },
+      { kind: "thought", text: "If your spouse was angry at you, would you rather have them be controlled yet restrained, or uncontrollably honest? Controlled honesty — that's who I hope to be." },
+      { kind: "quote", page: 112, text: "but listening to the D Major, I can feel the limits of what humans are capable of. A certain type of perfection can only be realized through a limitless accumulation of the imperfect. And personally, I find that encouraging. Do you know what I'm getting at?" },
+      { kind: "quote", page: 132, text: "in dreams begin responsibilities." },
+      { kind: "quote", page: 134, text: "Now I know exactly how dangerous the forest can be. And I hope I never forget it… the only plants I've ever really touched till now are the city kind — neatly trimmed and cared-for. But the ones living here are totally different. They have a physical power… Like deep-sea creatures rule the ocean depths, in the forest trees reign supreme. A healthy amount of fear and respect might be a good idea." },
+      { kind: "thought", text: "This book captures what it means to just be an imaginative organism. Initially I was like, what am I even reading — this is getting kinda wild. But when you focus less on what you're reading and more on what the author wanted you to feel, the book becomes warm. It's like life — you're forced to sit through the jarring, the uncomfortable." },
+      { kind: "quote", text: "I wanted to hear your voice, too… you're living in the real world, breathing real air, speaking real words. Talking with you makes me feel, for the time being, connected to reality. And that's really important to me now." },
+      { kind: "thought", text: "Anyone who has read this book has been initiated into a club. And only the people inside the club know what in the world happened in it." },
+      { kind: "quote", page: 291, text: "You can't choose where you're born, but where you die you can." },
+      { kind: "thought", text: "If you love history, do you love fact or fiction? Some say, \"Yes! That war did in fact happen!\" To which another says, \"The image of that war in your head right now is merely a product of your imagination.\" How will a child born in the year 2978 know for a fact that on January 3, 2026, a leader of a nation abducted the leader of another?" },
+      { kind: "thought", text: "The bizarre use of pronouns pulls you outside your own body." },
+    ],
+  },
+
+  // ── On the shelf (no notes recorded) ────────────────────────────────
+  { slug: "mere-christianity", title: "Mere Christianity", author: "C.S. Lewis", notes: [] },
+  { slug: "the-great-divorce", title: "The Great Divorce", author: "C.S. Lewis", notes: [] },
+  { slug: "the-screwtape-letters", title: "The Screwtape Letters", author: "C.S. Lewis", notes: [] },
+  { slug: "who-ate-lunch-with-abraham", title: "Who Ate Lunch With Abraham?", author: "Chuck Missler", notes: [] },
+  { slug: "restoring-the-jewishness-of-the-gospel", title: "Restoring the Jewishness of the Gospel", author: "David H. Stern", notes: [] },
+  { slug: "meeting-jesus-again-for-the-first-time", title: "Meeting Jesus Again for the First Time", author: "Marcus J. Borg", notes: [] },
+  { slug: "come-lord-jesus", title: "Come, Lord Jesus", author: "John Piper", notes: [] },
+  { slug: "made-in-america", title: "Made in America", author: "Sam Walton", notes: [] },
+  { slug: "declaration-of-independence", title: "The Declaration of Independence", author: "Thomas Jefferson", notes: [] },
+  { slug: "lewis-and-clark-journals", title: "The Journals of Lewis and Clark", author: "Meriwether Lewis & William Clark", notes: [] },
+  { slug: "hillbilly-elegy", title: "Hillbilly Elegy", author: "J.D. Vance", notes: [] },
+  { slug: "co-intelligence", title: "Co-Intelligence", author: "Ethan Mollick", notes: [] },
+  { slug: "single-dating-engaged-married", title: "Single, Dating, Engaged, Married", author: "Ben Stuart", notes: [] },
+  { slug: "martyr", title: "Martyr!", author: "Kaveh Akbar", notes: [] },
+  { slug: "naked-statistics", title: "Naked Statistics", author: "Charles Wheelan", notes: [] },
+  { slug: "range", title: "Range", author: "David Epstein", notes: [] },
+];

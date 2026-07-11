@@ -1,7 +1,9 @@
 import { PROJECTS } from "@/content/projects";
 import { ART } from "@/content/art";
+import { BOOKS } from "@/content/books";
 import { ProjectCard } from "@/components/project-card";
 import { ArtGallery } from "@/components/art-gallery";
+import { ReadingShelf } from "@/components/reading-shelf";
 
 export default function HomePage() {
   return (
@@ -29,6 +31,9 @@ export default function HomePage() {
 
       {/* Visual art */}
       <ArtGallery pieces={ART} />
+
+      {/* Reading */}
+      <ReadingShelf books={BOOKS} />
 
       {/* Footer */}
       <footer className="mt-24 border-t border-slate-800 pt-6">
