@@ -21,6 +21,16 @@ export type ArtPiece = {
 
 export const ART: ArtPiece[] = [
   {
+    id: "discombobulated",
+    src: "/art/discombobulated.jpg",
+    alt: "Discombobulated — a fragmented, surreal portrait of a face coming apart, drawn in teal and orange colored pencil with graphite hatching on cream paper.",
+    title: "Discombobulated",
+    medium: "Graphite & Caran d'Ache colored pencil",
+    year: 2024,
+    width: 1200,
+    height: 1600,
+  },
+  {
     id: "art-01",
     src: "/art/art-01.jpg",
     alt: "Abstract ink drawing: small colorful outlined shapes and a tiny quadruped figure drifting like fragments across cream paper.",

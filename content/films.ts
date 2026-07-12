@@ -26,10 +26,10 @@ export const FILMS: Film[] = [
     title: "Letter to my Family",
     src: "/films/letter-to-my-family.mp4",
     poster: "/films/letter-to-my-family-poster.jpg",
-    medium: "Clay puppets · 1:18",
+    medium: "Mixed media · 1:18",
     bts: {
       src: "/films/letter-to-my-family-bts.jpg",
-      alt: "Behind the scenes: a DSLR on a rig aimed at the miniature set — clay puppets on a hand-painted backdrop in the Visual Arts Center studio.",
+      alt: "Behind the scenes: a DSLR on a rig aimed at the miniature set — handmade puppets on a hand-painted backdrop in the Visual Arts Center studio.",
       width: 1600,
       height: 1200,
     },
