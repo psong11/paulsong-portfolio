@@ -13,6 +13,8 @@ export type Film = {
   medium: string;
   /** True if the piece has no soundtrack. */
   silent?: boolean;
+  /** Optional behind-the-scenes still, shown small beneath the player. */
+  bts?: { src: string; alt: string; width: number; height: number };
   /** Intrinsic pixel dimensions of the encoded file. */
   width: number;
   height: number;
@@ -25,6 +27,12 @@ export const FILMS: Film[] = [
     src: "/films/letter-to-my-family.mp4",
     poster: "/films/letter-to-my-family-poster.jpg",
     medium: "Clay puppets · 1:18",
+    bts: {
+      src: "/films/letter-to-my-family-bts.jpg",
+      alt: "Behind the scenes: a DSLR on a rig aimed at the miniature set — clay puppets on a hand-painted backdrop in the Visual Arts Center studio.",
+      width: 1600,
+      height: 1200,
+    },
     width: 1280,
     height: 720,
   },

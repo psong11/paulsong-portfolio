@@ -1,9 +1,10 @@
+import Image from "next/image";
 import type { Film } from "@/content/films";
 
 // Native <video> with a poster and controls — click to play. preload="none"
 // so the 8MB clip isn't fetched until wanted. Art films keep their audio.
 function FilmCard({ film }: { film: Film }) {
-  const { title, src, poster, medium, silent } = film;
+  const { title, src, poster, medium, silent, bts } = film;
 
   return (
     <figure className="flex flex-col">
@@ -24,6 +25,20 @@ function FilmCard({ film }: { film: Film }) {
         {silent && <span className="label shrink-0">silent</span>}
       </figcaption>
       <p className="mt-1 font-mono text-[0.7rem] text-slate-500">{medium}</p>
+
+      {bts && (
+        <div className="mt-4">
+          <p className="label mb-2">Behind the scenes</p>
+          <Image
+            src={bts.src}
+            alt={bts.alt}
+            width={bts.width}
+            height={bts.height}
+            sizes="(max-width: 640px) 100vw, 50vw"
+            className="h-auto w-full rounded-lg border border-slate-800"
+          />
+        </div>
+      )}
     </figure>
   );
 }
