@@ -1,8 +1,10 @@
 import { PROJECTS } from "@/content/projects";
 import { ART } from "@/content/art";
+import { FILMS } from "@/content/films";
 import { BOOKS } from "@/content/books";
 import { ProjectCard } from "@/components/project-card";
 import { ArtGallery } from "@/components/art-gallery";
+import { FilmGallery } from "@/components/film-gallery";
 import { ReadingShelf } from "@/components/reading-shelf";
 
 export default function HomePage() {
@@ -31,6 +33,9 @@ export default function HomePage() {
 
       {/* Visual art */}
       <ArtGallery pieces={ART} />
+
+      {/* Stop-motion films */}
+      <FilmGallery films={FILMS} />
 
       {/* Reading */}
       <ReadingShelf books={BOOKS} />
