@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { PROJECTS } from "@/content/projects";
 import { ART } from "@/content/art";
 import { FILMS } from "@/content/films";
@@ -11,17 +12,28 @@ export default function HomePage() {
   return (
     <main className="mx-auto min-h-screen max-w-5xl px-6 py-20 sm:py-28">
       {/* Masthead */}
-      <header className="max-w-2xl">
-        <p className="label">Paul Song · selected work</p>
-        <h1 className="mt-4 font-serif text-4xl font-medium leading-[1.05] tracking-tight text-slate-50 sm:text-5xl">
-          Building where technology meets the living world.
-        </h1>
-        <p className="mt-5 font-serif text-lg leading-relaxed text-slate-400">
-          I build systems at the seam of software and the physical world — farms
-          and sensors, scripture and infrastructure, and the living things in
-          between. Each project below started with a real problem and a person
-          it mattered to.
-        </p>
+      <header className="flex flex-col-reverse gap-8 sm:flex-row sm:items-center sm:justify-between sm:gap-10">
+        <div className="max-w-2xl">
+          <p className="label">Paul Song · selected work</p>
+          <h1 className="mt-4 font-serif text-4xl font-medium leading-[1.05] tracking-tight text-slate-50 sm:text-5xl">
+            Building where technology meets the living world.
+          </h1>
+          <p className="mt-5 font-serif text-lg leading-relaxed text-slate-400">
+            I build systems at the seam of software and the physical world —
+            farms and sensors, scripture and infrastructure, and the living
+            things in between. Each project below started with a real problem
+            and a person it mattered to.
+          </p>
+        </div>
+        <Image
+          src="/paul-portrait.jpg"
+          alt="Paul Song — a motion-blurred portrait in front of white spring blossoms."
+          width={1200}
+          height={1800}
+          priority
+          sizes="(max-width: 640px) 60vw, 200px"
+          className="w-40 shrink-0 self-start rounded-lg border border-slate-800 object-cover sm:w-48 sm:self-auto"
+        />
       </header>
 
       {/* Project grid */}
