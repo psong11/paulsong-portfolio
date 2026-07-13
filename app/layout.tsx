@@ -19,13 +19,13 @@ const SITE_URL =
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: "Paul Song — building where technology meets the living world",
+  title: "Paul Song — old systems, made new",
   description:
-    "A body of work at the seam of software and the physical world — farms, sensors, scripture, infrastructure, and the living things in between.",
+    "Farms, gas lines, paper archives, ancient languages, membership desks — infrastructure people depend on, rebuilt with AI, sensors, and care.",
   openGraph: {
-    title: "Paul Song — building where technology meets the living world",
+    title: "Paul Song — old systems, made new",
     description:
-      "Projects at the seam of software and the physical world — farms, sensors, scripture, infrastructure, and the living things in between.",
+      "Farms, gas lines, paper archives, ancient languages, membership desks — infrastructure people depend on, rebuilt with AI, sensors, and care.",
     url: SITE_URL,
     siteName: "Paul Song",
     type: "website",
@@ -42,7 +42,7 @@ export default function RootLayout({
       lang="en"
       className={`${newsreader.variable} ${jetbrainsMono.variable} antialiased`}
     >
-      <body className="bg-slate-900 text-slate-200">{children}</body>
+      <body className="bg-paper text-ink-soft">{children}</body>
     </html>
   );
 }

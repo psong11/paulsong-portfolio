@@ -9,11 +9,11 @@ function Note({ note }: { note: Marginalia }) {
   if (note.kind === "quote") {
     return (
       <div className="border-l-[3px] border-leaf pl-4">
-        <p className="font-serif text-[1.02rem] italic leading-relaxed text-slate-300">
+        <p className="font-serif text-[1.02rem] italic leading-relaxed text-ink-soft">
           {note.text}
         </p>
         {note.page != null && (
-          <p className="mt-1 font-mono text-[0.65rem] tracking-[0.1em] text-slate-600">
+          <p className="mt-1 font-mono text-[0.65rem] tracking-[0.1em] text-ink-faint">
             p. {note.page}
           </p>
         )}
@@ -25,7 +25,7 @@ function Note({ note }: { note: Marginalia }) {
       <p className="mb-1 font-mono text-[0.6rem] uppercase tracking-[0.15em] text-leaf">
         thought{note.page != null && ` · p. ${note.page}`}
       </p>
-      <p className="font-serif text-[0.92rem] leading-relaxed text-slate-400">
+      <p className="font-serif text-[0.92rem] leading-relaxed text-ink-muted">
         {note.text}
       </p>
     </div>
@@ -45,16 +45,16 @@ function RowHeader({
   return (
     <>
       <span className="flex flex-wrap items-baseline gap-x-2.5 gap-y-1">
-        <span className="font-serif text-lg text-slate-200">{title}</span>
+        <span className="font-serif text-lg text-ink-soft">{title}</span>
         {author && (
-          <span className="font-serif text-[0.9rem] italic text-slate-500">
+          <span className="font-serif text-[0.9rem] italic text-ink-faint">
             {author}
           </span>
         )}
       </span>
       <span className="flex flex-shrink-0 items-center gap-3">
         {meta && (
-          <span className="font-mono text-[0.7rem] tracking-[0.1em] text-slate-600">
+          <span className="font-mono text-[0.7rem] tracking-[0.1em] text-ink-faint">
             {meta}
           </span>
         )}
@@ -75,14 +75,14 @@ function BookRow({ book }: { book: Book }) {
   // A book with no notes is just a titled row — nothing to open.
   if (book.notes.length === 0) {
     return (
-      <div className="flex items-baseline justify-between gap-4 border-t border-slate-800 py-4 last:border-b">
+      <div className="flex items-baseline justify-between gap-4 border-t border-line-soft py-4 last:border-b">
         <RowHeader book={book} expandable={false} />
       </div>
     );
   }
 
   return (
-    <details className="group border-t border-slate-800 last:border-b">
+    <details className="group border-t border-line-soft last:border-b">
       <summary className="flex cursor-pointer list-none items-baseline justify-between gap-4 py-4 [&::-webkit-details-marker]:hidden">
         <RowHeader book={book} expandable />
       </summary>
@@ -112,10 +112,10 @@ export function ReadingShelf({ books }: { books: Book[] }) {
     <section className="mt-24">
       <header className="max-w-2xl">
         <p className="label">Reading</p>
-        <h2 className="mt-4 font-serif text-2xl font-medium leading-tight text-slate-50 sm:text-3xl">
+        <h2 className="mt-4 font-serif text-2xl font-medium leading-tight text-ink sm:text-3xl">
           What I&rsquo;m reading, and the lines that stuck.
         </h2>
-        <p className="mt-3 font-serif text-base leading-relaxed text-slate-400">
+        <p className="mt-3 font-serif text-base leading-relaxed text-ink-muted">
           A running shelf — open a book to read the margins.
         </p>
       </header>

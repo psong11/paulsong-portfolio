@@ -19,11 +19,11 @@ export default function KeplerJourneyPage() {
       <div className="mx-auto flex max-w-[68ch] items-center justify-between gap-4 px-6 pt-12 pb-2 sm:pt-16">
         <Link
           href="/"
-          className="font-mono text-xs uppercase tracking-[0.2em] text-slate-400 hover:text-[var(--color-leaf)]"
+          className="font-mono text-xs uppercase tracking-[0.2em] text-ink-muted hover:text-[var(--color-leaf)]"
         >
           ← Portfolio
         </Link>
-        <span className="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-slate-500">
+        <span className="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-ink-faint">
           <span
             className="h-2 w-2 rounded-full"
             style={{ backgroundColor: project.accent }}
@@ -39,12 +39,12 @@ export default function KeplerJourneyPage() {
       </article>
 
       {/* Build gallery */}
-      <section className="border-t border-slate-700">
+      <section className="border-t border-line">
         <div className="mx-auto max-w-[68ch] px-6 pt-10">
-          <p className="font-mono text-xs uppercase tracking-[0.2em] text-slate-400">
+          <p className="font-mono text-xs uppercase tracking-[0.2em] text-ink-muted">
             Build Gallery
           </p>
-          <p className="mt-2 font-serif text-sm text-slate-500">
+          <p className="mt-2 font-serif text-sm text-ink-faint">
             From the bench and the balcony — the build, photographed.
           </p>
         </div>
@@ -56,7 +56,7 @@ export default function KeplerJourneyPage() {
                 href={photo.src}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="relative block aspect-[4/3] overflow-hidden rounded-sm border border-slate-700 bg-slate-900"
+                className="relative block aspect-[4/3] overflow-hidden rounded-sm border border-line bg-mat"
               >
                 <Image
                   src={photo.src}
@@ -66,7 +66,7 @@ export default function KeplerJourneyPage() {
                   className="object-cover transition-transform duration-500 hover:scale-[1.03]"
                 />
               </a>
-              <figcaption className="mt-2 font-serif text-sm leading-snug text-slate-400">
+              <figcaption className="mt-2 font-serif text-sm leading-snug text-ink-muted">
                 {photo.caption}
               </figcaption>
             </figure>

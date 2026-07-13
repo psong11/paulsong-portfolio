@@ -67,11 +67,11 @@ export default function FloradexJourneyPage() {
       <div className="mx-auto flex max-w-[68ch] items-center justify-between gap-4 px-6 pt-12 pb-2 sm:pt-16">
         <Link
           href="/"
-          className="font-mono text-xs uppercase tracking-[0.2em] text-slate-400 hover:text-[var(--color-leaf)]"
+          className="font-mono text-xs uppercase tracking-[0.2em] text-ink-muted hover:text-[var(--color-leaf)]"
         >
           ← Portfolio
         </Link>
-        <span className="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-slate-500">
+        <span className="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-ink-faint">
           <span
             className="h-2 w-2 rounded-full"
             style={{ backgroundColor: accent }}
@@ -83,13 +83,13 @@ export default function FloradexJourneyPage() {
 
       {/* Hero */}
       <header className="mx-auto max-w-[68ch] px-6 pt-8 pb-4">
-        <h1 className="font-serif text-4xl font-medium leading-[1.05] tracking-tight text-slate-50 sm:text-5xl">
+        <h1 className="font-serif text-4xl font-medium leading-[1.05] tracking-tight text-ink sm:text-5xl">
           Floradex
         </h1>
-        <p className="mt-4 font-serif text-lg leading-relaxed text-slate-300">
+        <p className="mt-4 font-serif text-lg leading-relaxed text-ink-soft">
           {project.tagline}
         </p>
-        <p className="mt-4 font-serif text-base leading-relaxed text-slate-400">
+        <p className="mt-4 font-serif text-base leading-relaxed text-ink-muted">
           A curiosity about the living world, made tactile — point your phone at
           a plant and watch a box find it, name it, and remember it. Underneath
           the toy is a clean engineering idea: <em>real-time detection</em> and{" "}
@@ -99,7 +99,7 @@ export default function FloradexJourneyPage() {
         </p>
         <div className="mt-6 flex flex-wrap items-center gap-x-3 gap-y-1">
           {project.tags.map((t) => (
-            <span key={t} className="font-mono text-[0.72rem] text-slate-500">
+            <span key={t} className="font-mono text-[0.72rem] text-ink-faint">
               {t}
             </span>
           ))}
@@ -108,10 +108,10 @@ export default function FloradexJourneyPage() {
 
       {/* Demo videos — muted, autoplay, looping, no audio track at all */}
       <section className="mx-auto max-w-[68ch] px-6 pt-6 pb-2">
-        <p className="font-mono text-xs uppercase tracking-[0.2em] text-slate-400">
+        <p className="font-mono text-xs uppercase tracking-[0.2em] text-ink-muted">
           In Motion
         </p>
-        <p className="mt-2 font-serif text-sm text-slate-500">
+        <p className="mt-2 font-serif text-sm text-ink-faint">
           The app running on a phone — the full capture flow end to end, then a
           closer look at the live detection loop.
         </p>
@@ -120,7 +120,7 @@ export default function FloradexJourneyPage() {
           {/* Video 1 — the main demo: the full end-to-end flow (shipped) */}
           <figure className="flex flex-col items-center">
             <div
-              className="overflow-hidden rounded-[2rem] border-2 bg-slate-900 p-1.5 shadow-2xl"
+              className="overflow-hidden rounded-[2rem] border-2 bg-ink p-1.5 shadow-xl"
               style={{ borderColor: `${accent}55` }}
             >
               <video
@@ -135,7 +135,7 @@ export default function FloradexJourneyPage() {
                 <source src="/projects/floradex/main-demo.mp4" type="video/mp4" />
               </video>
             </div>
-            <figcaption className="mt-3 max-w-[26ch] text-center font-serif text-sm leading-snug text-slate-400">
+            <figcaption className="mt-3 max-w-[26ch] text-center font-serif text-sm leading-snug text-ink-muted">
               The whole loop end to end — a live box finds the plant, a tap names
               the species, and Claude writes the card it's filed under.
             </figcaption>
@@ -144,7 +144,7 @@ export default function FloradexJourneyPage() {
           {/* Video 2 — a closer look at the live detection loop */}
           <figure className="flex flex-col items-center">
             <div
-              className="overflow-hidden rounded-[2rem] border-2 bg-slate-900 p-1.5 shadow-2xl"
+              className="overflow-hidden rounded-[2rem] border-2 bg-ink p-1.5 shadow-xl"
               style={{ borderColor: `${accent}55` }}
             >
               <video
@@ -159,9 +159,8 @@ export default function FloradexJourneyPage() {
                 <source src="/projects/floradex/demo.mp4" type="video/mp4" />
               </video>
             </div>
-            <figcaption className="mt-3 max-w-[26ch] text-center font-serif text-sm leading-snug text-slate-400">
-              A closer look at live detection — the box tracking a plant on-device
-              at ~30 fps.
+            <figcaption className="mt-3 max-w-[26ch] text-center font-serif text-sm leading-snug text-ink-muted">
+              Flora collected so far!
             </figcaption>
           </figure>
         </div>
@@ -169,10 +168,10 @@ export default function FloradexJourneyPage() {
 
       {/* What it's for */}
       <section className="mx-auto max-w-[68ch] px-6 pt-12">
-        <h2 className="font-serif text-2xl font-medium text-slate-50">
+        <h2 className="font-serif text-2xl font-medium text-ink">
           What it is
         </h2>
-        <p className="mt-4 font-serif text-base leading-relaxed text-slate-300">
+        <p className="mt-4 font-serif text-base leading-relaxed text-ink-soft">
           Floradex is a native iOS (Swift/SwiftUI) computer-vision app. Aim it at
           a plant and a bounding box tracks it live at ~30 fps; tap the shutter
           and it identifies the species; save it, and Claude writes a small
@@ -185,10 +184,10 @@ export default function FloradexJourneyPage() {
 
       {/* Architecture — the three-stage pipeline */}
       <section className="mx-auto max-w-[76ch] px-6 pt-14">
-        <h2 className="max-w-[68ch] font-serif text-2xl font-medium text-slate-50">
+        <h2 className="max-w-[68ch] font-serif text-2xl font-medium text-ink">
           Architecture — a three-stage pipeline
         </h2>
-        <p className="mt-4 max-w-[68ch] font-serif text-base leading-relaxed text-slate-400">
+        <p className="mt-4 max-w-[68ch] font-serif text-base leading-relaxed text-ink-muted">
           The pipeline deliberately splits “real-time” from “accurate.” The
           latency-critical loop stays on the device; the accuracy-critical work
           lives in the cloud, off the hot path.
@@ -197,7 +196,7 @@ export default function FloradexJourneyPage() {
         <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-3">
           {STAGES.map((stage, i) => (
             <div key={stage.n} className="relative flex">
-              <div className="flex w-full flex-col rounded-lg border border-slate-800 bg-slate-800/40 p-5">
+              <div className="flex w-full flex-col rounded-lg border border-line-soft bg-card p-5">
                 <div className="flex items-center justify-between">
                   <span
                     className="font-mono text-xs font-medium"
@@ -209,24 +208,24 @@ export default function FloradexJourneyPage() {
                     className="rounded-full border px-2 py-0.5 font-mono text-[0.6rem] uppercase tracking-[0.15em]"
                     style={{
                       borderColor:
-                        stage.zone === "device" ? `${accent}66` : "#33415580",
+                        stage.zone === "device" ? `${accent}66` : "#d8d0bd",
                       color:
-                        stage.zone === "device" ? accent : "var(--color-text-faint)",
+                        stage.zone === "device" ? accent : "var(--color-ink-faint)",
                     }}
                   >
                     {stage.zone === "device" ? "on-device" : "cloud"}
                   </span>
                 </div>
-                <h3 className="mt-3 font-serif text-lg font-medium text-slate-50">
+                <h3 className="mt-3 font-serif text-lg font-medium text-ink">
                   {stage.name}
                 </h3>
-                <p className="font-mono text-[0.7rem] text-slate-500">
+                <p className="font-mono text-[0.7rem] text-ink-faint">
                   {stage.where}
                 </p>
-                <p className="mt-1 font-mono text-[0.7rem] text-slate-400">
+                <p className="mt-1 font-mono text-[0.7rem] text-ink-muted">
                   {stage.tech}
                 </p>
-                <p className="mt-3 font-serif text-sm leading-relaxed text-slate-400">
+                <p className="mt-3 font-serif text-sm leading-relaxed text-ink-muted">
                   {stage.body}
                 </p>
               </div>
@@ -246,13 +245,13 @@ export default function FloradexJourneyPage() {
 
         {/* Key insight callout */}
         <div
-          className="mt-6 max-w-[68ch] rounded-lg border-l-[3px] bg-slate-800/30 py-4 pl-5 pr-4"
+          className="mt-6 max-w-[68ch] rounded-lg border-l-[3px] bg-mat/60 py-4 pl-5 pr-4"
           style={{ borderColor: accent }}
         >
-          <p className="font-mono text-[0.7rem] uppercase tracking-[0.2em] text-slate-500">
+          <p className="font-mono text-[0.7rem] uppercase tracking-[0.2em] text-ink-faint">
             The key insight
           </p>
-          <p className="mt-2 font-serif text-base leading-relaxed text-slate-300">
+          <p className="mt-2 font-serif text-base leading-relaxed text-ink-soft">
             “Identify a plant with a YOLO-style box” secretly bundles two
             different CV problems: <strong>object detection</strong> (real-time,
             few classes, on-device) and{" "}
@@ -265,7 +264,7 @@ export default function FloradexJourneyPage() {
 
       {/* Lessons — the engineering underneath */}
       <section className="mx-auto max-w-[68ch] px-6 pt-14">
-        <h2 className="font-serif text-2xl font-medium text-slate-50">
+        <h2 className="font-serif text-2xl font-medium text-ink">
           What it took
         </h2>
         <div className="mt-6 flex flex-col gap-8">
@@ -279,17 +278,17 @@ export default function FloradexJourneyPage() {
               }
             >
               <div className={lesson.image ? "sm:flex-1" : undefined}>
-                <h3 className="font-serif text-lg font-medium text-slate-200">
+                <h3 className="font-serif text-lg font-medium text-ink-soft">
                   {lesson.title}
                 </h3>
-                <p className="mt-2 font-serif text-sm leading-relaxed text-slate-400">
+                <p className="mt-2 font-serif text-sm leading-relaxed text-ink-muted">
                   {lesson.body}
                 </p>
               </div>
               {lesson.image && (
                 <figure className="flex shrink-0 flex-col items-center sm:w-[180px]">
                   <div
-                    className="overflow-hidden rounded-[1.5rem] border-2 bg-slate-900 p-1 shadow-2xl"
+                    className="overflow-hidden rounded-[1.5rem] border-2 bg-ink p-1 shadow-xl"
                     style={{ borderColor: `${accent}55` }}
                   >
                     {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -300,7 +299,7 @@ export default function FloradexJourneyPage() {
                       loading="lazy"
                     />
                   </div>
-                  <figcaption className="mt-3 max-w-[26ch] text-center font-serif text-xs leading-snug text-slate-500">
+                  <figcaption className="mt-3 max-w-[26ch] text-center font-serif text-xs leading-snug text-ink-faint">
                     {lesson.image.caption}
                   </figcaption>
                 </figure>
@@ -312,7 +311,7 @@ export default function FloradexJourneyPage() {
 
       {/* Roadmap */}
       <section className="mx-auto max-w-[68ch] px-6 pt-14 pb-24">
-        <h2 className="font-serif text-2xl font-medium text-slate-50">
+        <h2 className="font-serif text-2xl font-medium text-ink">
           Where it's going
         </h2>
         <div className="mt-6 flex flex-col gap-4">
@@ -323,19 +322,19 @@ export default function FloradexJourneyPage() {
             >
               Done
             </span>
-            <p className="font-serif text-sm leading-relaxed text-slate-300">
-              <strong className="text-slate-200">Phase 1 — the vertical slice.</strong>{" "}
+            <p className="font-serif text-sm leading-relaxed text-ink-soft">
+              <strong className="text-ink-soft">Phase 1 — the vertical slice.</strong>{" "}
               Real-time on-device detection → capture → global species ID
               (Pl@ntNet) → AI enrichment (Claude) → a durable local collection
               (SwiftData). A complete path, working end to end on real plants.
             </p>
           </div>
           <div className="flex gap-4">
-            <span className="mt-1 font-mono text-[0.7rem] uppercase tracking-[0.15em] text-slate-500">
+            <span className="mt-1 font-mono text-[0.7rem] uppercase tracking-[0.15em] text-ink-faint">
               Next
             </span>
-            <p className="font-serif text-sm leading-relaxed text-slate-400">
-              <strong className="text-slate-300">Phase 2 — the ML deep-dive.</strong>{" "}
+            <p className="font-serif text-sm leading-relaxed text-ink-muted">
+              <strong className="text-ink-soft">Phase 2 — the ML deep-dive.</strong>{" "}
               Train a custom plant detector (fine-tune YOLO on a plant dataset,
               evaluate, export to Core ML) and swap it in for Apple's saliency —
               directly fixing the low-contrast-foliage failure found in the

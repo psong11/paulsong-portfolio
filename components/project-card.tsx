@@ -22,11 +22,11 @@ export function ProjectCard({ project }: { project: Project }) {
 
   const card = (
     <article
-      className="group flex h-full flex-col overflow-hidden rounded-lg border border-slate-800 bg-slate-800/40 transition-colors duration-300 hover:border-slate-700"
+      className="group flex h-full flex-col overflow-hidden rounded-lg border border-line-soft bg-card transition-colors duration-300 hover:border-line"
       style={{ ["--accent" as string]: accent }}
     >
       {/* Thumbnail — real image if we have one, else a tinted placeholder */}
-      <div className="relative aspect-[16/10] w-full overflow-hidden bg-slate-900">
+      <div className="relative aspect-[16/10] w-full overflow-hidden bg-mat">
         {thumbnail ? (
           <Image
             src={thumbnail}
@@ -39,7 +39,7 @@ export function ProjectCard({ project }: { project: Project }) {
           <div
             className="flex h-full w-full items-center justify-center"
             style={{
-              background: `radial-gradient(120% 120% at 30% 20%, ${accent}22, transparent 60%), #0f172a`,
+              background: `radial-gradient(120% 120% at 30% 20%, ${accent}22, transparent 60%), #f1ecdf`,
             }}
           >
             <span
@@ -60,23 +60,23 @@ export function ProjectCard({ project }: { project: Project }) {
       {/* Body */}
       <div className="flex flex-1 flex-col gap-3 p-5">
         <div className="flex items-baseline justify-between gap-3">
-          <h2 className="font-serif text-xl font-medium text-slate-50">
+          <h2 className="font-serif text-xl font-medium text-ink">
             {title}
           </h2>
           <span className="label shrink-0">{STATUS_LABEL[status]}</span>
         </div>
 
-        <p className="font-serif text-[0.95rem] leading-snug text-slate-200">
+        <p className="font-serif text-[0.95rem] leading-snug text-ink-soft">
           {tagline}
         </p>
 
-        <p className="font-serif text-sm leading-relaxed text-slate-400">
+        <p className="font-serif text-sm leading-relaxed text-ink-muted">
           {why}
         </p>
 
         <div className="mt-auto flex flex-wrap items-center gap-x-3 gap-y-1 pt-2">
           {tags.map((t) => (
-            <span key={t} className="font-mono text-[0.7rem] text-slate-500">
+            <span key={t} className="font-mono text-[0.7rem] text-ink-faint">
               {t}
             </span>
           ))}
@@ -99,7 +99,7 @@ export function ProjectCard({ project }: { project: Project }) {
   if (!target) return card;
 
   const className =
-    "block h-full rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-500";
+    "block h-full rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-leaf";
 
   return target.external ? (
     <a href={target.href} target="_blank" rel="noopener noreferrer" className={className}>

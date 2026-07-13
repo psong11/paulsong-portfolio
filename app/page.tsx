@@ -1,9 +1,13 @@
 import Image from "next/image";
 import { PROJECTS } from "@/content/projects";
+import { PATH } from "@/content/path";
+import { TOOLBOX } from "@/content/toolbox";
 import { ART } from "@/content/art";
 import { FILMS } from "@/content/films";
 import { BOOKS } from "@/content/books";
 import { ProjectCard } from "@/components/project-card";
+import { PathTimeline } from "@/components/path-timeline";
+import { Toolbox } from "@/components/toolbox";
 import { ArtGallery } from "@/components/art-gallery";
 import { FilmGallery } from "@/components/film-gallery";
 import { ReadingShelf } from "@/components/reading-shelf";
@@ -14,15 +18,15 @@ export default function HomePage() {
       {/* Masthead */}
       <header className="flex flex-col-reverse gap-8 sm:flex-row sm:items-center sm:justify-between sm:gap-10">
         <div className="max-w-2xl">
-          <p className="label">Paul Song · selected work</p>
-          <h1 className="mt-4 font-serif text-4xl font-medium leading-[1.05] tracking-tight text-slate-50 sm:text-5xl">
-            Building where technology meets the living world.
+          <p className="label">Paul Song · Bentonville, Arkansas</p>
+          <h1 className="mt-4 font-serif text-4xl font-medium leading-[1.05] tracking-tight text-ink sm:text-5xl">
+            Old systems, made new.
           </h1>
-          <p className="mt-5 font-serif text-lg leading-relaxed text-slate-400">
-            I build systems at the seam of software and the physical world —
-            farms and sensors, scripture and infrastructure, and the living
-            things in between. Each project below started with a real problem
-            and a person it mattered to.
+          <p className="mt-5 font-serif text-lg leading-relaxed text-ink-muted">
+            Farms, gas lines, paper archives, ancient languages, membership
+            desks — I take infrastructure people depend on and rebuild it with
+            AI, sensors, and whatever tool the problem asks for. Each project
+            below started with a real problem and a person it mattered to.
           </p>
         </div>
         <Image
@@ -32,16 +36,31 @@ export default function HomePage() {
           height={1800}
           priority
           sizes="(max-width: 640px) 60vw, 200px"
-          className="w-40 shrink-0 self-start rounded-lg border border-slate-800 object-cover sm:w-48 sm:self-auto"
+          className="w-40 shrink-0 self-start rounded-lg border border-line object-cover sm:w-48 sm:self-auto"
         />
       </header>
 
       {/* Project grid */}
-      <section className="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {PROJECTS.map((project) => (
-          <ProjectCard key={project.slug} project={project} />
-        ))}
+      <section className="mt-16">
+        <p className="label">Selected work</p>
+        <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {PROJECTS.map((project) => (
+            <ProjectCard key={project.slug} project={project} />
+          ))}
+        </div>
       </section>
+
+      {/* Path */}
+      <PathTimeline stops={PATH} />
+
+      {/* Toolbox */}
+      <Toolbox clusters={TOOLBOX} />
+
+      {/* Away from the screen — the quiet second half */}
+      <div className="mt-28 flex items-center gap-4">
+        <span className="label">Away from the screen</span>
+        <span className="h-px flex-1 bg-line-soft" aria-hidden />
+      </div>
 
       {/* Visual art */}
       <ArtGallery pieces={ART} />
@@ -53,9 +72,33 @@ export default function HomePage() {
       <ReadingShelf books={BOOKS} />
 
       {/* Footer */}
-      <footer className="mt-24 border-t border-slate-800 pt-6">
+      <footer className="mt-24 flex flex-wrap items-baseline justify-between gap-4 border-t border-line-soft pt-6">
         <p className="label">
           {PROJECTS.length} projects · more in the works
+        </p>
+        <p className="flex gap-5 font-mono text-[0.7rem] uppercase tracking-[0.15em]">
+          <a
+            href="https://github.com/psong11"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-ink-faint transition-colors hover:text-leaf"
+          >
+            GitHub
+          </a>
+          <a
+            href="https://www.linkedin.com/in/paulsong24/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-ink-faint transition-colors hover:text-leaf"
+          >
+            LinkedIn
+          </a>
+          <a
+            href="mailto:paulsong24@gmail.com"
+            className="text-ink-faint transition-colors hover:text-leaf"
+          >
+            Email
+          </a>
         </p>
       </footer>
     </main>

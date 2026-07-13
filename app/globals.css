@@ -6,22 +6,26 @@
     monospace;
   --font-sans: var(--font-newsreader), Georgia, serif;
 
-  /* Shared accent across the portfolio — the same soft sage as wy2z, the
-     through-line of the personal brand. Individual projects carry their own
-     accent in content/projects.ts for per-card hairlines and dots. */
-  --color-leaf: #8aaf8a;
-  --color-leaf-deep: #6b8e6b;
+  /* Shared accent across the portfolio — the same moss green that runs
+     through wy2z, deepened to hold its own on paper. Individual projects
+     carry their own accent in content/projects.ts. */
+  --color-leaf: #567a58;
+  --color-leaf-deep: #3e5a40;
+  /* A warm counter-accent, used sparingly (selection, rare highlights). */
+  --color-clay: #b3532f;
 
-  /* Surface palette — a slate-blue night sky, identical to wy2z so the whole
-     body of work feels like one hand made it. */
-  --color-surface: #0f172a; /* slate-900 */
-  --color-surface-raised: #1e293b; /* slate-800 */
-  --color-border: #334155; /* slate-700 */
-  --color-border-soft: #1e293b; /* slate-800 */
-  --color-text: #e2e8f0; /* slate-200 */
-  --color-text-strong: #f8fafc; /* slate-50 */
-  --color-text-muted: #94a3b8; /* slate-400 */
-  --color-text-faint: #64748b; /* slate-500 */
+  /* Surface palette — "Field Notes": warm paper instead of the old night
+     sky. The ground is the same cream as the art mats, so the whole site
+     reads like the gallery wall the work is hung on. */
+  --color-paper: #faf7f0; /* page ground */
+  --color-mat: #f1ecdf; /* raised surfaces: code, placeholders, callouts */
+  --color-card: #fffcf6; /* card grounds — a lighter sheet on the paper */
+  --color-line: #d8d0bd; /* strong hairline / hover borders */
+  --color-line-soft: #e6dfcd; /* default hairline */
+  --color-ink: #1f1b16; /* strongest text */
+  --color-ink-soft: #332e26; /* body text */
+  --color-ink-muted: #6d6557; /* secondary text */
+  --color-ink-faint: #837a69; /* labels, metadata */
 }
 
 body {
@@ -30,19 +34,23 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+::selection {
+  background: #e4d9c2;
+}
+
 /* Small uppercase mono label — the recurring typographic motif. */
 .label {
   font-family: var(--font-mono);
   font-size: 0.7rem;
   text-transform: uppercase;
   letter-spacing: 0.2em;
-  color: var(--color-text-faint);
+  color: var(--color-ink-faint);
 }
 
-/* Editorial prose for the build journals. Long-form reading on dark.
+/* Editorial prose for the build journals. Long-form reading on paper.
    Shared with wy2z so every project's journey reads identically. */
 .prose-article {
-  color: var(--color-text);
+  color: var(--color-ink-soft);
   font-family: var(--font-serif);
   line-height: 1.7;
 }
@@ -53,7 +61,7 @@ body {
   letter-spacing: -0.02em;
   margin-top: 1.5rem;
   margin-bottom: 0.75rem;
-  color: var(--color-text-strong);
+  color: var(--color-ink);
 }
 @media (min-width: 640px) {
   .prose-article h1 {
@@ -62,7 +70,7 @@ body {
 }
 .prose-article > p:first-of-type {
   font-size: 1.125rem;
-  color: var(--color-text-muted);
+  color: var(--color-ink-muted);
   margin-bottom: 2rem;
 }
 .prose-article h2 {
@@ -72,14 +80,14 @@ body {
   letter-spacing: -0.015em;
   margin-top: 3rem;
   margin-bottom: 1rem;
-  color: var(--color-text-strong);
+  color: var(--color-ink);
 }
 .prose-article h3 {
   font-size: 1.25rem;
   font-weight: 500;
   margin-top: 2rem;
   margin-bottom: 0.75rem;
-  color: var(--color-text);
+  color: var(--color-ink-soft);
 }
 .prose-article p {
   margin-top: 1rem;
@@ -88,35 +96,35 @@ body {
 }
 .prose-article hr {
   border: 0;
-  border-top: 1px solid var(--color-border);
+  border-top: 1px solid var(--color-line);
   margin: 2.5rem 0;
 }
 .prose-article blockquote {
   border-left: 3px solid var(--color-leaf);
   padding-left: 1rem;
   margin: 1.5rem 0;
-  color: var(--color-text-muted);
+  color: var(--color-ink-muted);
   font-style: italic;
 }
 .prose-article code {
   font-family: var(--font-mono);
   font-size: 0.875em;
-  background: var(--color-surface-raised);
+  background: var(--color-mat);
   padding: 0.1em 0.35em;
   border-radius: 3px;
-  color: var(--color-text);
+  color: var(--color-ink-soft);
 }
 .prose-article pre {
   font-family: var(--font-mono);
   font-size: 0.85rem;
-  background: var(--color-surface-raised);
-  border: 1px solid var(--color-border);
+  background: var(--color-mat);
+  border: 1px solid var(--color-line-soft);
   border-radius: 4px;
   padding: 1rem 1.25rem;
   overflow-x: auto;
   margin: 1.5rem 0;
   line-height: 1.55;
-  color: var(--color-text);
+  color: var(--color-ink-soft);
 }
 .prose-article pre code {
   background: transparent;
@@ -140,7 +148,7 @@ body {
 .prose-article a {
   color: inherit;
   text-decoration: underline;
-  text-decoration-color: var(--color-text-faint);
+  text-decoration-color: var(--color-ink-faint);
   text-underline-offset: 4px;
 }
 .prose-article a:hover {
@@ -156,19 +164,19 @@ body {
 .prose-article td {
   text-align: left;
   padding: 0.5rem 0.75rem;
-  border-bottom: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-line-soft);
 }
 .prose-article th {
   font-family: var(--font-mono);
   font-size: 0.7rem;
   text-transform: uppercase;
   letter-spacing: 0.15em;
-  color: var(--color-text-faint);
+  color: var(--color-ink-faint);
   font-weight: 500;
 }
 .prose-article strong {
   font-weight: 600;
-  color: var(--color-text-strong);
+  color: var(--color-ink);
 }
 .prose-article em {
   font-style: italic;

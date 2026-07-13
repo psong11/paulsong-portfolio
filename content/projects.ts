@@ -34,7 +34,7 @@ export const PROJECTS: Project[] = [
     why: "The reliable, self-sustaining sensing layer a small regenerative farm could never afford — starting with the unglamorous fundamentals of power and reachability.",
     tags: ["ESP32-C6", "INA219", "solar", "arduino-cli"],
     status: "in progress",
-    accent: "#8aa2ef", // starlight indigo — a distant world phoning home
+    accent: "#5468b8", // starlight indigo, inked for paper — a distant world phoning home
     journey: true,
     thumbnail: "/thumbnails/kepler452b.jpg",
   },
@@ -46,7 +46,7 @@ export const PROJECTS: Project[] = [
     why: "Care for living things, and a small answer to food insecurity — a Pi, a camera, and Claude watching a tomato while I was a thousand miles away.",
     tags: ["Raspberry Pi", "Jetson", "ESP32", "Claude vision", "Supabase"],
     status: "shipped",
-    accent: "#8aaf8a", // sage
+    accent: "#567a58", // sage, inked for paper
     liveUrl: "https://wy2z.vercel.app",
     thumbnail: "/thumbnails/wy2z.jpg", // the live project's own timelapse poster
   },
@@ -58,7 +58,7 @@ export const PROJECTS: Project[] = [
     why: "Decades of a nature center's alumni sit in boxes of paper. This turns months of re-typing into seconds per form — so it can reconnect with the kids it once inspired.",
     tags: ["Next.js", "Claude vision", "Google Sheets"],
     status: "shipped",
-    accent: "#d8a657", // amber
+    accent: "#a2762a", // amber ochre
     thumbnail: "/thumbnails/onsc-alumni.png", // the Ozark Natural Science Center brand mark
   },
   {
@@ -69,7 +69,7 @@ export const PROJECTS: Project[] = [
     why: "Bring scripture's original languages within reach of anyone, not just scholars — the text, its sound, and its meaning, side by side.",
     tags: ["Next.js", "Google TTS", "OpenAI"],
     status: "shipped",
-    accent: "#e0c068", // parchment gold
+    accent: "#8f7420", // parchment gold, inked for paper
     liveUrl: "https://ezra-zeta.vercel.app",
     thumbnail: "/thumbnails/ezra.jpg", // interlinear Hebrew + word-analysis panel, side by side
   },
@@ -81,7 +81,7 @@ export const PROJECTS: Project[] = [
     why: "Born from the December 2025 Bentonville gas scare — a question about whether we can understand and prevent infrastructure failures before they become crises.",
     tags: ["FastAPI", "React", "WebSockets", "Darcy-Weisbach"],
     status: "shipped",
-    accent: "#e07a5f", // flame
+    accent: "#b3532f", // flame clay
     thumbnail: "/thumbnails/bentonville-gas-simulator.jpg", // network map: source hub, leaks, sensor nodes
   },
   {
@@ -92,7 +92,7 @@ export const PROJECTS: Project[] = [
     why: "Curiosity about the living world, made tactile — and a clean answer to a real CV problem: separating real-time detection from accurate species ID.",
     tags: ["Swift", "SwiftUI", "Vision", "Pl@ntNet", "Claude"],
     status: "in progress",
-    accent: "#7fb685", // leaf
+    accent: "#4c7d55", // leaf, inked for paper
     journey: true,
     thumbnail: "/thumbnails/floradex.jpg", // a frame of the Pokédex-style collection, from the demo video
   },
