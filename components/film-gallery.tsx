@@ -13,18 +13,18 @@ function FilmCard({ film }: { film: Film }) {
         preload="none"
         poster={poster}
         aria-label={title}
-        className="aspect-video w-full rounded-lg border border-slate-800 bg-black"
+        className="aspect-video w-full rounded-lg border border-line-soft bg-black"
       >
         <source src={src} type="video/mp4" />
       </video>
 
       <figcaption className="mt-3 flex items-baseline justify-between gap-3">
-        <span className="font-serif text-[0.95rem] italic text-slate-300">
+        <span className="font-serif text-[0.95rem] italic text-ink-soft">
           {title}
         </span>
         {silent && <span className="label shrink-0">silent</span>}
       </figcaption>
-      <p className="mt-1 font-mono text-[0.7rem] text-slate-500">{medium}</p>
+      <p className="mt-1 font-mono text-[0.7rem] text-ink-faint">{medium}</p>
 
       {bts && (
         <div className="mt-4">
@@ -35,7 +35,7 @@ function FilmCard({ film }: { film: Film }) {
             width={bts.width}
             height={bts.height}
             sizes="(max-width: 640px) 100vw, 50vw"
-            className="h-auto w-full rounded-lg border border-slate-800"
+            className="h-auto w-full rounded-lg border border-line-soft"
           />
         </div>
       )}
@@ -50,12 +50,12 @@ export function FilmGallery({ films }: { films: Film[] }) {
     <section className="mt-24">
       <header className="max-w-2xl">
         <p className="label">Stop-motion</p>
-        <h2 className="mt-4 font-serif text-2xl font-medium leading-tight text-slate-50 sm:text-3xl">
+        <h2 className="mt-4 font-serif text-2xl font-medium leading-tight text-ink sm:text-3xl">
           Frame by frame, by hand.
         </h2>
-        <p className="mt-3 font-serif text-base leading-relaxed text-slate-400">
-          Two short films from a stop-motion animation class in Harvard&rsquo;s
-          Art, Film &amp; Visual Studies department, spring 2023.
+        <p className="mt-3 font-serif text-base leading-relaxed text-ink-muted">
+          Two short films from a stop-motion class &mdash; Harvard&rsquo;s Art,
+          Film &amp; Visual Studies department, spring 2023.
         </p>
       </header>
 

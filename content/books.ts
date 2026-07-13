@@ -278,22 +278,6 @@ export const BOOKS: Book[] = [
     ],
   },
   {
-    slug: "the-communist-manifesto",
-    title: "The Communist Manifesto",
-    author: "Marx & Engels",
-    notes: [
-      { kind: "thought", text: "I remember hearing, as an early college student, that we're in a new age of empires — empires run not by kings and monarchs but by boards and large shareholders of mega-companies. People praise CEOs way more than the President." },
-      { kind: "thought", text: "For Christ to rule as King of all kings, all the kings of the land need to be unified in principle. So what can they be unified on? People talk about a one-world order — but that means one King-of-all-kings who sets up the principle to follow. I think it will likely be some figurehead that utilizes AI and surveillance to \"unify\" the world." },
-      { kind: "thought", text: "So the proletariat are told to gain new skills to operate the new technology that the previous generation of proletariat spent their lives building." },
-      { kind: "thought", text: "Gen-Z emerging socio-economic-political leaders have some deep stuff to resolve. We got this…?" },
-      { kind: "quote", text: "The immediate aim of the Communists is the same as that of all other proletarian parties: formation of the proletariat into a class, overthrow of bourgeois supremacy, conquest of political power by the proletariat." },
-      { kind: "thought", text: "So like, that's great and all, but what happens after that? I suppose capitalism is better at sparking innovation — but I wonder if that's just an idea I learned as a product of my education? Historically, most powers that developed quickly with more efficient weaponry were forced to by ruthless competition, not harmony." },
-      { kind: "thought", text: "Communism tries to push against this historically, naturally recurring phenomenon of the haves and have-nots. Maybe the problem is the \"search for a working system\" in the first place, since the Torah will be written on our hearts." },
-      { kind: "thought", text: "What even is capital at the end of the day? It's assets of value to its owner. But what does it really mean to \"own\" anything? You own something until someone who \"owns\" more swipes it — and now he \"owns\" it. So it boils down to physical force and physical power. So, yeah — like, War." },
-      { kind: "thought", text: "Communism was the first attempt at ideological global unification, rather than physical empire unification. Perhaps after the spread of Christianity." },
-    ],
-  },
-  {
     slug: "spqr",
     title: "SPQR",
     author: "Mary Beard",
