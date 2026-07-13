@@ -1,4 +1,5 @@
 import type { Book, Marginalia } from "@/content/books";
+import { showBookThoughts } from "@/lib/flags";
 
 // A quote carries the sage left-border — the same motif as the project
 // journals. A thought sits in the margin under a small mono label. Keeping
@@ -96,7 +97,16 @@ function BookRow({ book }: { book: Book }) {
 }
 
 export function ReadingShelf({ books }: { books: Book[] }) {
-  if (books.length === 0) return null;
+  // Kill-switch: when thoughts are off, strip them from each book's notes.
+  // A book left with no notes falls back to a plain, non-expandable row.
+  const shelf = showBookThoughts()
+    ? books
+    : books.map((book) => ({
+        ...book,
+        notes: book.notes.filter((note) => note.kind !== "thought"),
+      }));
+
+  if (shelf.length === 0) return null;
 
   return (
     <section className="mt-24">
@@ -111,7 +121,7 @@ export function ReadingShelf({ books }: { books: Book[] }) {
       </header>
 
       <div className="mt-8">
-        {books.map((book) => (
+        {shelf.map((book) => (
           <BookRow key={book.slug} book={book} />
         ))}
       </div>
