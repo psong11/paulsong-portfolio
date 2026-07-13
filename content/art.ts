@@ -36,6 +36,7 @@ export const ART: ArtPiece[] = [
     alt: "Abstract ink drawing: small colorful outlined shapes and a tiny quadruped figure drifting like fragments across cream paper.",
     title: null,
     medium: "Zebra Clickart marker, 0.6mm, on paper",
+    year: 2024,
     width: 1200,
     height: 1600,
   },
