@@ -43,6 +43,12 @@ const LESSONS = [
   {
     title: "Debug the invisible with an on-screen HUD",
     body: "Vision returns normalized, bottom-left-origin rects; SwiftUI is top-left; the preview crops aspect-fill. The box was mis-scaled, offset, and its axes transposed. Rather than guess, I put the raw numbers on screen and plotted them against the object's true position across five field screenshots — which revealed a clean X↔Y transpose, then hand-wrote the scale-to-cover transform against all five data points before shipping.",
+    image: {
+      src: "/projects/floradex/hud-debug.jpg",
+      alt: "A phone screenshot of the app: a green bounding box snapped tightly around a yellow CAUTION wet-floor sign, with the debug HUD overlaid at the top showing the raw normalized rect, the converted screen-pixel rect, and the screen size.",
+      caption:
+        "The HUD after the fix — raw normalized rect, the converted screen-pixel rect, and screen size, printed live over a snapped-on box. A high-contrast sign stood in for a plant while I nailed the coordinate transform.",
+    },
   },
   {
     title: "One source of truth for orientation",
@@ -106,11 +112,36 @@ export default function FloradexJourneyPage() {
           In Motion
         </p>
         <p className="mt-2 font-serif text-sm text-slate-500">
-          The app running on a phone — the live loop, and the capture flow.
+          The app running on a phone — the full capture flow end to end, then a
+          closer look at the live detection loop.
         </p>
 
         <div className="mt-6 grid grid-cols-1 justify-items-center gap-8 sm:grid-cols-2 sm:gap-6">
-          {/* Video 1 — the live detect/identify loop (shipped) */}
+          {/* Video 1 — the main demo: the full end-to-end flow (shipped) */}
+          <figure className="flex flex-col items-center">
+            <div
+              className="overflow-hidden rounded-[2rem] border-2 bg-slate-900 p-1.5 shadow-2xl"
+              style={{ borderColor: `${accent}55` }}
+            >
+              <video
+                className="block w-[260px] rounded-[1.6rem]"
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+                poster="/projects/floradex/main-demo-poster.jpg"
+              >
+                <source src="/projects/floradex/main-demo.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <figcaption className="mt-3 max-w-[26ch] text-center font-serif text-sm leading-snug text-slate-400">
+              The whole loop end to end — a live box finds the plant, a tap names
+              the species, and Claude writes the card it's filed under.
+            </figcaption>
+          </figure>
+
+          {/* Video 2 — a closer look at the live detection loop */}
           <figure className="flex flex-col items-center">
             <div
               className="overflow-hidden rounded-[2rem] border-2 bg-slate-900 p-1.5 shadow-2xl"
@@ -129,63 +160,8 @@ export default function FloradexJourneyPage() {
               </video>
             </div>
             <figcaption className="mt-3 max-w-[26ch] text-center font-serif text-sm leading-snug text-slate-400">
-              Live detection and species ID — the box finds the plant, the app
-              names it.
-            </figcaption>
-          </figure>
-
-          {/* ─────────────────────────────────────────────────────────────
-              Video 2 — THE CAPTURE-PROCESS VIDEO GOES HERE.
-              To add it: drop the file at
-                public/projects/floradex/capture.mp4
-              (optional poster: public/projects/floradex/capture-poster.jpg),
-              then DELETE the placeholder <div> below and UNCOMMENT the <video>
-              block beneath it. Same muted/autoplay/loop treatment as video 1.
-              (I'll strip its audio + compress it the same way when you have it.)
-          ────────────────────────────────────────────────────────────────── */}
-          <figure className="flex flex-col items-center">
-            {/* PLACEHOLDER — remove once capture.mp4 exists */}
-            <div
-              className="flex w-[260px] flex-col items-center justify-center rounded-[2rem] border-2 border-dashed bg-slate-900/40 p-6 text-center"
-              style={{ borderColor: `${accent}44`, aspectRatio: "1180 / 2556" }}
-            >
-              <span
-                className="font-mono text-2xl"
-                style={{ color: `${accent}aa` }}
-                aria-hidden
-              >
-                ⃝
-              </span>
-              <span className="mt-3 font-mono text-[0.65rem] uppercase tracking-[0.2em] text-slate-500">
-                Video coming
-              </span>
-              <span className="mt-2 font-serif text-sm leading-snug text-slate-500">
-                The capture flow — shutter to a saved Floradex card.
-              </span>
-            </div>
-
-            {/* Uncomment when capture.mp4 is in place:
-            <div
-              className="overflow-hidden rounded-[2rem] border-2 bg-slate-900 p-1.5 shadow-2xl"
-              style={{ borderColor: `${accent}55` }}
-            >
-              <video
-                className="block w-[260px] rounded-[1.6rem]"
-                autoPlay
-                muted
-                loop
-                playsInline
-                preload="metadata"
-                poster="/projects/floradex/capture-poster.jpg"
-              >
-                <source src="/projects/floradex/capture.mp4" type="video/mp4" />
-              </video>
-            </div>
-            */}
-
-            <figcaption className="mt-3 max-w-[26ch] text-center font-serif text-sm leading-snug text-slate-400">
-              The capture flow — shutter, identify, and file it in the
-              collection.
+              A closer look at live detection — the box tracking a plant on-device
+              at ~30 fps.
             </figcaption>
           </figure>
         </div>
@@ -292,15 +268,43 @@ export default function FloradexJourneyPage() {
         <h2 className="font-serif text-2xl font-medium text-slate-50">
           What it took
         </h2>
-        <div className="mt-6 flex flex-col gap-6">
+        <div className="mt-6 flex flex-col gap-8">
           {LESSONS.map((lesson) => (
-            <div key={lesson.title}>
-              <h3 className="font-serif text-lg font-medium text-slate-200">
-                {lesson.title}
-              </h3>
-              <p className="mt-2 font-serif text-sm leading-relaxed text-slate-400">
-                {lesson.body}
-              </p>
+            <div
+              key={lesson.title}
+              className={
+                lesson.image
+                  ? "flex flex-col gap-6 sm:flex-row sm:items-start sm:gap-7"
+                  : undefined
+              }
+            >
+              <div className={lesson.image ? "sm:flex-1" : undefined}>
+                <h3 className="font-serif text-lg font-medium text-slate-200">
+                  {lesson.title}
+                </h3>
+                <p className="mt-2 font-serif text-sm leading-relaxed text-slate-400">
+                  {lesson.body}
+                </p>
+              </div>
+              {lesson.image && (
+                <figure className="flex shrink-0 flex-col items-center sm:w-[180px]">
+                  <div
+                    className="overflow-hidden rounded-[1.5rem] border-2 bg-slate-900 p-1 shadow-2xl"
+                    style={{ borderColor: `${accent}55` }}
+                  >
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={lesson.image.src}
+                      alt={lesson.image.alt}
+                      className="block w-[180px] rounded-[1.15rem]"
+                      loading="lazy"
+                    />
+                  </div>
+                  <figcaption className="mt-3 max-w-[26ch] text-center font-serif text-xs leading-snug text-slate-500">
+                    {lesson.image.caption}
+                  </figcaption>
+                </figure>
+              )}
             </div>
           ))}
         </div>
