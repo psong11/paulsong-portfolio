@@ -31,8 +31,9 @@ export const ART: ArtPiece[] = [
     id: "scarf",
     src: "/art/scarf-finished.jpg",
     alt: "A hand-knit cable scarf in variegated blue-green yarn, folded loosely in a zigzag on a couch.",
-    title: null,
-    medium: "Hand-knit cable scarf",
+    title: "A scarf for my Mom",
+    medium: "Malabrigo Rios #138 Ivy, reversible cable",
+    year: 2025,
     width: 1600,
     height: 1200,
     behind: {
