@@ -18,8 +18,10 @@ export type Project = {
   accent: string;
   /** Internal journey page exists at /<slug>. */
   journey?: boolean;
-  /** Live deployment, if any. */
+  /** External link, if any — a live deployment or a repo. */
   liveUrl?: string;
+  /** Override for the card's link text (default "View live →"). */
+  linkLabel?: string;
   /** Path under /public, if a real thumbnail exists. Otherwise a tinted
    *  placeholder is rendered from `accent`. */
   thumbnail?: string;
@@ -59,6 +61,8 @@ export const PROJECTS: Project[] = [
     tags: ["Next.js", "Claude vision", "Google Sheets"],
     status: "shipped",
     accent: "#a2762a", // amber ochre
+    liveUrl: "https://github.com/psong11/onsc-alumni-project",
+    linkLabel: "View code →",
     thumbnail: "/thumbnails/onsc-alumni.png", // the Ozark Natural Science Center brand mark
   },
   {
@@ -82,6 +86,7 @@ export const PROJECTS: Project[] = [
     tags: ["FastAPI", "React", "WebSockets", "Darcy-Weisbach"],
     status: "shipped",
     accent: "#b3532f", // flame clay
+    liveUrl: "https://bentonville-gas-simulator.vercel.app",
     thumbnail: "/thumbnails/bentonville-gas-simulator.jpg", // network map: source hub, leaks, sensor nodes
   },
   {

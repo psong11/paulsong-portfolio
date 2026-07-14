@@ -9,15 +9,15 @@ const STATUS_LABEL: Record<Project["status"], string> = {
 };
 
 export function ProjectCard({ project }: { project: Project }) {
-  const { slug, title, tagline, why, tags, status, accent, journey, liveUrl, thumbnail } =
+  const { slug, title, tagline, why, tags, status, accent, journey, liveUrl, linkLabel, thumbnail } =
     project;
 
-  // Where the card points: an internal journey page wins, then a live
-  // deployment, otherwise the card isn't yet linked.
+  // Where the card points: an internal journey page wins, then an external
+  // link (live deployment or repo), otherwise the card isn't yet linked.
   const target = journey
     ? { href: `/${slug}`, label: "Read the build →", external: false }
     : liveUrl
-      ? { href: liveUrl, label: "View live →", external: true }
+      ? { href: liveUrl, label: linkLabel ?? "View live →", external: true }
       : null;
 
   const card = (
