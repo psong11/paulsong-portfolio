@@ -62,16 +62,16 @@ export const PROJECTS: Project[] = [
     thumbnail: "/thumbnails/onsc-alumni.png", // the Ozark Natural Science Center brand mark
   },
   {
-    slug: "ezra",
-    title: "Ezra",
+    slug: "floradex",
+    title: "Floradex",
     tagline:
-      "Read the Bible in original Hebrew & Greek — word by word, with TTS and AI glosses.",
-    why: "Bring scripture's original languages within reach of anyone, not just scholars — the text, its sound, and its meaning, side by side.",
-    tags: ["Next.js", "Google TTS", "OpenAI"],
-    status: "shipped",
-    accent: "#8f7420", // parchment gold, inked for paper
-    liveUrl: "https://ezra-zeta.vercel.app",
-    thumbnail: "/thumbnails/ezra.jpg", // interlinear Hebrew + word-analysis panel, side by side
+      "Point your phone at a plant; get a live ID and a Pokédex-style card.",
+    why: "Curiosity about the living world, made tactile — and a clean answer to a real CV problem: separating real-time detection from accurate species ID.",
+    tags: ["Swift", "SwiftUI", "Vision", "Pl@ntNet", "Claude"],
+    status: "in progress",
+    accent: "#4c7d55", // leaf, inked for paper
+    journey: true,
+    thumbnail: "/thumbnails/floradex.jpg", // a frame of the Pokédex-style collection, from the demo video
   },
   {
     slug: "bentonville-gas-simulator",
@@ -85,15 +85,15 @@ export const PROJECTS: Project[] = [
     thumbnail: "/thumbnails/bentonville-gas-simulator.jpg", // network map: source hub, leaks, sensor nodes
   },
   {
-    slug: "floradex",
-    title: "Floradex",
+    slug: "ezra",
+    title: "Ezra",
     tagline:
-      "Point your phone at a plant; get a live ID and a Pokédex-style card.",
-    why: "Curiosity about the living world, made tactile — and a clean answer to a real CV problem: separating real-time detection from accurate species ID.",
-    tags: ["Swift", "SwiftUI", "Vision", "Pl@ntNet", "Claude"],
-    status: "in progress",
-    accent: "#4c7d55", // leaf, inked for paper
-    journey: true,
-    thumbnail: "/thumbnails/floradex.jpg", // a frame of the Pokédex-style collection, from the demo video
+      "Read the Bible in original Hebrew & Greek — word by word, with TTS and AI glosses.",
+    why: "Bring scripture's original languages within reach of anyone, not just scholars — the text, its sound, and its meaning, side by side.",
+    tags: ["Next.js", "Google TTS", "OpenAI"],
+    status: "shipped",
+    accent: "#8f7420", // parchment gold, inked for paper
+    liveUrl: "https://ezra-zeta.vercel.app",
+    thumbnail: "/thumbnails/ezra.jpg", // interlinear Hebrew + word-analysis panel, side by side
   },
 ];
