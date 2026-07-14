@@ -14,7 +14,10 @@ export type ArtPiece = {
   medium: string;
   /** Year made, if known. */
   year?: number;
-  /** Intrinsic pixel dimensions of the file at `src` (for layout). */
+  /** Intrinsic pixel dimensions of the file at `src` (for layout).
+   *  For a stacked piece (see `behind`) these define the CARD BOX instead —
+   *  every photo in the stack is cropped to cover this ratio — and they
+   *  also decide which row group the piece lands in (portrait vs landscape). */
   width: number;
   height: number;
   /** A second photo tucked behind this one like a card in a stack —
@@ -34,8 +37,10 @@ export const ART: ArtPiece[] = [
     title: "A scarf for my Mom",
     medium: "Malabrigo Rios #138 Ivy, reversible cable",
     year: 2025,
-    width: 1600,
-    height: 1200,
+    // Portrait card box — the knitting shot's full ratio; the finished
+    // photo center-crops into it.
+    width: 1200,
+    height: 1600,
     behind: {
       src: "/art/scarf-knitting.jpg",
       alt: "The same scarf in progress — held mid-row on bamboo needles, cables just taking shape.",

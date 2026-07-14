@@ -11,7 +11,7 @@ function ArtCard({ piece, solo = false }: { piece: ArtPiece; solo?: boolean }) {
   const mat =
     "rounded-lg border border-line bg-[#fffdf8] p-3 shadow-[0_1px_3px_rgba(31,27,22,0.08)] sm:p-4";
   const sizes = solo
-    ? "(max-width: 704px) 100vw, 672px"
+    ? "(max-width: 544px) 100vw, 512px"
     : "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw";
 
   // Two photos stack like cards: offset at rest, fanning open on hover, and
@@ -58,8 +58,8 @@ export function ArtGallery({ pieces }: { pieces: ArtPiece[] }) {
   if (pieces.length === 0) return null;
 
   // Rows are grouped by orientation so card heights match within a row:
-  // landscape pieces each take their own wider row; portrait pieces share
-  // a multi-column row. Order within each group follows content/art.ts.
+  // portrait pieces share a multi-column row up top; landscape pieces each
+  // take their own row below. Order within each group follows content/art.ts.
   const landscape = pieces.filter((p) => p.width > p.height);
   const portrait = pieces.filter((p) => p.width <= p.height);
 
@@ -77,12 +77,6 @@ export function ArtGallery({ pieces }: { pieces: ArtPiece[] }) {
       </header>
 
       <div className="mt-10 flex flex-col gap-12">
-        {landscape.map((piece) => (
-          <div key={piece.id} className="max-w-2xl">
-            <ArtCard piece={piece} solo />
-          </div>
-        ))}
-
         {portrait.length > 0 && (
           <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
             {portrait.map((piece) => (
@@ -90,6 +84,12 @@ export function ArtGallery({ pieces }: { pieces: ArtPiece[] }) {
             ))}
           </div>
         )}
+
+        {landscape.map((piece) => (
+          <div key={piece.id} className="max-w-lg">
+            <ArtCard piece={piece} solo />
+          </div>
+        ))}
       </div>
     </section>
   );
