@@ -15,7 +15,7 @@ export type PathStop = {
 
 export const PATH: PathStop[] = [
   {
-    years: "2021–24",
+    years: "2020–24",
     org: "Harvard University",
     role: "B.A. Computer Science, minor in Economics",
     lesson: "how to think and learn",
