@@ -1,5 +1,6 @@
 import Image from "next/image";
 import type { ArtPiece } from "@/content/art";
+import { ArtStack } from "@/components/art-stack";
 
 // Each piece is matted on a near-white sheet so it reads as an intentional
 // gallery mat hung on the paper ground, then captioned in the site's own
@@ -10,37 +11,18 @@ function ArtCard({ piece }: { piece: ArtPiece }) {
   const mat =
     "rounded-lg border border-line bg-[#fffdf8] p-3 shadow-[0_1px_3px_rgba(31,27,22,0.08)] sm:p-4";
 
-  // Two photos stack like cards — the one behind peeks out at rest and the
-  // pair fans open on hover (or press, on touch). Pure CSS; the back photo
-  // is cropped to the front's aspect so mismatched orientations still stack.
+  // Two photos stack like cards: offset at rest, fanning open on hover, and
+  // shuffling on click — state lives in the ArtStack client component.
   const image = behind ? (
-    <div className="group relative">
-      <div
-        className={`absolute inset-0 translate-x-2.5 translate-y-2 rotate-[1.5deg] transition-transform duration-300 ease-out group-hover:translate-x-5 group-hover:translate-y-3 group-hover:rotate-[4deg] group-active:translate-x-5 group-active:translate-y-3 group-active:rotate-[4deg] motion-reduce:transition-none ${mat}`}
-      >
-        <div className="relative h-full w-full overflow-hidden rounded-sm">
-          <Image
-            src={behind.src}
-            alt={behind.alt}
-            fill
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-            className="object-cover"
-          />
-        </div>
-      </div>
-      <div
-        className={`relative transition-transform duration-300 ease-out group-hover:-translate-x-1.5 group-hover:-rotate-[1.5deg] group-active:-translate-x-1.5 group-active:-rotate-[1.5deg] motion-reduce:transition-none ${mat}`}
-      >
-        <Image
-          src={src}
-          alt={alt}
-          width={width}
-          height={height}
-          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-          className="h-auto w-full rounded-sm"
-        />
-      </div>
-    </div>
+    <ArtStack
+      photos={[
+        { src, alt },
+        { src: behind.src, alt: behind.alt },
+      ]}
+      aspectRatio={width / height}
+      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+      matClass={mat}
+    />
   ) : (
     <div className={`overflow-hidden ${mat}`}>
       <Image

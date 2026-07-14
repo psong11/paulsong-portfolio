@@ -42,6 +42,16 @@ export const ART: ArtPiece[] = [
     },
   },
   {
+    id: "my-kid-drew-this",
+    src: "/art/my-kid-drew-this.jpg",
+    alt: "MY KID DREW THIS — a riotous oil scene: four cartoonish figures in hot pink, chartreuse, ochre, and violet tangled around a ship's wheel, under a full moon with a face, against a swirling dark-teal night.",
+    title: "MY KID DREW THIS",
+    medium: "Oil on canvas",
+    year: 2024,
+    width: 1600,
+    height: 1166,
+  },
+  {
     id: "discombobulated",
     src: "/art/discombobulated.jpg",
     alt: "Discombobulated — a fragmented, surreal portrait of a face coming apart, drawn in teal and orange colored pencil with graphite hatching on cream paper.",
