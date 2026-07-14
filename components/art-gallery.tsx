@@ -5,11 +5,32 @@ import type { ArtPiece } from "@/content/art";
 // gallery mat hung on the paper ground, then captioned in the site's own
 // type system. Untitled pieces say so, quietly.
 function ArtCard({ piece }: { piece: ArtPiece }) {
-  const { src, alt, title, medium, year, width, height } = piece;
+  const { src, alt, title, medium, year, width, height, behind } = piece;
 
-  return (
-    <figure className="flex flex-col">
-      <div className="overflow-hidden rounded-lg border border-line bg-[#fffdf8] p-3 shadow-[0_1px_3px_rgba(31,27,22,0.08)] sm:p-4">
+  const mat =
+    "rounded-lg border border-line bg-[#fffdf8] p-3 shadow-[0_1px_3px_rgba(31,27,22,0.08)] sm:p-4";
+
+  // Two photos stack like cards — the one behind peeks out at rest and the
+  // pair fans open on hover (or press, on touch). Pure CSS; the back photo
+  // is cropped to the front's aspect so mismatched orientations still stack.
+  const image = behind ? (
+    <div className="group relative">
+      <div
+        className={`absolute inset-0 translate-x-2.5 translate-y-2 rotate-[1.5deg] transition-transform duration-300 ease-out group-hover:translate-x-5 group-hover:translate-y-3 group-hover:rotate-[4deg] group-active:translate-x-5 group-active:translate-y-3 group-active:rotate-[4deg] motion-reduce:transition-none ${mat}`}
+      >
+        <div className="relative h-full w-full overflow-hidden rounded-sm">
+          <Image
+            src={behind.src}
+            alt={behind.alt}
+            fill
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            className="object-cover"
+          />
+        </div>
+      </div>
+      <div
+        className={`relative transition-transform duration-300 ease-out group-hover:-translate-x-1.5 group-hover:-rotate-[1.5deg] group-active:-translate-x-1.5 group-active:-rotate-[1.5deg] motion-reduce:transition-none ${mat}`}
+      >
         <Image
           src={src}
           alt={alt}
@@ -19,6 +40,23 @@ function ArtCard({ piece }: { piece: ArtPiece }) {
           className="h-auto w-full rounded-sm"
         />
       </div>
+    </div>
+  ) : (
+    <div className={`overflow-hidden ${mat}`}>
+      <Image
+        src={src}
+        alt={alt}
+        width={width}
+        height={height}
+        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+        className="h-auto w-full rounded-sm"
+      />
+    </div>
+  );
+
+  return (
+    <figure className="flex flex-col">
+      {image}
 
       <figcaption className="mt-3 flex items-baseline justify-between gap-3">
         <span className="font-serif text-[0.95rem] italic text-ink-soft">

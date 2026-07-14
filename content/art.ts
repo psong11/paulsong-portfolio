@@ -17,9 +17,29 @@ export type ArtPiece = {
   /** Intrinsic pixel dimensions of the file at `src` (for layout). */
   width: number;
   height: number;
+  /** A second photo tucked behind this one like a card in a stack —
+   *  slightly offset so it peeks out, fanning open on hover/press.
+   *  It is cropped to the front photo's aspect, so any orientation works. */
+  behind?: {
+    src: string;
+    alt: string;
+  };
 };
 
 export const ART: ArtPiece[] = [
+  {
+    id: "scarf",
+    src: "/art/scarf-finished.jpg",
+    alt: "A hand-knit cable scarf in variegated blue-green yarn, folded loosely in a zigzag on a couch.",
+    title: null,
+    medium: "Hand-knit cable scarf",
+    width: 1600,
+    height: 1200,
+    behind: {
+      src: "/art/scarf-knitting.jpg",
+      alt: "The same scarf in progress — held mid-row on bamboo needles, cables just taking shape.",
+    },
+  },
   {
     id: "discombobulated",
     src: "/art/discombobulated.jpg",
