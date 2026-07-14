@@ -23,6 +23,14 @@ export const PATH: PathStop[] = [
       "734.5 community-service hours · President's Volunteer Service Award Gold · San Jose Pioneer Lion's Club scholarship",
   },
   {
+    years: "2019",
+    org: "Stanford University",
+    role: "Horizon Scholar",
+    lesson: "foray into higher education",
+    detail:
+      "one of 21 chosen nationwide · High School Summer College with fully covered tuition, room, and books",
+  },
+  {
     years: "2020–24",
     org: "Harvard University",
     role: "B.A. Computer Science, minor in Economics",
