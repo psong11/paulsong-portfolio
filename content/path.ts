@@ -15,6 +15,14 @@ export type PathStop = {
 
 export const PATH: PathStop[] = [
   {
+    years: "2016–20",
+    org: "Christopher High School",
+    role: "Valedictorian",
+    lesson: "learning to serve",
+    detail:
+      "734.5 community-service hours · President's Volunteer Service Award Gold · San Jose Pioneer Lion's Club scholarship",
+  },
+  {
     years: "2020–24",
     org: "Harvard University",
     role: "B.A. Computer Science, minor in Economics",
