@@ -1,12 +1,14 @@
 import Image from "next/image";
 import { PROJECTS } from "@/content/projects";
 import { PATH } from "@/content/path";
+import { COMMUNITY } from "@/content/community";
 import { TOOLBOX } from "@/content/toolbox";
 import { ART } from "@/content/art";
 import { FILMS } from "@/content/films";
 import { BOOKS } from "@/content/books";
 import { ProjectCard } from "@/components/project-card";
 import { PathTimeline } from "@/components/path-timeline";
+import { CommunitySection } from "@/components/community-section";
 import { Toolbox } from "@/components/toolbox";
 import { ArtGallery } from "@/components/art-gallery";
 import { FilmGallery } from "@/components/film-gallery";
@@ -95,6 +97,9 @@ export default function HomePage() {
 
       {/* Path */}
       <PathTimeline stops={PATH} />
+
+      {/* Serving and building community */}
+      <CommunitySection entries={COMMUNITY} />
 
       {/* Toolbox */}
       <Toolbox clusters={TOOLBOX} />

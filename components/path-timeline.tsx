@@ -14,10 +14,10 @@ function StopRow({ stop }: { stop: PathStop }) {
       <div>
         <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
           <span className="font-serif text-lg font-semibold text-ink">{org}</span>
-          <span className="font-serif text-[0.9rem] italic text-ink-muted">
+          <span className="font-serif text-[0.9rem] font-semibold italic text-ink-muted">
             {role}
           </span>
-          <span className="font-serif text-[0.95rem] font-semibold italic text-leaf sm:ml-auto">
+          <span className="font-serif text-[0.95rem] italic text-leaf sm:ml-auto">
             {lesson}
           </span>
         </div>
