@@ -78,15 +78,19 @@ export const COMMUNITY: CommunityEntry[] = [
   },
   {
     id: "aab",
-    org: "Asian American Brotherhood",
+    org: "Harvard Radcliffe Asian American Brotherhood",
     role: "Board",
-    years: "2020 – 2024",
+    years: "2022 – 2024",
     story:
       "An Asian American service and activism organization. I planned trips out to Boston's Chinatown and ran Lunar New Year arts-and-crafts afternoons with young kids — construction paper, markers, and a lot of glue.",
     photos: [
       {
         src: "/community/aab-crafts.jpg",
         alt: "Paul in a green cap doing paper crafts across the table from a delighted little girl at a Lunar New Year event.",
+      },
+      {
+        src: "/community/aab-lunar.jpg",
+        alt: "A boy in a red tang jacket proudly holding up long paper streamers at the Lunar New Year craft table, friends grinning behind him.",
       },
       {
         src: "/community/aab-group.jpg",
