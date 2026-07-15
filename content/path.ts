@@ -78,7 +78,7 @@ export const PATH: PathStop[] = [
     years: "2025",
     org: "YMCA of Silicon Valley",
     role: "Teacher",
-    lesson: "showing up for kids",
+    lesson: "giving back to my old elementary school :)",
     detail:
       "daily expanded-learning curriculum at Luigi Aprea Elementary — STEM, literacy, and PE",
   },
