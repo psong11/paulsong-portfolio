@@ -1,4 +1,4 @@
-import type { Book, Marginalia } from "@/content/books";
+import { SHELVES, type Book, type Marginalia } from "@/content/books";
 import { showBookThoughts } from "@/lib/flags";
 
 // A quote carries the sage left-border — the same motif as the project
@@ -116,15 +116,27 @@ export function ReadingShelf({ books }: { books: Book[] }) {
           What I&rsquo;m reading, and the lines that stuck.
         </h2>
         <p className="mt-3 font-serif text-base leading-relaxed text-ink-muted">
-          A running shelf — open a book to read the margins.
+          A running shelf, a few shelves deep — open a book to read the
+          margins.
         </p>
       </header>
 
-      <div className="mt-8">
-        {shelf.map((book) => (
-          <BookRow key={book.slug} book={book} />
-        ))}
-      </div>
+      {SHELVES.map(({ key, title }) => {
+        const group = shelf.filter((book) => book.shelf === key);
+        if (group.length === 0) return null;
+        return (
+          <div key={key} className="mt-10">
+            <h3 className="font-serif text-lg italic text-ink-muted">
+              {title}
+            </h3>
+            <div className="mt-3">
+              {group.map((book) => (
+                <BookRow key={book.slug} book={book} />
+              ))}
+            </div>
+          </div>
+        );
+      })}
     </section>
   );
 }

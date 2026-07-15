@@ -7,8 +7,28 @@ export type Marginalia =
   | { kind: "quote"; text: string; page?: number }
   | { kind: "thought"; text: string; page?: number };
 
+export type ShelfKey =
+  | "nightstand"
+  | "stories"
+  | "faith"
+  | "nature"
+  | "systems"
+  | "lives";
+
+/** The shelves, in display order — group titles are part of the voice. */
+export const SHELVES: { key: ShelfKey; title: string }[] = [
+  { key: "nightstand", title: "On the nightstand" },
+  { key: "stories", title: "Stories that rewired me" },
+  { key: "faith", title: "Faith, examined" },
+  { key: "nature", title: "The natural world, from quarks to crops" },
+  { key: "systems", title: "Systems, machines, and the built world" },
+  { key: "lives", title: "Lives and civilizations" },
+];
+
 export type Book = {
   slug: string;
+  /** Which shelf the book lives on. */
+  shelf: ShelfKey;
   title: string;
   author?: string;
   /** Year finished, if noted. Omit when unknown. */
@@ -23,16 +43,13 @@ export type Book = {
 // Currently-reading first, then books with marginalia, then the rest of the
 // shelf as plain rows.
 export const BOOKS: Book[] = [
-  // ── Currently reading ───────────────────────────────────────────────
-  { slug: "the-alchemy-of-air", title: "The Alchemy of Air", author: "Thomas Hager", reading: true, notes: [] },
-  { slug: "the-grid", title: "The Grid", author: "Gretchen Bakke", reading: true, notes: [] },
-  { slug: "thinking-in-systems", title: "Thinking in Systems", author: "Donella Meadows", reading: true, notes: [] },
-  { slug: "packing-for-mars", title: "Packing for Mars", author: "Mary Roach", reading: true, notes: [] },
-  { slug: "walden", title: "Walden", author: "Henry David Thoreau", reading: true, notes: [] },
-
-  // ── With marginalia ─────────────────────────────────────────────────
+  { slug: "the-alchemy-of-air", shelf: "nightstand", title: "The Alchemy of Air", author: "Thomas Hager", reading: true, notes: [] },
+  { slug: "the-grid", shelf: "nightstand", title: "The Grid", author: "Gretchen Bakke", reading: true, notes: [] },
+  { slug: "thinking-in-systems", shelf: "nightstand", title: "Thinking in Systems", author: "Donella Meadows", reading: true, notes: [] },
+  { slug: "packing-for-mars", shelf: "nightstand", title: "Packing for Mars", author: "Mary Roach", reading: true, notes: [] },
+  { slug: "walden", shelf: "nightstand", title: "Walden", author: "Henry David Thoreau", reading: true, notes: [] },
   {
-    slug: "sing-unburied-sing",
+    slug: "sing-unburied-sing", shelf: "stories",
     title: "Sing, Unburied, Sing",
     author: "Jesmyn Ward",
     notes: [
@@ -44,7 +61,7 @@ export const BOOKS: Book[] = [
     ],
   },
   {
-    slug: "never-let-me-go",
+    slug: "never-let-me-go", shelf: "stories",
     title: "Never Let Me Go",
     author: "Kazuo Ishiguro",
     notes: [
@@ -58,7 +75,7 @@ export const BOOKS: Book[] = [
     ],
   },
   {
-    slug: "the-remains-of-the-day",
+    slug: "the-remains-of-the-day", shelf: "stories",
     title: "The Remains of the Day",
     author: "Kazuo Ishiguro",
     notes: [
@@ -68,7 +85,7 @@ export const BOOKS: Book[] = [
     ],
   },
   {
-    slug: "the-grapes-of-wrath",
+    slug: "the-grapes-of-wrath", shelf: "stories",
     title: "The Grapes of Wrath",
     author: "John Steinbeck",
     notes: [
@@ -79,7 +96,7 @@ export const BOOKS: Book[] = [
     ],
   },
   {
-    slug: "klara-and-the-sun",
+    slug: "klara-and-the-sun", shelf: "stories",
     title: "Klara and the Sun",
     author: "Kazuo Ishiguro",
     notes: [
@@ -89,7 +106,7 @@ export const BOOKS: Book[] = [
     ],
   },
   {
-    slug: "sapiens",
+    slug: "sapiens", shelf: "lives",
     title: "Sapiens",
     author: "Yuval Noah Harari",
     notes: [
@@ -99,7 +116,7 @@ export const BOOKS: Book[] = [
     ],
   },
   {
-    slug: "living-buddha-living-christ",
+    slug: "living-buddha-living-christ", shelf: "faith",
     title: "Living Buddha, Living Christ",
     author: "Thich Nhat Hanh",
     notes: [
@@ -115,7 +132,7 @@ export const BOOKS: Book[] = [
     ],
   },
   {
-    slug: "east-of-eden",
+    slug: "east-of-eden", shelf: "stories",
     title: "East of Eden",
     author: "John Steinbeck",
     notes: [
@@ -128,7 +145,7 @@ export const BOOKS: Book[] = [
     ],
   },
   {
-    slug: "the-things-they-carried",
+    slug: "the-things-they-carried", shelf: "stories",
     title: "The Things They Carried",
     author: "Tim O'Brien",
     notes: [
@@ -136,7 +153,7 @@ export const BOOKS: Book[] = [
     ],
   },
   {
-    slug: "the-red-pony",
+    slug: "the-red-pony", shelf: "stories",
     title: "The Red Pony",
     author: "John Steinbeck",
     notes: [
@@ -145,7 +162,7 @@ export const BOOKS: Book[] = [
     ],
   },
   {
-    slug: "stay-true",
+    slug: "stay-true", shelf: "lives",
     title: "Stay True",
     author: "Hua Hsu",
     notes: [
@@ -158,7 +175,7 @@ export const BOOKS: Book[] = [
     ],
   },
   {
-    slug: "letter-from-birmingham-jail",
+    slug: "letter-from-birmingham-jail", shelf: "lives",
     title: "Letter from Birmingham Jail",
     author: "Martin Luther King Jr.",
     notes: [
@@ -171,16 +188,7 @@ export const BOOKS: Book[] = [
     ],
   },
   {
-    slug: "the-return-of-the-kosher-pig",
-    title: "The Return of the Kosher Pig",
-    author: "Rabbi Itzhak Shapira",
-    notes: [
-      { kind: "thought", text: "The word for \"pig\" and the word for \"to return\" share the same root, חזר. Pigs represent uncleanness, and some Jews see Yeshua as a pig. But He will return — according to Zechariah 14:3-4." },
-      { kind: "thought", text: "The identity and validity of Jesus, examined through God's compound unity." },
-    ],
-  },
-  {
-    slug: "everything-you-should-know-about-politics",
+    slug: "everything-you-should-know-about-politics", shelf: "systems",
     title: "Everything You Should Know About Politics But Don't",
     author: "Jessamyn Conrad",
     notes: [
@@ -192,7 +200,7 @@ export const BOOKS: Book[] = [
     ],
   },
   {
-    slug: "fahrenheit-451",
+    slug: "fahrenheit-451", shelf: "stories",
     title: "Fahrenheit 451",
     author: "Ray Bradbury",
     notes: [
@@ -202,7 +210,7 @@ export const BOOKS: Book[] = [
     ],
   },
   {
-    slug: "siddhartha",
+    slug: "siddhartha", shelf: "stories",
     title: "Siddhartha",
     author: "Hermann Hesse",
     notes: [
@@ -222,7 +230,7 @@ export const BOOKS: Book[] = [
     ],
   },
   {
-    slug: "war-macmillan",
+    slug: "war-macmillan", shelf: "lives",
     title: "War",
     author: "Margaret MacMillan",
     notes: [
@@ -231,7 +239,7 @@ export const BOOKS: Book[] = [
     ],
   },
   {
-    slug: "cold-case-christianity",
+    slug: "cold-case-christianity", shelf: "faith",
     title: "Cold-Case Christianity",
     author: "J. Warner Wallace",
     notes: [
@@ -245,7 +253,7 @@ export const BOOKS: Book[] = [
     ],
   },
   {
-    slug: "1776",
+    slug: "1776", shelf: "lives",
     title: "1776",
     author: "David McCullough",
     notes: [
@@ -261,7 +269,7 @@ export const BOOKS: Book[] = [
     ],
   },
   {
-    slug: "seven-brief-lessons-on-physics",
+    slug: "seven-brief-lessons-on-physics", shelf: "nature",
     title: "Seven Brief Lessons on Physics",
     author: "Carlo Rovelli",
     notes: [
@@ -278,7 +286,7 @@ export const BOOKS: Book[] = [
     ],
   },
   {
-    slug: "spqr",
+    slug: "spqr", shelf: "lives",
     title: "SPQR",
     author: "Mary Beard",
     notes: [
@@ -287,7 +295,7 @@ export const BOOKS: Book[] = [
     ],
   },
   {
-    slug: "genghis-khan",
+    slug: "genghis-khan", shelf: "lives",
     title: "Genghis Khan and the Making of the Modern World",
     author: "Jack Weatherford",
     notes: [
@@ -313,7 +321,7 @@ export const BOOKS: Book[] = [
     ],
   },
   {
-    slug: "empire-of-ai",
+    slug: "empire-of-ai", shelf: "systems",
     title: "Empire of AI",
     author: "Karen Hao",
     notes: [
@@ -335,7 +343,7 @@ export const BOOKS: Book[] = [
     ],
   },
   {
-    slug: "miracles-and-wonder",
+    slug: "miracles-and-wonder", shelf: "faith",
     title: "Miracles and Wonder",
     author: "Elaine Pagels",
     notes: [
@@ -354,7 +362,7 @@ export const BOOKS: Book[] = [
     ],
   },
   {
-    slug: "abundance",
+    slug: "abundance", shelf: "systems",
     title: "Abundance",
     author: "Ezra Klein & Derek Thompson",
     notes: [
@@ -374,7 +382,7 @@ export const BOOKS: Book[] = [
     ],
   },
   {
-    slug: "teacher-by-teacher",
+    slug: "teacher-by-teacher", shelf: "systems",
     title: "Teacher by Teacher",
     author: "John B. King Jr.",
     notes: [
@@ -387,7 +395,7 @@ export const BOOKS: Book[] = [
     ],
   },
   {
-    slug: "kafka-on-the-shore",
+    slug: "kafka-on-the-shore", shelf: "stories",
     title: "Kafka on the Shore",
     author: "Haruki Murakami",
     notes: [
@@ -405,9 +413,8 @@ export const BOOKS: Book[] = [
       { kind: "thought", text: "The bizarre use of pronouns pulls you outside your own body." },
     ],
   },
-
   {
-    slug: "reality-is-not-what-it-seems",
+    slug: "reality-is-not-what-it-seems", shelf: "nature",
     title: "Reality Is Not What It Seems",
     author: "Carlo Rovelli",
     notes: [
@@ -427,7 +434,7 @@ export const BOOKS: Book[] = [
     ],
   },
   {
-    slug: "anaximander",
+    slug: "anaximander", shelf: "nature",
     title: "Anaximander",
     author: "Carlo Rovelli",
     notes: [
@@ -446,7 +453,7 @@ export const BOOKS: Book[] = [
     ],
   },
   {
-    slug: "recoding-america",
+    slug: "recoding-america", shelf: "systems",
     title: "Recoding America",
     author: "Jennifer Pahlka",
     notes: [
@@ -462,7 +469,7 @@ export const BOOKS: Book[] = [
     ],
   },
   {
-    slug: "range",
+    slug: "range", shelf: "systems",
     title: "Range",
     author: "David Epstein",
     notes: [
@@ -475,7 +482,7 @@ export const BOOKS: Book[] = [
     ],
   },
   {
-    slug: "naked-statistics",
+    slug: "naked-statistics", shelf: "systems",
     title: "Naked Statistics",
     author: "Charles Wheelan",
     notes: [
@@ -484,7 +491,7 @@ export const BOOKS: Book[] = [
     ],
   },
   {
-    slug: "life-3-0",
+    slug: "life-3-0", shelf: "systems",
     title: "Life 3.0",
     author: "Max Tegmark",
     notes: [
@@ -496,7 +503,7 @@ export const BOOKS: Book[] = [
     ],
   },
   {
-    slug: "martyr",
+    slug: "martyr", shelf: "stories",
     title: "Martyr!",
     author: "Kaveh Akbar",
     notes: [
@@ -504,7 +511,7 @@ export const BOOKS: Book[] = [
     ],
   },
   {
-    slug: "meeting-jesus-again-for-the-first-time",
+    slug: "meeting-jesus-again-for-the-first-time", shelf: "faith",
     title: "Meeting Jesus Again for the First Time",
     author: "Marcus J. Borg",
     notes: [
@@ -512,7 +519,7 @@ export const BOOKS: Book[] = [
     ],
   },
   {
-    slug: "biomimicry",
+    slug: "biomimicry", shelf: "nature",
     title: "Biomimicry",
     author: "Janine Benyus",
     notes: [
@@ -524,7 +531,7 @@ export const BOOKS: Book[] = [
     ],
   },
   {
-    slug: "the-wizard-and-the-prophet",
+    slug: "the-wizard-and-the-prophet", shelf: "nature",
     title: "The Wizard and the Prophet",
     author: "Charles C. Mann",
     notes: [
@@ -538,18 +545,12 @@ export const BOOKS: Book[] = [
       { kind: "quote", page: 444, text: "Borlaug was like a physicist who figures out how something should work on an idealized frictionless plane and then is startled when it doesn't function the same way in the real world of hills and valleys." },
     ],
   },
-
-  // ── On the shelf (no notes recorded) ────────────────────────────────
-  { slug: "mere-christianity", title: "Mere Christianity", author: "C.S. Lewis", notes: [] },
-  { slug: "the-great-divorce", title: "The Great Divorce", author: "C.S. Lewis", notes: [] },
-  { slug: "the-screwtape-letters", title: "The Screwtape Letters", author: "C.S. Lewis", notes: [] },
-  { slug: "who-ate-lunch-with-abraham", title: "Who Ate Lunch With Abraham?", author: "Chuck Missler", notes: [] },
-  { slug: "restoring-the-jewishness-of-the-gospel", title: "Restoring the Jewishness of the Gospel", author: "David H. Stern", notes: [] },
-  { slug: "come-lord-jesus", title: "Come, Lord Jesus", author: "John Piper", notes: [] },
-  { slug: "made-in-america", title: "Made in America", author: "Sam Walton", notes: [] },
-  { slug: "declaration-of-independence", title: "The Declaration of Independence", author: "Thomas Jefferson", notes: [] },
-  { slug: "lewis-and-clark-journals", title: "The Journals of Lewis and Clark", author: "Meriwether Lewis & William Clark", notes: [] },
-  { slug: "hillbilly-elegy", title: "Hillbilly Elegy", author: "J.D. Vance", notes: [] },
-  { slug: "co-intelligence", title: "Co-Intelligence", author: "Ethan Mollick", notes: [] },
-  { slug: "single-dating-engaged-married", title: "Single, Dating, Engaged, Married", author: "Ben Stuart", notes: [] },
+  { slug: "mere-christianity", shelf: "faith", title: "Mere Christianity", author: "C.S. Lewis", notes: [] },
+  { slug: "the-great-divorce", shelf: "faith", title: "The Great Divorce", author: "C.S. Lewis", notes: [] },
+  { slug: "the-screwtape-letters", shelf: "faith", title: "The Screwtape Letters", author: "C.S. Lewis", notes: [] },
+  { slug: "made-in-america", shelf: "lives", title: "Made in America", author: "Sam Walton", notes: [] },
+  { slug: "declaration-of-independence", shelf: "lives", title: "The Declaration of Independence", author: "Thomas Jefferson", notes: [] },
+  { slug: "lewis-and-clark-journals", shelf: "lives", title: "The Journals of Lewis and Clark", author: "Meriwether Lewis & William Clark", notes: [] },
+  { slug: "hillbilly-elegy", shelf: "lives", title: "Hillbilly Elegy", author: "J.D. Vance", notes: [] },
+  { slug: "co-intelligence", shelf: "systems", title: "Co-Intelligence", author: "Ethan Mollick", notes: [] },
 ];
