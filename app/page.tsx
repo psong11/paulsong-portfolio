@@ -15,18 +15,22 @@ import { ReadingShelf } from "@/components/reading-shelf";
 export default function HomePage() {
   return (
     <main className="mx-auto min-h-screen max-w-5xl px-6 py-20 sm:py-28">
-      {/* Masthead */}
-      <header className="flex flex-col-reverse gap-8 sm:flex-row sm:items-center sm:justify-between sm:gap-10">
+      {/* Name tag — the page's letterhead, a unit of its own */}
+      <header>
+        <h1 className="font-serif text-4xl font-medium leading-[1.05] tracking-tight text-ink sm:text-5xl">
+          <span className="inline-block border-b-[3px] border-ink pb-1.5">
+            Paul Song
+          </span>
+        </h1>
+      </header>
+
+      {/* Thesis — the meat: statement and paragraph as one cohesive unit */}
+      <section className="mt-12 flex flex-col-reverse gap-8 sm:flex-row sm:items-center sm:justify-between sm:gap-10">
         <div className="max-w-2xl">
-          <h1 className="font-serif text-4xl font-medium leading-[1.05] tracking-tight text-ink sm:text-5xl">
-            <span className="inline-block border-b-[3px] border-ink pb-1.5">
-              Paul Song
-            </span>
-          </h1>
-          <p className="mt-3 font-serif text-2xl font-medium tracking-tight text-ink sm:text-[1.75rem]">
+          <h2 className="font-serif text-2xl font-medium tracking-tight text-ink sm:text-[1.75rem]">
             Old systems, made new.
-          </p>
-          <p className="mt-5 font-serif text-lg leading-relaxed text-ink-muted">
+          </h2>
+          <p className="mt-3 font-serif text-lg leading-relaxed text-ink-muted">
             Farms, gas lines, paper archives, ancient languages, membership
             desks — I take infrastructure people depend on and rebuild it with
             AI, sensors, and whatever tool the problem asks for. Each project
@@ -42,7 +46,7 @@ export default function HomePage() {
           sizes="(max-width: 640px) 60vw, 200px"
           className="w-40 shrink-0 self-start rounded-lg border border-line object-cover sm:w-48 sm:self-auto"
         />
-      </header>
+      </section>
 
       {/* Project grid */}
       <section className="mt-16">
