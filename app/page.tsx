@@ -14,9 +14,38 @@ import { ReadingShelf } from "@/components/reading-shelf";
 
 export default function HomePage() {
   return (
-    <main className="mx-auto min-h-screen max-w-5xl px-6 py-20 sm:py-28">
+    <main className="mx-auto min-h-screen max-w-5xl px-6 pb-20 pt-10 sm:pb-28 sm:pt-12">
+      {/* Contact — a slim utility row at the very top */}
+      <nav
+        aria-label="Contact"
+        className="flex justify-end gap-5 font-mono text-[0.7rem] uppercase tracking-[0.15em]"
+      >
+        <a
+          href="https://github.com/psong11"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-ink-faint transition-colors hover:text-leaf"
+        >
+          GitHub
+        </a>
+        <a
+          href="https://www.linkedin.com/in/paulsong24/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-ink-faint transition-colors hover:text-leaf"
+        >
+          LinkedIn
+        </a>
+        <a
+          href="mailto:paulsong24@gmail.com"
+          className="text-ink-faint transition-colors hover:text-leaf"
+        >
+          Email
+        </a>
+      </nav>
+
       {/* Masthead */}
-      <header className="flex flex-col-reverse gap-8 sm:flex-row sm:items-center sm:justify-between sm:gap-10">
+      <header className="mt-12 flex flex-col-reverse gap-8 sm:mt-14 sm:flex-row sm:items-center sm:justify-between sm:gap-10">
         <div className="max-w-2xl">
           <h1 className="font-serif text-4xl font-medium leading-[1.05] tracking-tight text-ink sm:text-5xl">
             <span className="inline-block border-b-[3px] border-ink pb-1.5">
@@ -76,33 +105,9 @@ export default function HomePage() {
       <ReadingShelf books={BOOKS} />
 
       {/* Footer */}
-      <footer className="mt-24 flex flex-wrap items-baseline justify-between gap-4 border-t border-line-soft pt-6">
+      <footer className="mt-24 border-t border-line-soft pt-6">
         <p className="label">
           {PROJECTS.length} projects · more in the works
-        </p>
-        <p className="flex gap-5 font-mono text-[0.7rem] uppercase tracking-[0.15em]">
-          <a
-            href="https://github.com/psong11"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-ink-faint transition-colors hover:text-leaf"
-          >
-            GitHub
-          </a>
-          <a
-            href="https://www.linkedin.com/in/paulsong24/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-ink-faint transition-colors hover:text-leaf"
-          >
-            LinkedIn
-          </a>
-          <a
-            href="mailto:paulsong24@gmail.com"
-            className="text-ink-faint transition-colors hover:text-leaf"
-          >
-            Email
-          </a>
         </p>
       </footer>
     </main>
