@@ -100,6 +100,47 @@ export const COMMUNITY: CommunityEntry[] = [
     box: { width: 1050, height: 969 },
   },
   {
+    id: "treehouse-cobblestone",
+    org: "Treehouse Pantry & Cobblestone Farms",
+    role: "Volunteer",
+    years: "2025 –",
+    story:
+      "Regenerative farms in Northwest Arkansas growing fresh food for the community. I help harvest, scout disease and pest pressure on the crops, and work the open market days, where the harvest goes home free with low-income families in the Springdale area — plus the occasional nursery run for native plants to bring in native pollinators.",
+    detail:
+      "harvest crew · disease & pest scouting · free-grocery community market days · native-pollinator plantings",
+    photos: [
+      {
+        src: "/community/cobblestone-truck.jpg",
+        alt: "Paul crouched in the bed of a pickup truck, grinning among trays of native pollinator plants fresh from the nursery.",
+      },
+      {
+        src: "/community/cobblestone-market.jpg",
+        alt: "Volunteers filling long bins with lettuce, radishes, green onions, and cucumbers for a free community market day.",
+      },
+      {
+        src: "/community/cobblestone-eggplants.jpg",
+        alt: "A harvest crate stacked with striped purple eggplants.",
+      },
+      {
+        src: "/community/cobblestone-leaf.jpg",
+        alt: "A cucurbit leaf mottled with disease spots, marigolds planted alongside — scouting pest and disease pressure.",
+      },
+      {
+        src: "/community/cobblestone-radishes.jpg",
+        alt: "A handful of just-pulled pink radishes, soil still on them, held over a bed of greens.",
+      },
+      {
+        src: "/community/cobblestone-carrot.jpg",
+        alt: "A small carrot twisted into a corkscrew, held up over the carrot bed.",
+      },
+      {
+        src: "/community/cobblestone-farm.jpg",
+        alt: "Raised metal garden beds and harvest crates in front of the farm's hoop houses.",
+      },
+    ],
+    box: { width: 1600, height: 1200 },
+  },
+  {
     id: "st-louise",
     org: "St. Louise Regional Hospital",
     role: "Patient Services",
@@ -113,6 +154,6 @@ export const COMMUNITY: CommunityEntry[] = [
     role: "Teaching Assistant",
     years: "2017 – 2020",
     story:
-      "Taught Korean language and culture to elementary schoolers at the world's largest extracurricular Korean school.",
+      "Taught Korean language and culture to elementary schoolers at the world's largest extracurricular Korean school outside of Korea.",
   },
 ];
