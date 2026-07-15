@@ -38,7 +38,7 @@ export const TOOLBOX: ToolCluster[] = [
   {
     name: "IoT & physical systems",
     terms: [
-      "self-reporting telemetry",
+      "Self-reporting telemetry",
       "remote monitoring",
       "closed-loop actuation",
       "digital twins",
@@ -49,7 +49,7 @@ export const TOOLBOX: ToolCluster[] = [
   {
     name: "Product",
     terms: [
-      "roadmap ownership",
+      "Roadmap ownership",
       "stakeholder alignment",
       "RBAC & compliance",
       "payment-hardware integration",
@@ -74,7 +74,7 @@ export const TOOLBOX: ToolCluster[] = [
   {
     name: "Field work & teaching",
     terms: [
-      "deployment on working farms",
+      "Deployment on working farms",
       "volunteer-ready handoffs",
       "teaching non-technical users",
       "STEM mentorship",

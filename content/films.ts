@@ -23,7 +23,7 @@ export type Film = {
 export const FILMS: Film[] = [
   {
     slug: "letter-to-my-family",
-    title: "Letter to my Family",
+    title: "Letter to My Family",
     src: "/films/letter-to-my-family.mp4",
     poster: "/films/letter-to-my-family-poster.jpg",
     medium: "Mixed media · 1:18",

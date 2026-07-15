@@ -19,11 +19,11 @@ const SITE_URL =
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: "Paul Song — old systems, made new",
+  title: "Paul Song — Old systems, made new",
   description:
     "Farms, gas lines, paper archives, ancient languages, membership desks — infrastructure people depend on, rebuilt with AI, sensors, and care.",
   openGraph: {
-    title: "Paul Song — old systems, made new",
+    title: "Paul Song — Old systems, made new",
     description:
       "Farms, gas lines, paper archives, ancient languages, membership desks — infrastructure people depend on, rebuilt with AI, sensors, and care.",
     url: SITE_URL,

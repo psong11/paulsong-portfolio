@@ -27,7 +27,7 @@ export const COMMUNITY: CommunityEntry[] = [
     story:
       "Gilroy had no youth orchestra, so I started one. Eight musicians in a friend's basement grew to twenty-plus — I recruited players from school band programs, wrote to churches, colleges, and school districts until a pastor said yes to his fellowship hall, brought on a former band director to conduct, picked repertoire, booked the venue, printed and sold the tickets, and ran the marketing.",
     detail:
-      "my hometown's first youth orchestra · 8 musicians in a basement → 20+ · debut concert: Sibelius, Mozart, Pirates of the Caribbean",
+      "My hometown's first youth orchestra · 8 musicians in a basement → 20+ · debut concert: Sibelius, Mozart, Pirates of the Caribbean",
     photos: [
       {
         src: "/community/svyo-rehearsal.jpg",
@@ -51,7 +51,7 @@ export const COMMUNITY: CommunityEntry[] = [
     years: "2020 – 2024",
     story:
       "Four years on the board, helping plan the annual culture show — performances from students and the Greater Boston community, food donated by local Korean restaurants we helped publicize in return, and raffles run with Korean skincare brands, gamers, and chefs. Four to five hundred people a year, big enough that it took over the Smith Campus Center.",
-    detail: "annual culture show · 400–500 attendees · Smith Campus Center",
+    detail: "Annual culture show · 400–500 attendees · Smith Campus Center",
     photos: [
       {
         src: "/community/hka-night-market.jpg",
@@ -107,7 +107,7 @@ export const COMMUNITY: CommunityEntry[] = [
     story:
       "Regenerative farms in Northwest Arkansas growing fresh food for the community. I help harvest, scout disease and pest pressure on the crops, and work the open market days, where the harvest goes home free with low-income families in the Springdale area — plus the occasional nursery run for native plants to bring in native pollinators.",
     detail:
-      "harvest crew · disease & pest scouting · free-grocery community market days · native-pollinator plantings",
+      "Harvest crew · disease & pest scouting · free-grocery community market days · native-pollinator plantings",
     photos: [
       {
         src: "/community/cobblestone-truck.jpg",

@@ -28,7 +28,7 @@ export const PATH: PathStop[] = [
     role: "Horizon Scholar",
     lesson: "foray into higher education",
     detail:
-      "one of 21 chosen nationwide · High School Summer College with fully covered tuition, room, and books",
+      "One of 21 chosen nationwide · High School Summer College with fully covered tuition, room, and books",
   },
   {
     years: "2020–24",
@@ -72,7 +72,7 @@ export const PATH: PathStop[] = [
     role: "Teacher",
     lesson: "making STEM tangible",
     detail:
-      "personalized curricula guiding elementary students through hands-on engineering projects",
+      "Personalized curricula guiding elementary students through hands-on engineering projects",
   },
   {
     years: "2025",
@@ -80,7 +80,7 @@ export const PATH: PathStop[] = [
     role: "Teacher",
     lesson: "giving back to my old elementary school :)",
     detail:
-      "daily expanded-learning curriculum at Luigi Aprea Elementary — STEM, literacy, and PE",
+      "Daily expanded-learning curriculum at Luigi Aprea Elementary — STEM, literacy, and PE",
   },
   {
     years: "2025–",
