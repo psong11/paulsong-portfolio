@@ -18,12 +18,12 @@ export default function HomePage() {
       {/* Masthead */}
       <header className="flex flex-col-reverse gap-8 sm:flex-row sm:items-center sm:justify-between sm:gap-10">
         <div className="max-w-2xl">
-          <p className="font-serif text-2xl font-medium tracking-tight text-ink sm:text-[1.75rem]">
+          <h1 className="font-serif text-4xl font-medium leading-[1.05] tracking-tight text-ink sm:text-5xl">
             Paul Song
-          </p>
-          <h1 className="mt-3 font-serif text-4xl font-medium leading-[1.05] tracking-tight text-ink sm:text-5xl">
-            Old systems, made new.
           </h1>
+          <p className="mt-3 font-serif text-2xl font-medium tracking-tight text-ink sm:text-[1.75rem]">
+            Old systems, made new.
+          </p>
           <p className="mt-5 font-serif text-lg leading-relaxed text-ink-muted">
             Farms, gas lines, paper archives, ancient languages, membership
             desks — I take infrastructure people depend on and rebuild it with
@@ -32,10 +32,10 @@ export default function HomePage() {
           </p>
         </div>
         <Image
-          src="/paul-portrait.jpg"
-          alt="Paul Song — a motion-blurred portrait in front of white spring blossoms."
-          width={1200}
-          height={1800}
+          src="/paul-grad-portrait.jpg"
+          alt="Paul Song at Harvard commencement — smiling in cap and gown in front of a crimson Veritas banner."
+          width={1018}
+          height={1600}
           priority
           sizes="(max-width: 640px) 60vw, 200px"
           className="w-40 shrink-0 self-start rounded-lg border border-line object-cover sm:w-48 sm:self-auto"
