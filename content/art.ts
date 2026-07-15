@@ -56,16 +56,17 @@ export const ART: ArtPiece[] = [
     width: 1600,
     height: 1166,
   },
-  {
-    id: "discombobulated",
-    src: "/art/discombobulated.jpg",
-    alt: "Discombobulated — a fragmented, surreal portrait of a face coming apart, drawn in teal and orange colored pencil with graphite hatching on cream paper.",
-    title: "Discombobulated",
-    medium: "Graphite & Caran d'Ache colored pencil",
-    year: 2024,
-    width: 1200,
-    height: 1600,
-  },
+  // Benched for now, per Paul — uncomment to rehang.
+  // {
+  //   id: "discombobulated",
+  //   src: "/art/discombobulated.jpg",
+  //   alt: "Discombobulated — a fragmented, surreal portrait of a face coming apart, drawn in teal and orange colored pencil with graphite hatching on cream paper.",
+  //   title: "Discombobulated",
+  //   medium: "Graphite & Caran d'Ache colored pencil",
+  //   year: 2024,
+  //   width: 1200,
+  //   height: 1600,
+  // },
   {
     id: "art-01",
     src: "/art/art-01.jpg",
