@@ -18,8 +18,10 @@ export default function HomePage() {
       {/* Masthead */}
       <header className="flex flex-col-reverse gap-8 sm:flex-row sm:items-center sm:justify-between sm:gap-10">
         <div className="max-w-2xl">
-          <h1 className="font-serif text-4xl font-medium leading-[1.05] tracking-tight text-ink underline decoration-leaf decoration-[3px] underline-offset-[10px] sm:text-5xl">
-            Paul Song
+          <h1 className="font-serif text-4xl font-medium leading-[1.05] tracking-tight text-ink sm:text-5xl">
+            <span className="inline-block border-b-[3px] border-ink pb-1.5">
+              Paul Song
+            </span>
           </h1>
           <p className="mt-3 font-serif text-2xl font-medium tracking-tight text-ink sm:text-[1.75rem]">
             Old systems, made new.
