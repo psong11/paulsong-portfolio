@@ -20,7 +20,7 @@ export const PATH: PathStop[] = [
     role: "Valedictorian",
     lesson: "learning to serve",
     detail:
-      "734.5 community-service hours · President's Volunteer Service Award Gold · San Jose Pioneer Lion's Club scholarship",
+      "734.5 community-service hours · President's Volunteer Service Award Gold · founder of South Valley Youth Orchestra",
   },
   {
     years: "2019",
