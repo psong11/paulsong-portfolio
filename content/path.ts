@@ -34,7 +34,7 @@ export const PATH: PathStop[] = [
     years: "2020–24",
     org: "Harvard University",
     role: "B.A. Computer Science, minor in Economics",
-    lesson: "how to think and learn",
+    lesson: "speaking the language of the modern world",
     detail: "CS core + the economics of markets and institutions",
   },
   {
@@ -42,7 +42,7 @@ export const PATH: PathStop[] = [
     org: "Harvard Student Agencies DEV",
     role: "Managing Director",
     lesson: "running a tech consultancy",
-    detail: "$230K P&L · 21 client projects shipped · 20+ engineers, designers, sellers",
+    detail: "$230K P&L · 21 client projects shipped · 20+ engineers, designers, sales",
   },
   {
     years: "2023",
@@ -56,7 +56,7 @@ export const PATH: PathStop[] = [
     years: "2024",
     org: "UKG",
     role: "Data Engineering Intern",
-    lesson: "engineering production data",
+    lesson: "managing enterprise data",
     detail: "Python/SQL utilities shipped to production Databricks via Azure DevOps CI/CD",
   },
   {
