@@ -6,6 +6,7 @@ import { TOOLBOX } from "@/content/toolbox";
 import { ART } from "@/content/art";
 import { FILMS } from "@/content/films";
 import { BOOKS } from "@/content/books";
+import { NOW, NOW_READING } from "@/content/now";
 import { ProjectCard } from "@/components/project-card";
 import { PathTimeline } from "@/components/path-timeline";
 import { CommunitySection } from "@/components/community-section";
@@ -37,6 +38,27 @@ export default function HomePage() {
               project below started with a real problem and a person it
               mattered to.
             </p>
+            {/* The "Now" block — a dated field-note filling the hero's quiet
+                middle: where I am, what I'm building, what I'm reading. */}
+            <dl className="mt-9 space-y-2.5">
+              {[
+                ["Now", NOW.now],
+                ["Building", NOW.building],
+                ["Reading", NOW_READING],
+              ]
+                .filter(([, value]) => value)
+                .map(([label, value]) => (
+                  <div
+                    key={label}
+                    className="grid grid-cols-[6.5rem_1fr] items-baseline gap-x-4"
+                  >
+                    <dt className="label !text-leaf">{label}</dt>
+                    <dd className="m-0 font-serif text-[0.98rem] italic text-ink-muted">
+                      {value}
+                    </dd>
+                  </div>
+                ))}
+            </dl>
           </div>
           <nav
             aria-label="Contact"
