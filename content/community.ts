@@ -103,7 +103,7 @@ export const COMMUNITY: CommunityEntry[] = [
     id: "treehouse-cobblestone",
     org: "Treehouse Pantry & Cobblestone Farms",
     role: "Volunteer",
-    years: "2025 –",
+    years: "2026 –",
     story:
       "Regenerative farms in Northwest Arkansas growing fresh food for the community. I help harvest, scout disease and pest pressure on the crops, and work the open market days, where the harvest goes home free with low-income families in the Springdale area — plus the occasional nursery run for native plants to bring in native pollinators.",
     detail:
