@@ -88,6 +88,6 @@ export const PATH: PathStop[] = [
     role: "Product Manager, Membership",
     lesson: "modernizing legacy ops",
     detail:
-      "developing an iPad application used across 600 stores for ~50M customer interactions/yr",
+      "Developing an iPad application used across 600 stores for ~50M customer interactions/yr",
   },
 ];
