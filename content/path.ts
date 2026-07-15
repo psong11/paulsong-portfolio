@@ -71,6 +71,7 @@ export const PATH: PathStop[] = [
     org: "Walmart",
     role: "Product Manager, Membership",
     lesson: "modernizing legacy ops",
-    detail: "1Desk across 600 clubs · ~50M member interactions/yr",
+    detail:
+      "developing an iPad application used across 600 stores for ~50M customer interactions/yr",
   },
 ];
