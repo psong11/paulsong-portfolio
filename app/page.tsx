@@ -62,6 +62,14 @@ export default function HomePage() {
             >
               Email
             </a>
+            <a
+              href="/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-ink-faint transition-colors hover:text-leaf"
+            >
+              Resume
+            </a>
           </nav>
         </div>
         <Image
