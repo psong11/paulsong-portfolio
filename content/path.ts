@@ -67,6 +67,22 @@ export const PATH: PathStop[] = [
     detail: "40M+ competitive price decisions automated per year",
   },
   {
+    years: "2024",
+    org: "Harvard Ed Portal",
+    role: "Teacher",
+    lesson: "making STEM tangible",
+    detail:
+      "personalized curricula guiding elementary students through hands-on engineering projects",
+  },
+  {
+    years: "2025",
+    org: "YMCA of Silicon Valley",
+    role: "Teacher",
+    lesson: "showing up for kids",
+    detail:
+      "daily expanded-learning curriculum at Luigi Aprea Elementary — STEM, literacy, and PE",
+  },
+  {
     years: "2025–",
     org: "Walmart",
     role: "Product Manager, Membership",
