@@ -16,8 +16,9 @@ export type ArtPiece = {
   year?: number;
   /** Intrinsic pixel dimensions of the file at `src` (for layout).
    *  For a stacked piece (see `behind`) these define the CARD BOX instead —
-   *  every photo in the stack is cropped to cover this ratio — and they
-   *  also decide which row group the piece lands in (portrait vs landscape). */
+   *  every photo in the stack is cropped to cover this ratio. The gallery
+   *  hangs pieces in array order, three to a row, each column as wide as its
+   *  aspect ratio demands — so the array order IS the wall arrangement. */
   width: number;
   height: number;
   /** A second photo tucked behind this one like a card in a stack —
