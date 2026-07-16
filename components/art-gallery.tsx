@@ -28,10 +28,16 @@ function ArtCard({ piece }: { piece: ArtPiece }) {
     // Same fixed-aspect box model as the stacks: the mat spans the box and
     // the image cover-fills inside it, so a row's cards all resolve to
     // exactly columnWidth / aspect — flush, justified rows. Costs a few
-    // pixels of cover-crop at the mat's padding, nothing more.
-    <div className={mat} style={{ aspectRatio: width / height }}>
-      <div className="relative h-full w-full overflow-hidden rounded-sm">
-        <Image src={src} alt={alt} fill sizes={sizes} className="object-cover" />
+    // pixels of cover-crop at the mat's padding, nothing more. The ratio
+    // lives on a padding-free box with the mat absolute inside it (like
+    // ArtStack's button): WebKit sizes aspect-ratio from the full width even
+    // with border-box padding, which would leave padded mats ~34px taller
+    // than the stacks and break the flush rows.
+    <div className="relative" style={{ aspectRatio: width / height }}>
+      <div className={`absolute inset-0 ${mat}`}>
+        <div className="relative h-full w-full overflow-hidden rounded-sm">
+          <Image src={src} alt={alt} fill sizes={sizes} className="object-cover" />
+        </div>
       </div>
     </div>
   );
@@ -62,6 +68,12 @@ export function ArtGallery({ pieces }: { pieces: ArtPiece[] }) {
   // proportional to its piece's aspect ratio — so every image keeps its true
   // proportions, all images in a row land at exactly the same height, and the
   // row runs flush edge to edge. No crops, no orphan cells, no dead space.
+  //
+  // Rows are flex, not grid: WebKit sizes aspect-ratio boxes inside fr grid
+  // tracks by their intrinsic contributions, breaking the proportional column
+  // widths (Safari showed mismatched row heights and a collapsed first card).
+  // flex-grow ∝ aspect with basis-0/min-w-0 is the same math, sized
+  // deterministically in every engine.
   const rows: ArtPiece[][] = [];
   for (let i = 0; i < pieces.length; i += ROW_SIZE) {
     rows.push(pieces.slice(i, i + ROW_SIZE));
@@ -84,21 +96,22 @@ export function ArtGallery({ pieces }: { pieces: ArtPiece[] }) {
         {rows.map((row) => (
           <div
             key={row[0].id}
-            className="grid grid-cols-1 items-start gap-x-6 gap-y-10 sm:[grid-template-columns:var(--cols)]"
-            style={
-              {
-                // A short final row would stretch its pieces huge; padding the
-                // template with empty fr tracks keeps them near full-row scale.
-                "--cols": row
-                  .map((p) => `${(p.width / p.height).toFixed(4)}fr`)
-                  .concat(row.length < ROW_SIZE ? ["1fr"] : [])
-                  .join(" "),
-              } as React.CSSProperties
-            }
+            className="flex flex-col gap-y-10 sm:flex-row sm:items-start sm:gap-x-6"
           >
             {row.map((piece) => (
-              <ArtCard key={piece.id} piece={piece} />
+              <div
+                key={piece.id}
+                className="sm:min-w-0 sm:basis-0"
+                style={{ flexGrow: piece.width / piece.height }}
+              >
+                <ArtCard piece={piece} />
+              </div>
             ))}
+            {/* A short final row would stretch its pieces huge; an empty
+                spacer keeps them near full-row scale. */}
+            {row.length < ROW_SIZE && (
+              <div aria-hidden className="hidden grow sm:block sm:basis-0" />
+            )}
           </div>
         ))}
       </div>
