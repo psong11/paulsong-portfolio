@@ -67,6 +67,16 @@ export const ART: ArtPiece[] = [
     height: 1166,
   },
   {
+    id: "boy-in-the-water",
+    src: "/art/boy-in-the-water.jpg",
+    alt: "Boy in the Water — seen from directly above, a boy stands waist-deep in flat ochre water cupping his hands, his shadow stretching beside him; a long oar cuts across the top of the frame.",
+    title: "Boy in the Water",
+    medium: "Procreate",
+    year: 2023,
+    width: 1023,
+    height: 1472,
+  },
+  {
     id: "cow",
     src: "/art/cow.jpg",
     alt: "Cow — a Holstein in flat, poster-like color blocks, standing in a sunlit pasture dappled with yellow light against a dark tree line, red ear tag catching the eye.",
