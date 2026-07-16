@@ -66,6 +66,16 @@ export const ART: ArtPiece[] = [
     width: 1600,
     height: 1166,
   },
+  {
+    id: "cow",
+    src: "/art/cow.jpg",
+    alt: "Cow — a Holstein in flat, poster-like color blocks, standing in a sunlit pasture dappled with yellow light against a dark tree line, red ear tag catching the eye.",
+    title: "Cow",
+    medium: "Procreate",
+    year: 2023,
+    width: 1178,
+    height: 817,
+  },
   // Benched for now, per Paul — uncomment to rehang.
   // {
   //   id: "discombobulated",
