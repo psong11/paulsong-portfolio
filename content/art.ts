@@ -47,6 +47,16 @@ export const ART: ArtPiece[] = [
     },
   },
   {
+    id: "problem-solving",
+    src: "/art/problem-solving.jpg",
+    alt: "Problem Solving — eight small abstract oil canvases hung in a two-column grid on a white wall, each a different color study of tangled, searching forms.",
+    title: "Problem Solving",
+    medium: "Oil on canvas",
+    year: 2024,
+    width: 910,
+    height: 1600,
+  },
+  {
     id: "my-kid-drew-this",
     src: "/art/my-kid-drew-this.jpg",
     alt: "MY KID DREW THIS — a riotous oil scene: four cartoonish figures in hot pink, chartreuse, ochre, and violet tangled around a ship's wheel, under a full moon with a face, against a swirling dark-teal night.",
