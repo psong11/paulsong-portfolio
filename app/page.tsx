@@ -41,11 +41,23 @@ export default function HomePage() {
             {/* The "Now" block — a dated field-note filling the hero's quiet
                 middle: where I am, what I'm building, what I'm reading. */}
             <dl className="mt-9 space-y-2.5">
-              {[
-                ["Now", NOW.now],
-                ["Building", NOW.building],
-                ["Reading", NOW_READING],
-              ]
+              {(
+                [
+                  // The trail before Bentonville fades back; where I am now
+                  // arrives in full ink — coast to coast to heartland.
+                  [
+                    "Now",
+                    <>
+                      <span className="text-ink-faint">
+                        {NOW.wayback.map((place) => `${place} → `).join("")}
+                      </span>
+                      <span className="text-ink">{NOW.now}</span>
+                    </>,
+                  ],
+                  ["Building", NOW.building],
+                  ["Reading", NOW_READING],
+                ] as [string, React.ReactNode][]
+              )
                 .filter(([, value]) => value)
                 .map(([label, value]) => (
                   <div

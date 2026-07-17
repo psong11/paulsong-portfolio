@@ -3,8 +3,10 @@ import { BOOKS } from "./books";
 // The masthead's field-note status block — three present-tense lines that
 // keep the hero feeling dated like a journal entry. Update as life moves;
 // the reading line follows a slug from books.ts so it never drifts from
-// the shelf.
+// the shelf. The Now line renders `wayback` as a faint trail of arrows
+// arriving at `now` in full ink — grew up west, studied east, here now.
 export const NOW = {
+  wayback: ["the Bay Area", "Boston"],
   now: "Bentonville, Arkansas",
   building: "solar-powered sensor nodes for a regenerative farm",
   readingSlug: "the-grid",
