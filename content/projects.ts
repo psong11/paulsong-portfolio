@@ -29,16 +29,17 @@ export type Project = {
 
 export const PROJECTS: Project[] = [
   {
-    slug: "kepler452b",
-    title: "kepler452b",
+    slug: "onsc-alumni",
+    title: "ONSC Alumni Digitizer",
     tagline:
-      "Solar-powered sensor nodes that run cable-free and report their own health over WiFi.",
-    why: "The reliable, self-sustaining sensing layer a small regenerative farm could never afford — starting with the unglamorous fundamentals of power and reachability.",
-    tags: ["ESP32-C6", "INA219", "solar", "arduino-cli"],
-    status: "in progress",
-    accent: "#5468b8", // starlight indigo, inked for paper — a distant world phoning home
-    journey: true,
-    thumbnail: "/thumbnails/kepler452b.jpg",
+      "Snap a handwritten camp form, AI reads it, a volunteer confirms, it's saved.",
+    why: "Decades of a nature center's alumni sit in boxes of paper. This turns months of re-typing into seconds per form — so it can reconnect with the kids it once inspired.",
+    tags: ["Next.js", "Claude vision", "Google Sheets"],
+    status: "shipped",
+    accent: "#a2762a", // amber ochre
+    liveUrl: "https://github.com/psong11/onsc-alumni-project",
+    linkLabel: "View code →",
+    thumbnail: "/thumbnails/onsc-alumni.png", // the Ozark Natural Science Center brand mark
   },
   {
     slug: "wy2z",
@@ -51,19 +52,6 @@ export const PROJECTS: Project[] = [
     accent: "#567a58", // sage, inked for paper
     liveUrl: "https://wy2z.vercel.app",
     thumbnail: "/thumbnails/wy2z.jpg", // the live project's own timelapse poster
-  },
-  {
-    slug: "onsc-alumni",
-    title: "ONSC Alumni Digitizer",
-    tagline:
-      "Snap a handwritten camp form, AI reads it, a volunteer confirms, it's saved.",
-    why: "Decades of a nature center's alumni sit in boxes of paper. This turns months of re-typing into seconds per form — so it can reconnect with the kids it once inspired.",
-    tags: ["Next.js", "Claude vision", "Google Sheets"],
-    status: "shipped",
-    accent: "#a2762a", // amber ochre
-    liveUrl: "https://github.com/psong11/onsc-alumni-project",
-    linkLabel: "View code →",
-    thumbnail: "/thumbnails/onsc-alumni.png", // the Ozark Natural Science Center brand mark
   },
   {
     slug: "floradex",
@@ -100,5 +88,17 @@ export const PROJECTS: Project[] = [
     accent: "#8f7420", // parchment gold, inked for paper
     liveUrl: "https://ezra-zeta.vercel.app",
     thumbnail: "/thumbnails/ezra.jpg", // interlinear Hebrew + word-analysis panel, side by side
+  },
+  {
+    slug: "kepler452b",
+    title: "kepler452b",
+    tagline:
+      "Solar-powered sensor nodes that run cable-free and report their own health over WiFi.",
+    why: "The reliable, self-sustaining sensing layer a small regenerative farm could never afford — starting with the unglamorous fundamentals of power and reachability.",
+    tags: ["ESP32-C6", "INA219", "solar", "arduino-cli"],
+    status: "in progress",
+    accent: "#5468b8", // starlight indigo, inked for paper — a distant world phoning home
+    journey: true,
+    thumbnail: "/thumbnails/kepler452b.jpg",
   },
 ];
