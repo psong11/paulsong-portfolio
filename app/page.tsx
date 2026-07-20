@@ -14,6 +14,7 @@ import { Toolbox } from "@/components/toolbox";
 import { ArtGallery } from "@/components/art-gallery";
 import { FilmGallery } from "@/components/film-gallery";
 import { ReadingShelf } from "@/components/reading-shelf";
+import { GradSchoolNote } from "@/components/grad-school-note";
 
 export default function HomePage() {
   return (
@@ -152,6 +153,9 @@ export default function HomePage() {
 
       {/* Reading */}
       <ReadingShelf books={BOOKS} />
+
+      {/* Currently enrolled — a program, not a project */}
+      <GradSchoolNote />
 
       {/* Footer */}
       <footer className="mt-24 border-t border-line-soft pt-6">

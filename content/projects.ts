@@ -90,18 +90,6 @@ export const PROJECTS: Project[] = [
     thumbnail: "/thumbnails/bentonville-gas-simulator.jpg", // network map: source hub, leaks, sensor nodes
   },
   {
-    slug: "grad-school",
-    title: "An Autonomous Grad School",
-    tagline:
-      "A two-year, build-first master's in autonomous systems — no campus, no tuition, just shipped demos.",
-    why: "Regenerative farms need robots that work with living systems, and no course catalog teaches that on a working adult's clock. So the farm is the lab, a rover is the thesis, and an AI professor holds office hours on the syllabus page.",
-    tags: ["ROS 2", "Jetson", "RTK GPS", "LiDAR", "biomimicry"],
-    status: "in progress",
-    accent: "#6b4e2e", // loam — the soil the whole program grows in
-    journey: true,
-    linkLabel: "Read the syllabus →",
-  },
-  {
     slug: "ezra",
     title: "Ezra",
     tagline:
