@@ -102,7 +102,7 @@ export const ART: ArtPiece[] = [
     id: "art-01",
     src: "/art/art-01.jpg",
     alt: "Abstract ink drawing: small colorful outlined shapes and a tiny quadruped figure drifting like fragments across cream paper.",
-    title: "Anthro-plosion",
+    title: "Positive Thinking",
     medium: "Zebra Clickart marker, 0.6mm, on paper",
     year: 2024,
     width: 1200,
