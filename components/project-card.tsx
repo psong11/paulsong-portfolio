@@ -15,7 +15,7 @@ export function ProjectCard({ project }: { project: Project }) {
   // Where the card points: an internal journey page wins, then an external
   // link (live deployment or repo), otherwise the card isn't yet linked.
   const target = journey
-    ? { href: `/${slug}`, label: "Read the build →", external: false }
+    ? { href: `/${slug}`, label: linkLabel ?? "Read the build →", external: false }
     : liveUrl
       ? { href: liveUrl, label: linkLabel ?? "View live →", external: true }
       : null;
