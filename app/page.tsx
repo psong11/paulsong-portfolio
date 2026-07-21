@@ -6,6 +6,7 @@ import { TOOLBOX } from "@/content/toolbox";
 import { ART } from "@/content/art";
 import { FILMS } from "@/content/films";
 import { BOOKS } from "@/content/books";
+import { INFLUENCES } from "@/content/influences";
 import { NOW, NOW_READING } from "@/content/now";
 import { ProjectCard } from "@/components/project-card";
 import { PathTimeline } from "@/components/path-timeline";
@@ -14,6 +15,7 @@ import { Toolbox } from "@/components/toolbox";
 import { ArtGallery } from "@/components/art-gallery";
 import { FilmGallery } from "@/components/film-gallery";
 import { ReadingShelf } from "@/components/reading-shelf";
+import { InfluenceList } from "@/components/influence-list";
 import { GradSchoolNote } from "@/components/grad-school-note";
 
 export default function HomePage() {
@@ -153,6 +155,9 @@ export default function HomePage() {
 
       {/* Reading */}
       <ReadingShelf books={BOOKS} />
+
+      {/* Formative canon — the fun one */}
+      <InfluenceList influences={INFLUENCES} />
 
       {/* Currently enrolled — a program, not a project */}
       <GradSchoolNote />

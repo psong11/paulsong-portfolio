@@ -29,6 +29,18 @@ export type Project = {
 
 export const PROJECTS: Project[] = [
   {
+    slug: "wy2z",
+    title: "wy2z",
+    tagline:
+      "A four-device lab that kept three plants alive, unattended, for five weeks.",
+    why: "Care for living things, and a small answer to food insecurity — a Pi, a camera, and Claude watching a tomato while I was a thousand miles away.",
+    tags: ["Raspberry Pi", "Jetson", "ESP32", "Claude vision", "Supabase"],
+    status: "shipped",
+    accent: "#567a58", // sage, inked for paper
+    liveUrl: "https://wy2z.vercel.app",
+    thumbnail: "/thumbnails/wy2z.jpg", // the live project's own timelapse poster
+  },
+  {
     slug: "onsc-alumni",
     title: "ONSC Alumni Digitizer",
     tagline:
@@ -40,18 +52,6 @@ export const PROJECTS: Project[] = [
     liveUrl: "https://github.com/psong11/onsc-alumni-project",
     linkLabel: "View code →",
     thumbnail: "/thumbnails/onsc-alumni.png", // the Ozark Natural Science Center brand mark
-  },
-  {
-    slug: "wy2z",
-    title: "wy2z",
-    tagline:
-      "A four-device lab that kept three plants alive, unattended, for five weeks.",
-    why: "Care for living things, and a small answer to food insecurity — a Pi, a camera, and Claude watching a tomato while I was a thousand miles away.",
-    tags: ["Raspberry Pi", "Jetson", "ESP32", "Claude vision", "Supabase"],
-    status: "shipped",
-    accent: "#567a58", // sage, inked for paper
-    liveUrl: "https://wy2z.vercel.app",
-    thumbnail: "/thumbnails/wy2z.jpg", // the live project's own timelapse poster
   },
   {
     slug: "floradex",
