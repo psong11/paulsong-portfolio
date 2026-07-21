@@ -12,12 +12,13 @@ export function OutsideGallery({ photos }: { photos: OutsidePhoto[] }) {
       <header className="max-w-2xl">
         <p className="label">Outside</p>
         <h2 className="mt-4 font-serif text-2xl font-medium leading-tight text-ink sm:text-3xl">
-          I love being in nature.
+          I love exploring new places and learning new systems.
         </h2>
         <p className="mt-3 font-serif text-base leading-relaxed text-ink-muted">
-          Ozark bluffs, foggy trout water, morels on the forest floor, caves,
-          slopes — and the tractors, cranes, and grow towers people plant in
-          it. The oldest running system, still the one that teaches me most.
+          From hiking Ozark bluffs, catching trout on the White River, and
+          foraging morels on the forest floor to learning about supply chain
+          logistics and hydroponics, it is incredible how technology has also
+          evolved alongside natural systems.
         </p>
       </header>
 
