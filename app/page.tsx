@@ -15,6 +15,8 @@ import { Toolbox } from "@/components/toolbox";
 import { ArtGallery } from "@/components/art-gallery";
 import { FilmGallery } from "@/components/film-gallery";
 import { ReadingShelf } from "@/components/reading-shelf";
+import { OutsideGallery } from "@/components/outside-gallery";
+import { OUTSIDE } from "@/content/outside";
 import { InfluenceList } from "@/components/influence-list";
 import { GradSchoolNote } from "@/components/grad-school-note";
 
@@ -152,6 +154,9 @@ export default function HomePage() {
 
       {/* Stop-motion films */}
       <FilmGallery films={FILMS} />
+
+      {/* Outside — the photo wall */}
+      <OutsideGallery photos={OUTSIDE} />
 
       {/* Reading */}
       <ReadingShelf books={BOOKS} />
