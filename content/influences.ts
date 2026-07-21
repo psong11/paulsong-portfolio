@@ -31,4 +31,5 @@ export const INFLUENCES: Influence[] = [
   { title: "Monsters University", medium: "Film · 2013" },
   { title: "The Maze Runner", medium: "Film · 2014" },
   { title: "Real Steel", medium: "Film · 2011" },
+  { title: "Hoppers", medium: "Film · 2026" },
 ];
