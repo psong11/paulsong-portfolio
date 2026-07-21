@@ -28,4 +28,7 @@ export const INFLUENCES: Influence[] = [
   { title: "Overwatch", medium: "Game · 2016" },
   { title: "WALL·E", medium: "Film · 2008" },
   { title: "Surf's Up", medium: "Film · 2007" },
+  { title: "Monsters University", medium: "Film · 2013" },
+  { title: "The Maze Runner", medium: "Film · 2014" },
+  { title: "Real Steel", medium: "Film · 2011" },
 ];
