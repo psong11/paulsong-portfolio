@@ -42,7 +42,15 @@ export default function RootLayout({
       lang="en"
       className={`${newsreader.variable} ${jetbrainsMono.variable} antialiased`}
     >
-      <body className="bg-paper text-ink-soft">{children}</body>
+      <body className="bg-paper text-ink-soft">
+        {/* Ambient ground — slow-drifting warm glows behind everything */}
+        <div className="ambient" aria-hidden>
+          <span />
+          <span />
+          <span />
+        </div>
+        {children}
+      </body>
     </html>
   );
 }
