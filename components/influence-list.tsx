@@ -14,8 +14,9 @@ export function InfluenceList({ influences }: { influences: Influence[] }) {
           The movies (and shows, and games) that left a mark.
         </h2>
         <p className="mt-3 font-serif text-base leading-relaxed text-ink-muted">
-          The worlds I kept returning to, as a kid and since — listed in the
-          order they come to mind, which is its own kind of ranking.
+          Kind machines, wild creatures, and tinkerers fixing broken worlds
+          with whatever&rsquo;s on hand &mdash; everything I build now was
+          rehearsed somewhere in this grid first.
         </p>
       </header>
 
