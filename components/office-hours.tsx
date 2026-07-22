@@ -89,7 +89,7 @@ function fallbackAnswer(q: string): string {
       : `Pair with ${MILESTONES[i].code}: ${MILESTONES[i].book}`;
   }
   if (/(budget|cost|price|total|\$)/.test(lower))
-    return `Instrumentation totals ${BENCH_TOTAL}, acquired milestone by milestone — never all at once.`;
+    return `New spend this year: ${BENCH_TOTAL} — the aircraft, radios, and Rover Zero parts are already owned. The old rover bench (Jetson, RTK, LiDAR, ~$2.4K) is deferred behind Year 2's purchase gate.`;
   return statusAnswer(today);
 }
 
@@ -103,7 +103,7 @@ const CHIPS = [
   "What's due right now?",
   "What should I buy next?",
   "Am I on schedule?",
-  "Explain RTK like I'm five",
+  "ELRS vs SiK — why do I need both?",
 ];
 
 const GREETING =

@@ -2,6 +2,7 @@ import Link from "next/link";
 import OfficeHours from "@/components/office-hours";
 import {
   MILESTONES,
+  ROVER_ZERO,
   BENCH,
   BENCH_TOTAL,
   CANON,
@@ -12,16 +13,16 @@ import {
 export const metadata = {
   title: "An Autonomous Grad School — the syllabus",
   description:
-    "A two-year, build-first, self-directed master's in autonomous systems: a farm rover as the thesis, a regenerative farm as the lab, and a resident AI professor who knows the whole syllabus.",
+    "A two-year, build-first, self-directed master's in autonomous systems: a crop-scouting drone as the thesis, a regenerative microfarm as the lab, and a resident AI professor who knows the whole syllabus.",
 };
 
 const STATS = [
   { n: "~1,250", label: "total hours (10–15/wk)" },
   { n: "2", label: "years" },
-  { n: "14", label: "shipped demos" },
+  { n: "7", label: "dated demos in Year 1" },
   { n: "8", label: "books in the canon" },
-  { n: "~$2.4K", label: "instrumentation" },
-  { n: "1", label: "robot at a time" },
+  { n: "$0", label: "new gear until a demo demands it" },
+  { n: "1", label: "serious robot at a time" },
 ];
 
 const fmtDue = (iso: string) =>
@@ -64,9 +65,9 @@ export default function GradSchoolPage() {
         <p className="mt-5 font-serif text-lg leading-relaxed text-ink-soft">
           No campus, no tuition, no transcript. A two-year, build-first
           master&apos;s in autonomous systems — where the thesis is a{" "}
-          <strong>farm rover</strong>, the lab is a{" "}
-          <strong>regenerative farm</strong>, and every course is whatever the
-          next demo forces me to learn.
+          <strong>crop-scouting drone</strong>, the lab is a{" "}
+          <strong>regenerative microfarm</strong>, and every course is
+          whatever the next demo forces me to learn.
         </p>
 
         <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3">
@@ -117,8 +118,9 @@ export default function GradSchoolPage() {
           The lab bench.
         </h2>
         <p className="mt-1 font-serif text-sm italic text-ink-faint">
-          Jetson + RTK + LiDAR + ROS 2 — the same stack riding on ag-robotics
-          rovers at ETH, CMU, and every field-robotics startup.
+          Pixhawk + ELRS + MAVLink + QGroundControl — the same stack flying
+          research UAVs everywhere. Nearly all of it already on the bench;
+          this year&apos;s new-gear budget rounds to zero.
         </p>
         <div className="mt-4">
           {BENCH.map((b) => (
@@ -142,7 +144,7 @@ export default function GradSchoolPage() {
               Total
             </span>
             <span className="font-serif text-sm italic text-ink-faint max-sm:hidden">
-              acquired incrementally, milestone by milestone
+              the deferred rover bench unlocks in Year 2, item by earned item
             </span>
             <span className="font-mono text-[0.75rem] font-bold tabular-nums text-[var(--color-clay)]">
               {BENCH_TOTAL}
@@ -154,12 +156,13 @@ export default function GradSchoolPage() {
       {/* Year 1 milestones */}
       <section className="mx-auto max-w-[68ch] px-6 pt-12">
         <h2 className="font-serif text-[1.75rem] font-medium text-ink">
-          Year 1 — the farm rover.
+          Year 1 — the farm UAV.
         </h2>
         <p className="mt-1 font-serif text-sm italic text-ink-faint">
-          One robot, seven demos, thirteen months. Each milestone names what it
-          ships, what it forces me to learn, who in nature solved it first —
-          and when it&apos;s due.
+          One aircraft, seven demos, thirteen months, all flown over the
+          Treehouse Pantry microfarm. Each milestone names what it ships, what
+          it forces me to learn, who in nature solved it first — and when
+          it&apos;s due.
         </p>
 
         <div className="mt-6">
@@ -206,27 +209,52 @@ export default function GradSchoolPage() {
         </div>
       </section>
 
+      {/* Rover Zero — the side quest */}
+      <section className="mx-auto max-w-[68ch] px-6 pt-12">
+        <h2 className="font-serif text-[1.75rem] font-medium text-ink">
+          The side quest — Rover Zero.
+        </h2>
+        <p className="mt-1 font-serif text-sm italic text-ink-faint">
+          Undated, guilt-free, and a toy on purpose. The ground track&apos;s
+          perception sandbox.
+        </p>
+        <div className="mt-4 rounded-md border border-line-soft bg-card px-5 py-4 font-serif text-[0.95rem] leading-relaxed text-ink-soft">
+          <p>{ROVER_ZERO.what}</p>
+          <p className="mt-3">{ROVER_ZERO.architecture}</p>
+          <ol className="mt-3 list-decimal space-y-1 pl-5 text-ink-muted">
+            {ROVER_ZERO.demos.map((d) => (
+              <li key={d}>{d}</li>
+            ))}
+          </ol>
+          <p className="mt-3 text-ink-muted">
+            <em>Scope, honestly:</em> {ROVER_ZERO.honesty}
+          </p>
+        </div>
+      </section>
+
       {/* Year 2 */}
       <section className="mx-auto max-w-[68ch] px-6 pt-12">
         <h2 className="font-serif text-[1.75rem] font-medium text-ink">
-          Year 2 — the farm UAV.
+          Year 2 — to be earned.
         </h2>
         <p className="mt-1 font-serif text-sm italic text-ink-faint">
-          Oct 2027 → Aug 2028. Sketch only; it gets the full milestone
-          treatment after the rover&apos;s thesis defense.
+          Oct 2027 → Aug 2028. Deliberately undecided until the M6 thesis
+          defense — a syllabus written before its evidence would be
+          guesswork.
         </p>
         <div className="mt-4 rounded-md border border-line-soft bg-card px-5 py-4 font-serif text-[0.95rem] leading-relaxed text-ink-soft">
           <p>
-            The rover&apos;s autonomy stack goes airborne: PX4 and MAVLink
-            instead of my own drive code, aerodynamics and energy density
-            instead of wheel odometry, multispectral crop scouting instead of
-            gas sensing at ground level.
+            The standing bet: the <strong>real ground rover</strong> —
+            inheriting Rover Zero&apos;s perception stack and the kepler452b
+            gas-sensor payload — with the old bench (Jetson, RTK, 3D LiDAR)
+            unlocked item by item behind a purchase gate: a demo must demand
+            it.
           </p>
           <p className="mt-3">
-            The capstone is an <strong>air–ground team</strong>: the UAV spots
-            an anomaly from altitude, the rover drives out to smell it. Two
-            robots, one nervous system — soaring birds and ground foragers
-            have run this division of labor forever.
+            The capstone bet stays: an <strong>air–ground team</strong>. The
+            UAV spots an anomaly from altitude; the rover drives out to
+            investigate. Two robots, one nervous system — soaring scouts and
+            ground foragers have run this division of labor forever.
           </p>
           <p className="mt-3 text-ink-muted">
             <em>Dessert track:</em> OpenDuck V2 as a bipedal embodied-AI pet —
@@ -390,8 +418,8 @@ export default function GradSchoolPage() {
         </details>
 
         <p className="mt-10 border-t border-line-soft pt-4 font-mono text-[0.7rem] text-ink-faint">
-          est. July 2026 · designed in conversation with Claude · the rover
-          absorbs kepler452b
+          est. July 2026 · v2, revised July 2026 — resequenced around the
+          hardware in hand · designed in conversation with Claude
         </p>
       </section>
     </main>

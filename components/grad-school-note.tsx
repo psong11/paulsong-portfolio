@@ -15,9 +15,9 @@ export function GradSchoolNote() {
           An Autonomous Grad School
         </Link>{" "}
         — a two-year, build-first master&apos;s in autonomous systems,
-        designed with Claude. The farm is the lab, a rover is the thesis, and
-        the professor holds office hours on the syllabus page. First demo due
-        September 2026.
+        designed with Claude. The microfarm is the lab, a crop-scouting drone
+        is the thesis, and the professor holds office hours on the syllabus
+        page. First demo due September 2026.
       </p>
     </section>
   );

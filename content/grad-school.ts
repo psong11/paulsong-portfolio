@@ -2,6 +2,11 @@
 // /grad-school journey page, the Office Hours professor (API system prompt),
 // and the client-side schedule-math fallback. Change a date or a part here
 // and every surface updates.
+//
+// v2 (July 2026): resequenced around hardware in hand — Year 1 is now AIR
+// (Holybro X500 V2 over the Treehouse Pantry microfarm), the ground rover
+// moved to Year 2 behind a purchase gate, and Rover Zero (the CyberBrick
+// forklift conversion) joined as an undated side quest.
 
 export type Milestone = {
   code: string;
@@ -14,7 +19,7 @@ export type Milestone = {
   ship: string;
   /** What this milestone forces me to learn. */
   learn: string;
-  /** Gear to have in hand for this milestone. */
+  /** Gear/admin to have in hand for this milestone. */
   gear: string[];
   /** Where nature already does this (the Life register). */
   nature: string;
@@ -30,13 +35,12 @@ export const MILESTONES: Milestone[] = [
     code: "M0",
     name: "Heartbeat",
     due: "2026-09-30",
-    title: "It's alive and I can drive it",
-    ship: "Chassis moves under teleop over WiFi; battery survives a 30-minute session.",
-    learn: "DC motors & drivers · power budgeting · embedded Linux bring-up",
+    title: "It's alive on the bench",
+    ship: "Firmware pinned (the PX4-vs-ArduPilot question settled for good), all sensor calibrations green, ELRS receiver soldered/bound, motors identified and spinning the right directions — props off.",
+    learn: "flight-controller architecture · UART & CRSF · PWM/ESC basics · sensor calibration · power budgeting",
     gear: [
-      "4WD chassis w/ encoded motors (~$500)",
-      "LiFePO₄ pack + BMS + regulated rails (~$160)",
-      "Jetson Orin Nano Super dev kit (~$250)",
+      "Everything already on the bench: X500 V2 kit, Pixhawk 6C, PM02, SiK radio, 4S LiPo",
+      "RP1 v2 receiver: solder 4 pads → JST-GH 6-pin → TELEM2, TX/RX crossed — verify pad silkscreen against current docs BEFORE soldering",
     ],
     nature:
       "Metabolism precedes behavior — every organism budgets energy before it budgets movement.",
@@ -44,73 +48,80 @@ export const MILESTONES: Milestone[] = [
   },
   {
     code: "M1",
-    name: "Walk the Line",
+    name: "Kestrel",
     due: "2026-11-30",
-    title: "It drives straight without me",
-    ship: "20 m dead-reckoned straight line on grass, under 1 m of drift.",
-    learn: "wheel encoders · odometry · PID control (intuition tier)",
-    gear: ["BNO085 9-DOF IMU (~$25)"],
+    title: "It hovers, and I land it on purpose",
+    ship: "Two minutes of stable manual hover on STOCK arms in an open field, controlled landing, repeatable. FAA registration + TRUST done before the first flight.",
+    learn: "flight dynamics (intuition tier) · attitude control loops · LiPo field safety · pre-flight checklists",
+    gear: [
+      "FAA registration ($5) + TRUST certificate (free, online)",
+      "Spare props — budget to break several",
+    ],
     nature:
-      "Proprioception — your inner ear closes the same loop my encoders do.",
-    book: "Thinking in Systems (Meadows) — PID is the first feedback loop; Meadows is the theory of every loop after it.",
+      "A kestrel wind-hovers by closing the same feedback loop the autopilot runs — sense, correct, hold.",
+    book: "Thinking in Systems (Meadows) — attitude hold is your first live feedback loop; Meadows is the theory of every loop after it.",
   },
   {
     code: "M2",
     name: "Homing",
     due: "2027-01-31",
-    title: "It goes where I point on a map",
-    ship: "Follows a 5-waypoint RTK-GPS course across an open field, centimeter-accurate.",
-    learn: "RTK GPS & NTRIP · coordinate frames · ROS 2 nodes & topics",
+    title: "It holds position, comes home alone — and flies my arms",
+    ship: "GPS position hold in a breeze, return-to-launch triggered and proven from altitude, and the custom 3D-printed arms qualified against the stock-arm hover baseline (vibration + hover-current comparison).",
+    learn: "GPS & EKF intuition · coordinate frames · failsafes · printed structures: layer orientation, stiffness vs. toughness",
     gear: [
-      "u-blox ZED-F9P RTK GPS, ArduSimple board (~$280)",
-      "NTRIP correction service (check for a free state CORS network first)",
+      "Arm filament worthy of flight loads (PETG/PA-CF) — printer already owned",
+      "Stock arms kept as the control group",
     ],
     nature:
       "Desert ants path-integrate thousands of steps and walk home in a straight line.",
-    book: "Biomimicry (Benyus) — while the rover learns to navigate, read how nature already does.",
+    book: "Biomimicry (Benyus) — while the aircraft learns to navigate, read how nature already does.",
   },
   {
     code: "M3",
-    name: "Whiskers",
+    name: "First Sortie",
     due: "2027-03-31",
-    title: "It doesn't hit things",
-    ship: "Completes the waypoint course with obstacles added; stops or routes around.",
-    learn: "3D LiDAR · depth sensing · perception basics · sensor fusion intuition",
-    gear: ["Livox Mid-360 LiDAR (~$750)", "OAK-D Pro depth camera (~$400)"],
+    title: "It flies a mission with my hands in my pockets",
+    ship: "One-button autonomous flight over the Treehouse Pantry microfarm: takeoff → waypoints → land, geofenced, mission uploaded over the SiK link, RC only as override.",
+    learn: "MAVLink · mission planning · geofencing · telemetry links · flight-time energy math",
+    gear: [],
     nature:
-      "Whiskers and echolocation — sensing built for the dark, not for cameras' convenience.",
-    book: "Sustainable Energy — Without the Hot Air (MacKay) — sensors are cheap; watts are not.",
+      "A honeybee's waggle dance is a waypoint upload — direction and distance, transmitted to another flier.",
+    book: "Sustainable Energy — Without the Hot Air (MacKay) — flight time is an energy-density problem; do the watts honestly.",
   },
   {
     code: "M4",
-    name: "Mental Map",
+    name: "Eyes Aloft",
     due: "2027-05-31",
-    title: "It remembers where it's been",
-    ship: "Builds and reuses a LiDAR map of a real plot; relocalizes after reboot.",
-    learn: "SLAM (intuition tier) · Probabilistic Robotics as reference, not read-through",
-    gear: [],
-    nature: "Hippocampal place cells — brains invented occupancy grids first.",
-    book: "Probabilistic Robotics (Thrun) — consult the SLAM chapters; do not marathon it.",
+    title: "It brings home a map",
+    ship: "Camera payload flown on a survey pattern; overlapping photos stitched into a georeferenced orthomosaic of the microfarm — my first map made from the air.",
+    learn: "camera geometry · photogrammetry/SfM (SLAM's free cousin) · ground sample distance · image pipelines",
+    gear: [
+      "Camera + mount (ArduCam/action-cam class, or FC-triggered) — decide at the M3 writeup",
+      "Fast microSD + storage workflow",
+    ],
+    nature:
+      "Hippocampal place cells — brains invented the map-from-motion trick first.",
+    book: "Probabilistic Robotics (Thrun) — consult the mapping chapters; do not marathon it.",
   },
   {
     code: "M5",
-    name: "Scent Trail",
+    name: "Crop Scout",
     due: "2027-07-31",
-    title: "It smells the field",
-    ship: "Carries the kepler452b gas array (SHT40 · STCC4 · O₂ · CH₄ · NH₃); georeferenced readings render as a live heatmap.",
-    learn: "GIS & spatial interpolation · telemetry pipelines · payload integration",
-    gear: ["Payload mount for the kepler452b array ($0 — already built)"],
+    title: "It watches the farm change",
+    ship: "A repeatable scouting mission flown on schedule; dated map series with plant-health flags landing on the ambient display — the microfarm's history, from above.",
+    learn: "GIS & spatial data · change detection · vegetation indices (intuition tier) · telemetry pipelines",
+    gear: [],
     nature:
-      "Moths track odor plumes by casting crosswind — sampling strategy beats sensor precision.",
-    book: "Dirt to Soil (Brown) — you're about to measure a field; understand what a healthy one is.",
+      "Vultures don't search randomly — soaring scouts sweep structured patterns and share what they find.",
+    book: "Dirt to Soil (Brown) — you're photographing a field weekly; understand what a healthy one looks like.",
   },
   {
     code: "M6",
     name: "First Harvest",
     due: "2027-09-30",
-    title: "It surveys a field alone, start to finish",
-    ship: "One-button autonomous survey mission: cover the plot, log the data, come home. Full writeup — the Year 1 thesis defense.",
-    learn: "behavior trees · mission planning · failure modes & field ops",
+    title: "It surveys the farm alone, start to finish",
+    ship: "The full loop with no hands: scheduled mission → flight → map → dashboard. Full writeup — the Year 1 thesis defense, where Year 2's shape gets decided.",
+    learn: "mission robustness · failure modes & field ops · program review: what did the farm actually need?",
     gear: [],
     nature:
       "Foraging theory — when to sweep in rows vs. when to wander (Lévy walks).",
@@ -118,18 +129,33 @@ export const MILESTONES: Milestone[] = [
   },
 ];
 
+/** The undated ground-track side quest — perception sandbox, zero deadlines. */
+export const ROVER_ZERO = {
+  name: "Rover Zero",
+  what: "The Bambu Lab CyberBrick forklift (already built and functional), converted into a tunnel-row plant-photography scout.",
+  architecture:
+    "petsi (a Raspberry Pi 5) is the brain — ArduCam on a swivel servo, WiFi, telemetry to the ambient display. The CyberBrick Core (ESP32-C3, MicroPython) stays on as the actuator controller: 2 DC motor channels + 4 servo ports, commanded over its USB-C serial port. That's the companion-computer pattern — the same architecture as Pixhawk + ground station, at 1/50th the price.",
+  demos: [
+    "Teleop conversion: forklift drives as a scout under keyboard/web control via the Pi",
+    "Serial bridge: Pi ↔ CyberBrick command protocol; camera swivels on command",
+    "Row survey: crawl a tunnel row, photograph every plant, build the dated dataset",
+  ],
+  honesty:
+    "Toy-tier drivetrain (plastic 1:48 gears, 030 motors, no encoders) — it will never push through mulch, and that's fine. The drivetrain is disposable; the perception stack, serial protocol, and data pipeline all transfer to Year 2's real rover.",
+};
+
 export const BENCH = [
-  { part: "Compute", what: "NVIDIA Jetson Orin Nano Super dev kit — edge-AI brain, runs ROS 2 + onboard inference", cost: "$250" },
-  { part: "Positioning", what: "u-blox ZED-F9P RTK GPS (ArduSimple) + NTRIP corrections — centimeter-grade, the ag standard", cost: "$280" },
-  { part: "LiDAR", what: "Livox Mid-360 — 3D, 360°, outdoor-rated; what mapping-grade research rovers actually carry", cost: "$750" },
-  { part: "Depth vision", what: "OAK-D Pro — stereo depth + onboard neural accelerator for perception experiments", cost: "$400" },
-  { part: "Chassis", what: "4WD skid-steer platform w/ encoded motors, field-capable wheels", cost: "$500" },
-  { part: "Power", what: "LiFePO₄ pack + BMS + regulated rails — the energy-systems course, in hardware form", cost: "$160" },
-  { part: "IMU", what: "BNO085 9-DOF — fuses with wheel odometry", cost: "$25" },
-  { part: "Payload", what: "kepler452b gas array (SHT40 · STCC4 · O₂ · CH₄ · NH₃) — already built, already streaming", cost: "$0" },
+  { part: "Airframe", what: "Holybro X500 V2 frame kit — motors, ESCs, props, PDB preinstalled; custom 3D-printed arms fly only after the stock-arm baseline (M2)", cost: "owned" },
+  { part: "Autopilot", what: "Pixhawk 6C — PX4-vs-ArduPilot decision is milestone M0's first gate", cost: "owned" },
+  { part: "Power", what: "Holybro PM02 (analog) inline battery → PDB, 6-pin to POWER1 · 4S LiPo + charger", cost: "owned" },
+  { part: "Radio", what: "RadioMaster ELRS RP1 v2 receiver (CRSF over TELEM2) + ELRS transmitter — the moment-to-moment stick link", cost: "owned" },
+  { part: "Ground link", what: "SiK telemetry V3, 915 MHz 100 mW — MAVLink to QGroundControl; missions up, health down", cost: "owned" },
+  { part: "GNSS", what: "GPS/compass module on the kit mast — position hold and home-point", cost: "owned" },
+  { part: "Rover Zero", what: "CyberBrick forklift (ESP32-C3 core + 2-motor/4-servo shield) + petsi (Pi 5) + ArduCam on a swivel servo", cost: "owned" },
+  { part: "Deferred", what: "Jetson · RTK GPS · 3D LiDAR — the old rover bench, locked behind Year 2's purchase gate: a demo must demand each item before it's bought", cost: "$0 now" },
 ];
 
-export const BENCH_TOTAL = "≈ $2,365";
+export const BENCH_TOTAL = "≈ $0 new";
 
 export const CANON = [
   { title: "Thinking in Systems", note: "Meadows — the operating manual for everything else here." },
@@ -161,11 +187,19 @@ export const PRINCIPLES = [
   },
   {
     title: "Consolidation, not addition.",
-    body: "The rover absorbs my existing sensor platform (kepler452b), telemetry pipeline, and dashboard. This isn't a new project stacked on old ones — it's where they were headed.",
+    body: "The program absorbs what already exists: the kepler452b sensor fleet, the ambient display, an idle Raspberry Pi, a working forklift, a drone kit. Nothing here started from a shopping cart.",
+  },
+  {
+    title: "The hardware in hand sets the sequence.",
+    body: "Added July 2026, learned the honest way: the original plan priced out a rover while a flight-ready aircraft sat on the shelf. The syllabus obeys the bench, not the other way around.",
   },
 ];
 
 export const CUTS = [
+  {
+    title: "The rover-first Year 1",
+    body: "The original v1 syllabus opened with a $1,400 ground-rover shopping list while an X500 drone kit sat ready to fly. Resequenced July 2026 — the rover moved to Year 2 and its budget went to $0. The plan's own build-first rule made the call.",
+  },
   {
     title: "The city UAV",
     body: "Zero connection to the mission, maximum regulatory drag (Part 107, BVLOS waivers). It was on the list because it sounded cool.",
@@ -180,7 +214,7 @@ export const CUTS = [
   },
   {
     title: "Parallel robots",
-    body: "Four \"genuine research platforms\" at once was fantasy. One robot at a time; each inherits the last one's stack.",
+    body: "Four \"genuine research platforms\" at once was fantasy. One serious robot at a time; each inherits the last one's stack. (Rover Zero doesn't count — it's a toy on purpose.)",
   },
 ];
 
@@ -188,20 +222,26 @@ export const CUTS = [
 export function buildProfessorSystem(today: Date): string {
   const syllabus = MILESTONES.map(
     (m) =>
-      `${m.code} ${m.name} — due ${m.due}. Demo: ${m.title}. Ship: ${m.ship} Learn: ${m.learn}. Gear: ${m.gear.join("; ") || "none new"}. Nature: ${m.nature} Reading: ${m.book}`,
+      `${m.code} ${m.name} — due ${m.due}. Demo: ${m.title}. Ship: ${m.ship} Learn: ${m.learn}. Gear/admin: ${m.gear.join("; ") || "none new"}. Nature: ${m.nature} Reading: ${m.book}`,
   ).join("\n");
-  return `You are "the professor" of Paul's Autonomous Grad School — a two-year, build-first, self-directed master's in autonomous systems (${PROGRAM_START} to ${PROGRAM_END}). Year 1 is a farm rover (milestones below); Year 2 is a farm UAV (PX4, MAVLink, multispectral scouting, capstone = air–ground team; syllabus written after M6). OpenDuck V2 is an optional dessert track. The mission behind everything: robots that work WITH living systems, in service of regenerative local farming.
+  return `You are "the professor" of Paul's Autonomous Grad School — a two-year, build-first, self-directed master's in autonomous systems (${PROGRAM_START} to ${PROGRAM_END}). This is the v2 syllabus (revised July 2026, resequenced around hardware in hand).
 
-Today's date: ${today.toISOString().slice(0, 10)}. Use it to compute what is due, what is late, and what to prepare or buy next (order gear one milestone ahead; shipping time is real).
-
-Year 1 syllabus:
+YEAR 1 — AIR. The thesis platform is a Holybro X500 V2 quadcopter (Pixhawk 6C) flying autonomous crop-scouting missions over the Treehouse Pantry MICROFARM (a small regenerative plot — the larger Cobblestone Farms is deliberately a later phase, not part of Year 1). Milestones:
 ${syllabus}
 
-Lab bench (~$2,365 total, acquired incrementally): ${BENCH.map((b) => `${b.part}: ${b.what} (${b.cost})`).join(" · ")}
+SIDE QUEST — ROVER ZERO (undated, guilt-free, runs alongside Year 1): ${ROVER_ZERO.what} Architecture: ${ROVER_ZERO.architecture} Planned demos: ${ROVER_ZERO.demos.join(" → ")}. Honest scope: ${ROVER_ZERO.honesty}
+
+YEAR 2 — TO BE EARNED. Its shape is deliberately undecided until the M6 thesis defense. The standing bet: the real ground rover (inheriting Rover Zero's perception stack and the kepler452b gas-sensor payload), with the air–ground capstone — the UAV spots an anomaly from altitude, the rover investigates on the ground. The old rover bench (Jetson, RTK GPS, 3D LiDAR, ~$2.4K) is locked behind a purchase gate: a demo must demand each item. OpenDuck V2 remains the optional dessert track. If asked about Year 2, say what the bet is but be honest that it gets decided at the defense.
+
+CURRENT BRING-UP CONTEXT (useful for near-term questions): the Pixhawk 6C is on the bench now. Open items: resolve PX4 vs ArduPilot before any receiver configuration (earlier notes dangerously mixed ArduPilot params with PX4 screens); the ELRS RP1 v2 receiver is unsoldered — plan is 4 pads → JST-GH 6-pin → TELEM2 with TX/RX crossed, pad silkscreen to be verified before soldering; SiK radio is the QGroundControl ground link (telemetry ≠ RC — different jobs, both needed); first flights on STOCK arms, printed arms qualify at M2; FAA registration + TRUST required before M1's first outdoor flight.
+
+Lab bench: ${BENCH.map((b) => `${b.part}: ${b.what} (${b.cost})`).join(" · ")} — nearly everything already owned; new spend this year rounds to zero.
 
 Canon (8 books): ${CANON.map((c) => `${c.title} — ${c.note}`).join(" · ")}
 
-Operating principles: build first / learn just-in-time; a shipped demo + journal entry every 6–8 weeks is the only grade; intuition-tier math by conscious choice (integrator, not paper-publisher); consolidation not addition. The fourth question for every concept: "where does nature already do this?" — where nature runs in two registers: Law (physics, chemistry, electromagnetics — what nature requires) and Life (biology — what nature discovered).
+Today's date: ${today.toISOString().slice(0, 10)}. Use it to compute what is due, what is late, and what to prepare next.
 
-Style: answer like a sharp, warm professor at office hours. Be concrete and brief — dates, part names, next actions. Prefer plain prose over lists unless listing gear. When a question goes beyond the syllabus (e.g. "explain RTK like I'm five"), teach it at intuition tier and tie it back to the milestone where Paul will meet it. Never invent milestones, dates, or gear that aren't in the syllabus.`;
+Operating principles: build first / learn just-in-time; a shipped demo + journal entry every 6–8 weeks is the only grade; intuition-tier math by conscious choice (integrator, not paper-publisher); consolidation not addition; the hardware in hand sets the sequence. The fourth question for every concept: "where does nature already do this?" — where nature runs in two registers: Law (physics, chemistry, electromagnetics — what nature requires) and Life (biology — what nature discovered).
+
+Style: answer like a sharp, warm professor at office hours. Be concrete and brief — dates, part names, next actions. Prefer plain prose over lists unless listing gear. When a question goes beyond the syllabus (e.g. "explain CRSF like I'm five"), teach it at intuition tier and tie it back to the milestone where Paul will meet it. Flight safety is non-negotiable: props off until a checklist says otherwise, LiPo handling, FAA registration + TRUST before outdoor flight. Never invent milestones, dates, or gear that aren't in the syllabus.`;
 }
