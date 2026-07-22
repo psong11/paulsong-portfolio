@@ -166,7 +166,7 @@ export default function OfficeHours() {
           Office Hours — ask the professor
         </span>
         <span className="font-mono text-[0.65rem] text-ink-faint">
-          Claude Haiku · knows the whole syllabus
+          Claude Sonnet · knows the whole syllabus
         </span>
       </div>
 

@@ -26,9 +26,11 @@ export async function POST(req: Request) {
     // Direct Anthropic when a key is configured; otherwise the AI Gateway
     // (whose free tier no longer includes Claude — the widget's client-side
     // fallback covers that case).
+    // Sonnet, not Haiku — the professor's voice is the product, and small
+    // models regurgitate. ~1.5¢ per answer on this prompt size.
     model: process.env.ANTHROPIC_API_KEY
-      ? anthropic("claude-haiku-4-5")
-      : "anthropic/claude-haiku-4.5",
+      ? anthropic("claude-sonnet-5")
+      : "anthropic/claude-sonnet-5",
     system: buildProfessorSystem(new Date()),
     // Bound the context we pay for — office hours, not a thesis committee.
     messages: messages.slice(-12),
