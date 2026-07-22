@@ -6,26 +6,26 @@
     monospace;
   --font-sans: var(--font-newsreader), Georgia, serif;
 
-  /* Shared accent across the portfolio — the wy2z moss green, lifted
-     toward fluorescence so it glows against the deep ground. Individual
-     projects carry their own accent in content/projects.ts. */
-  --color-leaf: #6ecb82;
-  --color-leaf-deep: #4da463;
+  /* Shared accent across the portfolio — the same moss green that runs
+     through wy2z, deepened to hold its own on paper. Individual projects
+     carry their own accent in content/projects.ts. */
+  --color-leaf: #567a58;
+  --color-leaf-deep: #3e5a40;
   /* A warm counter-accent, used sparingly (selection, rare highlights). */
-  --color-clay: #e07a52;
+  --color-clay: #b3532f;
 
-  /* Surface palette — "Cosmos": a near-black, violet-cast deep with the
-     aurora drifting behind it. The white art mats now read as framed
-     work hung on a dark gallery wall. */
-  --color-paper: #0b0a11; /* page ground — the deep */
-  --color-mat: #16131f; /* raised surfaces: code, placeholders, callouts */
-  --color-card: #12101a; /* card grounds — a lifted pane on the deep */
-  --color-line: #332c49; /* strong hairline / hover borders */
-  --color-line-soft: #241f36; /* default hairline */
-  --color-ink: #f1edf8; /* strongest text */
-  --color-ink-soft: #d8d2e4; /* body text */
-  --color-ink-muted: #a89ec1; /* secondary text */
-  --color-ink-faint: #7c7394; /* labels, metadata */
+  /* Surface palette — "Field Notes": warm paper instead of the old night
+     sky. The ground is the same cream as the art mats, so the whole site
+     reads like the gallery wall the work is hung on. */
+  --color-paper: #faf7f0; /* page ground */
+  --color-mat: #f1ecdf; /* raised surfaces: code, placeholders, callouts */
+  --color-card: #fffcf6; /* card grounds — a lighter sheet on the paper */
+  --color-line: #d8d0bd; /* strong hairline / hover borders */
+  --color-line-soft: #e6dfcd; /* default hairline */
+  --color-ink: #1f1b16; /* strongest text */
+  --color-ink-soft: #332e26; /* body text */
+  --color-ink-muted: #6d6557; /* secondary text */
+  --color-ink-faint: #837a69; /* labels, metadata */
 }
 
 body {
@@ -35,7 +35,7 @@ body {
 }
 
 ::selection {
-  background: #3b2f5c;
+  background: #e4d9c2;
 }
 
 /* Small uppercase mono label — the recurring typographic motif. */
@@ -182,11 +182,10 @@ body {
   font-style: italic;
 }
 
-/* Ambient ground — cosmos aether water. Three big aurora glows (deep
-   violet, raspberry, fluorescent green) undulate on minute-long loops in
-   the near-black deep; alpha stays low so it reads as light moving through
-   water, never a screensaver. Transform-only animation (no filters), so it
-   costs almost nothing to run. */
+/* Ambient ground — a slow warm drift behind the paper, night-light quiet.
+   Three big tan glows wander on minute-long loops; alpha stays low so it
+   reads as lamplight moving across paper, never a color show. Transform-only
+   animation (no filters), so it costs almost nothing to run. */
 .ambient {
   position: fixed;
   inset: 0;
@@ -204,7 +203,7 @@ body {
   height: 85vmax;
   left: -25vmax;
   top: -30vmax;
-  background: radial-gradient(closest-side, rgba(139, 92, 246, 0.2), transparent 72%);
+  background: radial-gradient(closest-side, rgba(203, 168, 108, 0.2), transparent 72%);
   animation: ambient-drift-a 80s ease-in-out infinite alternate;
 }
 .ambient span:nth-child(2) {
@@ -212,7 +211,7 @@ body {
   height: 75vmax;
   right: -30vmax;
   top: 10vmax;
-  background: radial-gradient(closest-side, rgba(225, 29, 116, 0.14), transparent 72%);
+  background: radial-gradient(closest-side, rgba(224, 186, 138, 0.17), transparent 72%);
   animation: ambient-drift-b 110s ease-in-out infinite alternate;
 }
 .ambient span:nth-child(3) {
@@ -220,7 +219,7 @@ body {
   height: 70vmax;
   left: 15vmax;
   bottom: -35vmax;
-  background: radial-gradient(closest-side, rgba(74, 222, 128, 0.11), transparent 72%);
+  background: radial-gradient(closest-side, rgba(180, 142, 94, 0.14), transparent 72%);
   animation: ambient-drift-c 95s ease-in-out infinite alternate;
 }
 @keyframes ambient-drift-a {
