@@ -18,11 +18,11 @@ export type ShelfKey =
 /** The shelves, in display order — group titles are part of the voice. */
 export const SHELVES: { key: ShelfKey; title: string }[] = [
   { key: "nightstand", title: "On the nightstand" },
-  { key: "stories", title: "Stories that rewired me" },
-  { key: "faith", title: "Faith, examined" },
-  { key: "nature", title: "The natural world, from quarks to crops" },
   { key: "systems", title: "Systems, machines, and the built world" },
   { key: "lives", title: "Lives and civilizations" },
+  { key: "nature", title: "The natural world, from quarks to crops" },
+  { key: "faith", title: "Faith, examined" },
+  { key: "stories", title: "Stories that rewired me" },
 ];
 
 export type Book = {
