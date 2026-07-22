@@ -348,7 +348,8 @@ export default function GradSchoolPage() {
             </span>
             <p className="mt-1 font-serif text-[0.95rem] leading-relaxed text-ink-soft">
               Biology is a billion years of field-tested engineering{" "}
-              <em>within</em> those laws — the green rows on every milestone.
+              <em>within</em>{" "}those laws — the green rows on every
+              milestone.
               Ants, place cells, and moth plumes aren&apos;t decoration;
               they&apos;re prior art from the longest-running R&amp;D lab in
               existence.
