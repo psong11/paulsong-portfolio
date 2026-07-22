@@ -34,7 +34,13 @@ export async function POST(req: Request) {
     system: buildProfessorSystem(new Date()),
     // Bound the context we pay for — office hours, not a thesis committee.
     messages: messages.slice(-12),
-    maxOutputTokens: 900,
+    // Thinking tokens count against maxOutputTokens on Sonnet 5 — low
+    // effort keeps the budget for prose (office hours, not proofs) and
+    // cuts latency; the cap has headroom so answers never clip mid-word.
+    maxOutputTokens: 1400,
+    providerOptions: {
+      anthropic: { effort: "low" },
+    },
     // Model failures surface only inside the stream (the 200 is already
     // sent); log them so `vercel logs` shows the cause, not an empty body.
     onError: ({ error }) => console.error("professor:", error),
