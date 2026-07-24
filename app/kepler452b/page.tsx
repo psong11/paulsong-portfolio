@@ -33,7 +33,18 @@ export default function KeplerJourneyPage() {
         </span>
       </div>
 
-      {/* Build gallery — up front, so the build greets you before the words */}
+      {/* Title + lede — lifted out of the MDX so the gallery can sit between
+          the masthead and the writing. If narrative.md is re-synced, strip
+          its h1/lede again; the page owns them now. */}
+      <header className="prose-article mx-auto max-w-[68ch] px-6">
+        <h1>kepler452b — the journal</h1>
+        <p>
+          A fleet of small, self-powered worlds learning to phone home — and
+          the first hardware layer of a farm that can one day see itself.
+        </p>
+      </header>
+
+      {/* Build gallery — under the title, before the words */}
       <section>
         <div className="mx-auto max-w-[68ch] px-6 pt-8">
           <p className="font-mono text-xs uppercase tracking-[0.2em] text-ink-muted">
