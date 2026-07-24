@@ -33,23 +33,18 @@ export default function KeplerJourneyPage() {
         </span>
       </div>
 
-      {/* Narrative */}
-      <article className="prose-article mx-auto max-w-[68ch] px-6 pb-16">
-        <Narrative />
-      </article>
-
-      {/* Build gallery */}
-      <section className="border-t border-line">
-        <div className="mx-auto max-w-[68ch] px-6 pt-10">
+      {/* Build gallery — up front, so the build greets you before the words */}
+      <section>
+        <div className="mx-auto max-w-[68ch] px-6 pt-8">
           <p className="font-mono text-xs uppercase tracking-[0.2em] text-ink-muted">
             Build Gallery
           </p>
           <p className="mt-2 font-serif text-sm text-ink-faint">
-            From the bench and the balcony — the build, photographed.
+            From the farm, the bench, and the balcony — the build, photographed.
           </p>
         </div>
 
-        <div className="mx-auto mt-6 grid max-w-[68ch] grid-cols-1 gap-5 px-6 pb-24 sm:grid-cols-2">
+        <div className="mx-auto mt-6 grid max-w-[68ch] grid-cols-1 gap-5 px-6 pb-16 sm:grid-cols-2">
           {KEPLER_GALLERY.map((photo) => (
             <figure key={photo.src} className="flex flex-col">
               <a
@@ -73,6 +68,13 @@ export default function KeplerJourneyPage() {
           ))}
         </div>
       </section>
+
+      {/* Narrative */}
+      <div className="border-t border-line">
+        <article className="prose-article mx-auto max-w-[68ch] px-6 pb-24 pt-6">
+          <Narrative />
+        </article>
+      </div>
     </main>
   );
 }
