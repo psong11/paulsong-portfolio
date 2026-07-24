@@ -149,14 +149,14 @@ export default function HomePage() {
         <span className="h-px flex-1 bg-line-soft" aria-hidden />
       </div>
 
+      {/* Outside — the photo wall */}
+      <OutsideGallery photos={OUTSIDE} />
+
       {/* Visual art */}
       <ArtGallery pieces={ART} />
 
       {/* Stop-motion films */}
       <FilmGallery films={FILMS} />
-
-      {/* Outside — the photo wall */}
-      <OutsideGallery photos={OUTSIDE} />
 
       {/* Reading */}
       <ReadingShelf books={BOOKS} />
