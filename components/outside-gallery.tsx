@@ -24,15 +24,19 @@ export function OutsideGallery({ photos }: { photos: OutsidePhoto[] }) {
 
       <div className="mt-10 columns-1 gap-6 sm:columns-2 lg:columns-3">
         {photos.map((photo) => (
-          <Image
-            key={photo.id}
-            src={photo.src}
-            alt={photo.alt}
-            width={photo.width}
-            height={photo.height}
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-            className="mb-6 h-auto w-full break-inside-avoid rounded-lg border border-line"
-          />
+          <figure key={photo.id} className="mb-6 break-inside-avoid">
+            <Image
+              src={photo.src}
+              alt={photo.alt}
+              width={photo.width}
+              height={photo.height}
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              className="h-auto w-full rounded-lg border border-line"
+            />
+            <figcaption className="mt-1.5 font-mono text-[0.68rem] leading-relaxed text-ink-faint">
+              {photo.caption}
+            </figcaption>
+          </figure>
         ))}
       </div>
     </section>
