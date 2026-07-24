@@ -85,7 +85,7 @@ export default function HomePage() {
               href="https://github.com/psong11"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-ink-faint transition-colors hover:text-leaf"
+              className="text-ink transition-colors hover:text-leaf"
             >
               GitHub
             </a>
@@ -93,13 +93,13 @@ export default function HomePage() {
               href="https://www.linkedin.com/in/paulsong24/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-ink-faint transition-colors hover:text-leaf"
+              className="text-ink transition-colors hover:text-leaf"
             >
               LinkedIn
             </a>
             <a
               href="mailto:paulsong24@gmail.com"
-              className="text-ink-faint transition-colors hover:text-leaf"
+              className="text-ink transition-colors hover:text-leaf"
             >
               Email
             </a>
@@ -107,7 +107,7 @@ export default function HomePage() {
               href="/resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-ink-faint transition-colors hover:text-leaf"
+              className="text-ink transition-colors hover:text-leaf"
             >
               Resume
             </a>
