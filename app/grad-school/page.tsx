@@ -165,6 +165,36 @@ export default function GradSchoolPage() {
           it&apos;s due.
         </p>
 
+        {/* Flight log — first takeoff evidence */}
+        <div className="mt-8 flex flex-col gap-5 sm:flex-row sm:items-start">
+          <video
+            className="w-full max-w-[280px] shrink-0 rounded-md border border-line"
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="metadata"
+            poster="/projects/grad-school/first-takeoff-poster.jpg"
+            src="/projects/grad-school/first-takeoff.mp4"
+            aria-label="The X500 quadcopter lifting off from a grass field and climbing into a clear sky"
+          />
+          <div className="pt-1">
+            <p className="font-mono text-xs uppercase tracking-[0.2em] text-[var(--color-clay)]">
+              Flight log — first takeoff
+            </p>
+            <p className="mt-2 font-serif text-[0.95rem] leading-relaxed text-ink-soft">
+              August 2, 2026. Day two of the semester, and the X500 is off the
+              bench and off the ground — M0&apos;s heartbeat wasn&apos;t due
+              for another eight weeks.
+            </p>
+            <p className="mt-2 font-serif text-sm text-ink-muted">
+              A takeoff isn&apos;t the exam, though. Kestrel&apos;s bar is two
+              minutes of <em>held</em> hover and a landing on purpose — the
+              difference between a leap and flight.
+            </p>
+          </div>
+        </div>
+
         <div className="mt-6">
           {MILESTONES.map((m) => (
             <article
