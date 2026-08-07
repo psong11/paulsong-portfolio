@@ -90,6 +90,19 @@ export const PROJECTS: Project[] = [
     thumbnail: "/thumbnails/ezra.jpg", // interlinear Hebrew + word-analysis panel, side by side
   },
   {
+    slug: "jetson-vision",
+    title: "jetson-yolo-stream",
+    tagline:
+      "A portable AI camera that sees for itself — YOLO at ~24 FPS, entirely on edge hardware.",
+    why: "The perception layer of the farm network, learning on my desk first: a Jetson Orin Nano and a 16MP camera running detection with no cloud and no laptop — and a journal of what it felt like to watch a machine open its eyes.",
+    tags: ["Jetson Orin Nano", "YOLOv11", "CUDA", "GStreamer", "Python"],
+    status: "in progress",
+    accent: "#3f7a86", // petrol teal, inked for paper — a lens catching light
+    liveUrl: "https://github.com/psong11/jetson-yolo-stream",
+    linkLabel: "View code →",
+    thumbnail: "/thumbnails/jetson-vision.jpg", // the machine's first detection: laptop 0.69, mouse 0.57
+  },
+  {
     slug: "kepler452b",
     title: "kepler452b",
     tagline:
