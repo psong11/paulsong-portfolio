@@ -90,6 +90,18 @@ export const PROJECTS: Project[] = [
     thumbnail: "/thumbnails/ezra.jpg", // interlinear Hebrew + word-analysis panel, side by side
   },
   {
+    slug: "open-duck",
+    title: "open-duck",
+    tagline:
+      "An Open Duck Mini v2 — a knee-high BDX droid that learns to walk in simulation, then walks in my apartment.",
+    why: "Fourteen servos, a Pi in its chest, and a policy trained in a simulated school — building the open-source Disney-style duck from a kit to learn, joint by joint, how walking gets learned.",
+    tags: ["STS3215 servos", "Raspberry Pi", "ONNX", "sim-to-real"],
+    status: "in progress",
+    accent: "#b59a26", // duckling gold, inked for paper
+    journey: true,
+    thumbnail: "/thumbnails/open-duck.jpg", // legs meeting hips, assembly guide open behind
+  },
+  {
     slug: "jetson-vision",
     title: "jetson-yolo-stream",
     tagline:
