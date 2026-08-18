@@ -9,7 +9,7 @@ const project = PROJECTS.find((p) => p.slug === "open-duck")!;
 export const metadata = {
   title: "open-duck — the journal",
   description:
-    "The build journal for an Open Duck Mini v2 — a knee-high BDX droid that learns to walk in simulation, then walks in my apartment.",
+    "The operative journal of an Open Duck Mini v2 — fourteen servo joints, a Pi brainstem, a mind trained in simulation: a cyber duck coming to life.",
 };
 
 export default function OpenDuckJourneyPage() {
@@ -37,9 +37,11 @@ export default function OpenDuckJourneyPage() {
       <header className="prose-article mx-auto max-w-[68ch] px-6">
         <h1>open-duck — the journal</h1>
         <p>
-          An Open Duck Mini v2 — a knee-high BDX droid that learns to walk in
-          simulation, then walks in my apartment. Fourteen servos, a Pi in its
-          chest, and one file that connects the school to the body.
+          An Open Duck Mini v2 on the operating table: fourteen servo joints
+          for anatomy, a Raspberry Pi brainstem in its head, a vascular system
+          of solder and heat-shrink — and a mind, trained a few million falls
+          at a time in simulation, waiting to be transplanted. The operative
+          journal of bringing a cyber duck to life.
         </p>
       </header>
 

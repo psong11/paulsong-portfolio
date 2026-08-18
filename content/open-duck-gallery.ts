@@ -18,4 +18,5 @@ export const DUCK_GALLERY: GalleryPhoto[] = [
   { src: `${dir}/IMG_7389.jpg`, caption: "Routing the harness through the body — every wire has one right path." },
   { src: `${dir}/IMG_7388.jpg`, caption: "A solder splice under heat-shrink — the unglamorous joints everything depends on." },
   { src: `${dir}/IMG_7387.jpg`, caption: "The sprawl, mid-build. It gets worse before it walks." },
+  { src: `${dir}/IMG_7390.jpg`, caption: "The operating theater: body on its feet under the lamp, face open on the table." },
 ];
