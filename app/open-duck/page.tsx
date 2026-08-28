@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import Notes from "@/content/open-duck.mdx";
+import Retrospective from "@/content/open-duck-retrospective.mdx";
 import { DUCK_GALLERY } from "@/content/open-duck-gallery";
 import { PROJECTS } from "@/content/projects";
 
@@ -80,6 +81,14 @@ export default function OpenDuckJourneyPage() {
           ))}
         </div>
       </section>
+
+      {/* Retrospective — the high-level read, before the day-by-day */}
+      <div className="border-t border-line">
+        <article className="prose-article mx-auto max-w-[68ch] px-6 pb-16 pt-6">
+          <h2>Phase 1 — what building the body taught me</h2>
+          <Retrospective />
+        </article>
+      </div>
 
       {/* Raw notes */}
       <div className="border-t border-line">
