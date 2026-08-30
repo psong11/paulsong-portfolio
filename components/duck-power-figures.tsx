@@ -333,23 +333,16 @@ function LoadBars() {
 
 export default function DuckPowerFigures() {
   return (
-    <section className="mx-auto max-w-3xl px-6 py-16">
-      <p className="font-mono text-xs uppercase tracking-[0.2em] text-ink-muted">
-        Power investigation — 30 Aug 2026
+    <div className="mt-10 border-y border-line bg-card/40 py-10">
+      <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-ink-faint">
+        Figures — the power investigation
       </p>
-      <h2 className="mt-2 font-serif text-2xl text-ink">
+      <h3 className="mt-2 font-serif text-xl text-ink">
         Why the duck kept dying four seconds in
-      </h2>
-      <p className="prose-article mt-4 max-w-[60ch] font-serif text-ink-soft">
-        Three attempts to walk ended with the Pi losing power before the control
-        loop ever started. The problem was never that the evidence was hard to
-        read — it was that the machine writing the evidence died with the thing
-        it was recording. These four figures are what a flight recorder saw once
-        it could outlive the failure.
-      </p>
+      </h3>
 
       {/* Fig 1 — a hero number, because the data is one fact */}
-      <figure className="mt-12">
+      <figure className="mt-8">
         <div className="rounded-sm border border-line bg-card p-6">
           <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1">
             <span className="font-serif text-5xl leading-none text-ink">4.808</span>
@@ -479,6 +472,6 @@ export default function DuckPowerFigures() {
           not comparable between figures; the shapes are.
         </p>
       </div>
-    </section>
+    </div>
   );
 }
