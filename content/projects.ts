@@ -115,6 +115,19 @@ export const PROJECTS: Project[] = [
     thumbnail: "/thumbnails/jetson-vision.jpg", // the machine's first detection: laptop 0.69, mouse 0.57
   },
   {
+    slug: "vayomer",
+    title: "Vayomer",
+    tagline:
+      "Ask it something out loud; it thinks, and answers out loud.",
+    why: "Vayomer is Hebrew for \u201cand he said.\u201d Every voice assistant I\u2019ve used is a rented ear in someone else\u2019s building. This one hears through a microphone I soldered myself, thinks on hardware I own, and only one step of the conversation ever leaves the room.",
+    tags: ["Raspberry Pi 5", "I2S audio", "whisper.cpp", "Claude", "Piper"],
+    status: "in progress",
+    accent: "#7a5c9e", // spoken violet, inked for paper
+    liveUrl: "https://github.com/psong11/vayomer",
+    linkLabel: "View code \u2192",
+    thumbnail: "/thumbnails/vayomer.jpg", // the dashboard mid-listen, real waveform from a real reply
+  },
+  {
     slug: "kepler452b",
     title: "kepler452b",
     tagline:
