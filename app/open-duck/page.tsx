@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import Notes from "@/content/open-duck.mdx";
 import Retrospective from "@/content/open-duck-retrospective.mdx";
+import DuckPowerFigures from "@/components/duck-power-figures";
 import { DUCK_GALLERY } from "@/content/open-duck-gallery";
 import { PROJECTS } from "@/content/projects";
 
@@ -88,6 +89,11 @@ export default function OpenDuckJourneyPage() {
           <h2>Phase 1 — what building the body taught me</h2>
           <Retrospective />
         </article>
+      </div>
+
+      {/* Power investigation — the measured figures */}
+      <div className="border-t border-line">
+        <DuckPowerFigures />
       </div>
 
       {/* Raw notes */}
