@@ -125,7 +125,7 @@ export const PROJECTS: Project[] = [
     accent: "#7a5c9e", // spoken violet, inked for paper
     liveUrl: "https://github.com/psong11/vayomer",
     linkLabel: "View code \u2192",
-    thumbnail: "/thumbnails/vayomer.jpg", // the dashboard mid-listen, real waveform from a real reply
+    thumbnail: "/thumbnails/vayomer.jpg", // the rig in hand: INMP441, the Pi, the NS4168 amp, the speaker
   },
   {
     slug: "kepler452b",
