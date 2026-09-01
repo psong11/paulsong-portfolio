@@ -11,12 +11,15 @@ export type PathStop = {
   lesson: string;
   /** One quiet line of receipts — metrics or scope. Optional. */
   detail?: string;
+  /** Org mark under /public/path-logos, shown left of the title. */
+  logo?: string;
 };
 
 export const PATH: PathStop[] = [
   {
     years: "2016–20",
     org: "Christopher High School",
+    logo: "/path-logos/chs.png",
     role: "Valedictorian",
     lesson: "learning to serve",
     detail:
@@ -25,6 +28,7 @@ export const PATH: PathStop[] = [
   {
     years: "2019",
     org: "Stanford University",
+    logo: "/path-logos/stanford.png",
     role: "Horizon Scholar",
     lesson: "foray into higher education",
     detail:
@@ -33,6 +37,7 @@ export const PATH: PathStop[] = [
   {
     years: "2020–24",
     org: "Harvard University",
+    logo: "/path-logos/harvard.png",
     role: "B.A. Computer Science, minor in Economics",
     lesson: "speaking the language of the modern world",
     detail: "CS core + the economics of markets and institutions",
@@ -40,6 +45,7 @@ export const PATH: PathStop[] = [
   {
     years: "2021–23",
     org: "Harvard Student Agencies DEV",
+    logo: "/path-logos/hsa-dev.png",
     role: "Managing Director",
     lesson: "running a tech consultancy",
     detail: "$230K P&L · 21 client projects shipped · 20+ engineers, designers, sales",
@@ -47,6 +53,7 @@ export const PATH: PathStop[] = [
   {
     years: "2023",
     org: "Shure",
+    logo: "/path-logos/shure.png",
     role: "Product Management Intern, SystemAPI",
     lesson: "computer networking",
     detail:
@@ -55,6 +62,7 @@ export const PATH: PathStop[] = [
   {
     years: "2024",
     org: "UKG",
+    logo: "/path-logos/ukg.png",
     role: "Data Engineering Intern",
     lesson: "managing enterprise data",
     detail: "Python/SQL utilities shipped to production Databricks via Azure DevOps CI/CD",
@@ -62,6 +70,7 @@ export const PATH: PathStop[] = [
   {
     years: "2024",
     org: "Walmart",
+    logo: "/path-logos/walmart.png",
     role: "Product Management Intern",
     lesson: "automation at scale",
     detail: "40M+ competitive price decisions automated per year",
@@ -69,6 +78,7 @@ export const PATH: PathStop[] = [
   {
     years: "2024",
     org: "Harvard Ed Portal",
+    logo: "/path-logos/harvard-ed-portal.png",
     role: "Teacher",
     lesson: "making STEM tangible",
     detail:
@@ -77,6 +87,7 @@ export const PATH: PathStop[] = [
   {
     years: "2025",
     org: "YMCA of Silicon Valley",
+    logo: "/path-logos/ymca.png",
     role: "Teacher",
     lesson: "giving back to my old elementary school :)",
     detail:
@@ -85,6 +96,7 @@ export const PATH: PathStop[] = [
   {
     years: "2025–",
     org: "Walmart",
+    logo: "/path-logos/walmart.png",
     role: "Product Manager, Membership",
     lesson: "modernizing legacy ops",
     detail:

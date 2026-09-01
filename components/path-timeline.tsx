@@ -1,10 +1,11 @@
+import Image from "next/image";
 import type { PathStop } from "@/content/path";
 
 // One stop per hairline row, mirroring the reading shelf's rhythm: years in
 // the mono margin, the stop itself in serif, the lesson set off in moss —
 // the timeline reads as a sentence, not a résumé.
 function StopRow({ stop }: { stop: PathStop }) {
-  const { years, org, role, lesson, detail } = stop;
+  const { years, org, role, lesson, detail, logo } = stop;
 
   return (
     <div className="grid grid-cols-1 gap-1 border-t border-line-soft py-5 last:border-b sm:grid-cols-[7rem_1fr] sm:gap-6">
@@ -13,6 +14,16 @@ function StopRow({ stop }: { stop: PathStop }) {
       </span>
       <div>
         <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+          {logo && (
+            <Image
+              src={logo}
+              alt=""
+              aria-hidden
+              width={28}
+              height={28}
+              className="h-7 w-7 shrink-0 self-center rounded-sm object-contain"
+            />
+          )}
           <span className="font-serif text-lg font-semibold text-ink">{org}</span>
           <span className="font-serif text-[0.9rem] font-semibold italic text-ink-muted">
             {role}
