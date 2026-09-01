@@ -3,12 +3,14 @@ import Image from "next/image";
 
 import Preamble from "@/content/journal/_preamble.mdx";
 import Retrospective from "@/content/open-duck-retrospective.mdx";
+import Entry0831 from "@/content/journal/2026-08-31.mdx";
 import Entry0830 from "@/content/journal/2026-08-30.mdx";
 import Entry0828 from "@/content/journal/2026-08-28.mdx";
 import Entry0815 from "@/content/journal/2026-08-15.mdx";
 import Entry0814 from "@/content/journal/2026-08-14.mdx";
 
 import DuckPowerFigures from "@/components/duck-power-figures";
+import DuckDirectionFigure from "@/components/duck-direction-figure";
 import JournalNav, { type NavSection } from "@/components/journal-nav";
 import { JOURNAL, entryLabel } from "@/content/open-duck-journal";
 import { photosFor } from "@/content/open-duck-gallery";
@@ -17,6 +19,7 @@ import { PROJECTS } from "@/content/projects";
 const project = PROJECTS.find((p) => p.slug === "open-duck")!;
 
 const BODIES: Record<string, React.ComponentType> = {
+  "2026-08-31": Entry0831,
   "2026-08-30": Entry0830,
   "2026-08-28": Entry0828,
   "2026-08-15": Entry0815,
@@ -37,8 +40,8 @@ const SECTIONS: NavSection[] = [
 const STATUS = [
   ["Phase 2", "borrowed brain"],
   ["14 / 14", "motors on one bus"],
-  ["2 of 14", "joints needed offsets"],
-  ["0", "steps taken"],
+  ["62 s", "longest walk so far"],
+  ["1", "minus sign"],
 ];
 
 export const metadata = {
@@ -102,19 +105,20 @@ export default function OpenDuckJourneyPage() {
             </dl>
             <div className="prose-article mt-6">
               <p>
-                The body is finished and answers to its name. Every joint is
-                calibrated, the IMU is oriented, both hip horns are corrected in
-                servo firmware, and the controller is paired. The policy is
-                staged and has never run.
+                The body is finished and answers to its name, and as of 31
+                August it walks — wobbling, face-first, for about a minute at a
+                time, on a policy trained in simulation and transplanted whole.
               </p>
               <p>
-                <strong>Blocking:</strong> power, and now measured rather than
-                guessed. Standing costs more current than the pack can deliver —
-                at a gain low enough to survive, the duck can&rsquo;t hold itself
-                up; at the gain that holds it up, the sag kills the Pi four
-                seconds into start-up. Two overnight charges both stopped at
-                7.8&nbsp;V against a full-charge 8.4. Next: the charger, then the
-                first step.
+                It spent four days unable to stand at all. The diagnosis was
+                wrong five times, and the answer turned out to be that two joints
+                were mounted mirrored, so every command turned them the wrong
+                way. A sign, not a setting — which is why nothing that shifted a
+                number ever helped.
+              </p>
+              <p>
+                <strong>Now:</strong> tuning rather than repair. Gain, balance
+                trim, and a battery that finally has real work to pay for.
               </p>
             </div>
           </section>
@@ -184,6 +188,7 @@ export default function OpenDuckJourneyPage() {
                   </div>
 
                   {entry.figures && <DuckPowerFigures />}
+                  {entry.direction && <DuckDirectionFigure />}
                 </article>
               );
             })}

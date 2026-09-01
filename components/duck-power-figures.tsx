@@ -458,11 +458,21 @@ export default function DuckPowerFigures() {
 
       <div className="mt-14 border-t border-line pt-6">
         <p className="prose-article max-w-[60ch] font-serif text-ink-soft">
-          Taken together: at low gain the duck survives but cannot hold itself up,
-          and at the gain that would hold it up the current drags the pack below
-          what the Pi&rsquo;s regulator needs. There is no setting that both
-          stands and keeps the brain alive. That gap is not a software bug —
-          it is a battery that cannot pay for standing.
+          What I concluded that night: at low gain the duck survives but cannot
+          hold itself up, and at the gain that would hold it up the current drags
+          the pack below what the Pi&rsquo;s regulator needs. No setting both
+          stands and keeps the brain alive — so it must be a battery that
+          cannot pay for standing.
+        </p>
+        <p className="prose-article mt-4 max-w-[60ch] font-serif text-ink-soft">
+          <strong>That conclusion was wrong.</strong> Every measurement above is
+          accurate and every one of them is a symptom. Two joints were being
+          commanded to a position they physically could not reach, and a motor
+          that pushes without moving draws its maximum current. The battery
+          sagged because it was paying for a stall, not for standing. The
+          measurement that overturned this is in the next entry — and it is the
+          same figures read a different way, which is the part I want to
+          remember.
         </p>
         <p className="mt-4 font-mono text-[11px] leading-relaxed text-ink-faint">
           Method: voltages from the Feetech STS3215 present-voltage register over

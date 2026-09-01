@@ -7,9 +7,12 @@ export type JournalEntry = {
   title: string;
   /** Renders the power-investigation figures inside this entry. */
   figures?: boolean;
+  /** Renders the direction-discovery figure inside this entry. */
+  direction?: boolean;
 };
 
 export const JOURNAL: JournalEntry[] = [
+  { date: "2026-08-31", title: "four days, and it was a minus sign", direction: true },
   { date: "2026-08-30", title: "the instrument is cheaper than the guessing", figures: true },
   { date: "2026-08-28", title: "the body answers, and then runs out of breath" },
   { date: "2026-08-15", title: "heft" },
