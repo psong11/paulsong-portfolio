@@ -94,8 +94,7 @@ export default function OpenDuckJourneyPage() {
         <div className="prose-article mt-6">
           <p>
             An <strong>Open Duck Mini v2</strong> — an open-source BDX droid,
-            about the height of a house cat, built from a kit over a lot of
-            nights.
+            about the height of a house cat, built over a lot of nights.
           </p>
           <p>
             Its anatomy is fourteen servo joints, a harness of wires threaded one
