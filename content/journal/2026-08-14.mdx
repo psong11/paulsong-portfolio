@@ -34,7 +34,3 @@ The root cause of the *class* of bug: the config script reads its own writes
 back within the same connection, which proves nothing about whether they landed
 in EEPROM. So we added a verifier that reconnects and checks. The remaining
 three self-verified.
-
-Worth keeping: the fix wasn't "be more careful reading output." It was making
-the machine check, because at motor eleven of fourteen I would eventually stop
-looking.
