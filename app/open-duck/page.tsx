@@ -20,7 +20,7 @@ import PhotoGallery from "@/components/photo-gallery";
 import EntryStats from "@/components/entry-stats";
 import JournalNav, { type NavSection } from "@/components/journal-nav";
 import { JOURNAL, entryLabel } from "@/content/open-duck-journal";
-import { photosFor } from "@/content/open-duck-gallery";
+import { photosFor, DUCK_NOW } from "@/content/open-duck-gallery";
 import { PROJECTS } from "@/content/projects";
 
 const project = PROJECTS.find((p) => p.slug === "open-duck")!;
@@ -111,6 +111,13 @@ export default function OpenDuckJourneyPage() {
             by thousands of simulated falls on a machine far from this room, now
             downloaded into a computer the size of a stick of gum, meeting
             gravity for the first time.
+          </p>
+        </div>
+        {/* Where it is right now, before any of the history */}
+        <div className="mt-10">
+          <PhotoGallery photos={DUCK_NOW} columns="grid-cols-3" />
+          <p className="mt-3 font-mono text-[10px] uppercase tracking-[0.18em] text-ink-faint">
+            Tonight, between walk attempts
           </p>
         </div>
       </header>

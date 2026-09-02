@@ -24,3 +24,25 @@ export const DUCK_GALLERY: GalleryPhoto[] = [
 export function photosFor(date: string): GalleryPhoto[] {
   return DUCK_GALLERY.filter((p) => p.date === date);
 }
+
+/** Where the robot is now — the strip under the title, not part of any entry. */
+export const DUCK_NOW: GalleryPhoto[] = [
+  {
+    date: "now",
+    src: `${dir}/now-seated.jpg`,
+    caption:
+      "Ezer as it stands tonight — perched on a cardboard box, legs over the edge, between walk attempts.",
+  },
+  {
+    date: "now",
+    src: `${dir}/now-head.jpg`,
+    caption:
+      "The head from underneath: speakers, the neck servos it balances on, and the harness feeding all of it.",
+  },
+  {
+    date: "now",
+    src: `${dir}/now-chest.jpg`,
+    caption:
+      "The chest open — power distribution, the servo bus, and motor 10 still wearing the tape it was named with.",
+  },
+];

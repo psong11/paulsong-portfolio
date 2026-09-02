@@ -1,7 +1,7 @@
 Fourteen servos, two 18650 cells, a five-volt regulator, a computer the size of
-a stick of gum, and about two weeks. This is what building the body taught me —
-written for the version of me who starts this again, and for you, if you're
-about to.
+a stick of gum, and about two weeks to a body — then four more days before it
+could stand up in it. This is what that taught me, written for the version of me
+who starts this again, and for you, if you're about to.
 
 ### The thing I actually came away with
 
@@ -47,6 +47,37 @@ having the robot record its own state where a dead network couldn't hide it.
 Almost everything that cost me days, cost me because I answered a question by
 hand that a machine should have been answering.
 
+### When every fix is the same fix
+
+The most useful thing I learned this month isn't really about robots.
+
+For four days the duck couldn't stand, and I had five explanations, every one of
+them reasonable: the battery was too weak, the charger was in the wrong mode,
+the servo horns were seated half a turn out, the leg was hitting the body, the
+servo was mounted backwards in its bracket. Each had a fix. I nearly spent an
+evening on several of them.
+
+What I eventually noticed was that three of those fixes were **the same
+operation**. Reseating a horn, writing an offset into the motor's own firmware,
+rotating the servo in its mount — all three change which *number* corresponds to
+which physical position. They shift. And if every candidate fix is a shift, and
+none of them work, then the defect isn't a shift.
+
+It was a sign. Two joints were mounted mirrored, so every command turned them
+the wrong way. You can shift a number as far as you like and never make it
+negative.
+
+The general form, and the reason I'm writing it down: **when your fixes keep
+failing, check whether they are secretly all the same fix.** A whole category of
+solution that cannot express the defect will fail identically however many times
+you try it — and each failure looks like bad luck instead of a clue.
+
+The other half of that week was a naming problem. I called it a walking problem
+for three days; the duck was never walking. I called it a power problem for
+four; the power was fine. A wrong name is more expensive than a wrong guess,
+because you stop questioning it. **Name the failure after what you measured, not
+after the script it happened inside.**
+
 ### What the manual doesn't tell you
 
 The instructions cover assembly order. They don't cover craft. These cost me
@@ -76,7 +107,7 @@ servo bus, every baud rate, every address, raw protocol pings — was *one 18650
 not touching its contact.* I exonerated the software in two minutes and then
 went looking for a clever cause anyway.
 
-### Eight things to look out for
+### Nine things to look out for
 
 If you're building this, these are the traps, in the order they'll find you:
 
@@ -104,6 +135,12 @@ If you're building this, these are the traps, in the order they'll find you:
 8. **Instrument the SD card before first boot.** The boot partition is FAT32 and
    readable by any computer. Have the robot log its own state there. When it
    stops answering the network, the network is the last thing you can ask.
+9. **A mirrored servo has no calibration fix.** If a joint turns the wrong way,
+   no offset corrects it — an offset shifts, and you need a sign. Check that
+   each joint moves the direction the model expects *before* you calibrate
+   anything, or you'll spend days tuning a coordinate system that is inside out.
+   The symptom is a motor pulling huge current and barely moving, and it reads
+   exactly like a failing battery.
 
 ### A few moments worth keeping
 
@@ -123,12 +160,22 @@ If you're building this, these are the traps, in the order they'll find you:
 > `responding 14 / 14` — every motor answering on one bus, through the Pi, on a
 > robot I assembled with my hands. Not walking yet. But I asked, and it answered.
 
+> The first walk: a wobbling, face-first minute on a policy trained in
+> simulation and dropped in as a single file. Four days earlier it couldn't
+> reach its own standing pose. The problem went from *this cannot physically
+> happen* to *this happens badly* — a completely different kind of problem, and
+> the kind you can chip at forever.
+
 ### Where it stands
 
-Body assembled. Power system proven — including deliberate abuse: abrupt cuts,
-one of them mid-write, with no filesystem damage. Fourteen motors answering on
-a single bus through the Pi's own nervous system. Torque off, joints limp,
-waiting.
+Body assembled. Power system proven, including deliberate abuse: abrupt cuts,
+one of them mid-write, with no filesystem damage. Fourteen motors answering on a
+single bus through the Pi's own nervous system. And, as of the last night of
+August, a mind already inside it and running — someone else's for now, trained a
+few million falls at a time in simulation.
 
-Next it gets a mind — someone else's first, trained a few million falls at a
-time in simulation, dropped in as a single file. Then its own.
+It walks badly. It wobbles, it noses into the floor, it lasts about a minute.
+Every one of those is a tuning problem rather than a repair, which is the first
+time on this project that's been true.
+
+Then its own mind. That's the part I actually came for.

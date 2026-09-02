@@ -9,7 +9,14 @@ import type { GalleryPhoto } from "@/content/open-duck-gallery";
  * Thumbnails that open into a lightbox. Small on the page so a whole day's
  * photographs read as one strip, large when you want to actually look at one.
  */
-export default function PhotoGallery({ photos }: { photos: GalleryPhoto[] }) {
+export default function PhotoGallery({
+  photos,
+  columns = "grid-cols-3 sm:grid-cols-4",
+}: {
+  photos: GalleryPhoto[];
+  /** Tailwind column classes; three across reads as a strip, four as a contact sheet. */
+  columns?: string;
+}) {
   const [open, setOpen] = useState<number | null>(null);
 
   const close = useCallback(() => setOpen(null), []);
@@ -41,7 +48,7 @@ export default function PhotoGallery({ photos }: { photos: GalleryPhoto[] }) {
 
   return (
     <>
-      <ul className="grid grid-cols-3 gap-2 sm:grid-cols-4">
+      <ul className={`grid gap-2 ${columns}`}>
         {photos.map((photo, i) => (
           <li key={photo.src}>
             <button
