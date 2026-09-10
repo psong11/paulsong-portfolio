@@ -37,10 +37,10 @@ export default function HomePage() {
               Old systems, made new.
             </p>
             <p className="mt-5 font-serif text-lg leading-relaxed text-ink-muted">
-              Farms, gas lines, paper archives, ancient languages, membership
-              desks — I take infrastructure people depend on and rebuild it
-              with AI, sensors, and whatever tool the problem asks for. Each
-              project below started with a real problem and a person it
+              A nature center&rsquo;s paper archive, a city&rsquo;s gas network,
+              a farm with no sensing budget, a droid on my kitchen table — I
+              rebuild the infrastructure people lean on, from the metal up.
+              Every project below started with a real problem and a person it
               mattered to.
             </p>
             {/* The "Now" block — a dated field-note filling the hero's quiet
