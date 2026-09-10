@@ -37,7 +37,7 @@ export const COMMUNITY: CommunityEntry[] = [
         alt: "Paul with five others in front of a purple Ayni banner at an evening gathering, name tags on, string lights overhead.",
       },
     ],
-    box: { width: 1600, height: 1200 },
+    box: { width: 1600, height: 1204 },
   },
   {
     id: "treehouse-cobblestone",
