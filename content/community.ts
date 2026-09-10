@@ -23,6 +23,23 @@ export type CommunityEntry = {
 
 export const COMMUNITY: CommunityEntry[] = [
   {
+    id: "ayni",
+    org: "Ayni Farm Support",
+    role: "Co-Founder",
+    years: "2026 –",
+    story:
+      "A Northwest Arkansas nonprofit building connective infrastructure for a local foodshed — the premise being that the gap here is connection, not information. I lead the technology, data, and economic strategy, which for now mostly means standing at farmers markets listening to growers to understand problems before we build anything.",
+    detail:
+      "Co-founder · technology, data & economic strategy · farmer listening sessions · foodshed platform architecture",
+    photos: [
+      {
+        src: "/community/ayni-launch.jpg",
+        alt: "Paul with five others in front of a purple Ayni banner at an evening gathering, name tags on, string lights overhead.",
+      },
+    ],
+    box: { width: 1600, height: 1200 },
+  },
+  {
     id: "treehouse-cobblestone",
     org: "Treehouse Pantry & Cobblestone Farms",
     role: "Volunteer",
