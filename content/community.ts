@@ -28,7 +28,7 @@ export const COMMUNITY: CommunityEntry[] = [
     role: "Co-Founder",
     years: "2026 –",
     story:
-      "A Northwest Arkansas nonprofit building connective infrastructure for a local foodshed — the premise being that the gap here is connection, not information. I lead the technology, data, and economic strategy, which for now mostly means standing at farmers markets listening to growers to understand problems before we build anything.",
+      "A Northwest Arkansas nonprofit building connective infrastructure for a local foodshed. I lead the technology, data, and economic strategy, which for now mostly means standing at farmers markets listening to growers to understand problems before we build anything.",
     detail:
       "Co-founder · technology, data & economic strategy · farmer listening sessions · foodshed platform architecture",
     photos: [
